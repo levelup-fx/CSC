@@ -1,0 +1,555 @@
+<ion-view view-title="King">
+  <ion-content>
+    <!--<h1>Pontuação</h1>-->
+    <div ng-controller="totalScoreCtrl">
+    	<!-- Primeira linha: Jogadores -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20">&nbsp;</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+    				<input type="text" placeholder="Jog. 1" ng-model="kingsheet.p1_name">
+  				</div>
+      		</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<input type="text" placeholder="Jog. 2" ng-model="kingsheet.p2_name">
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">    			
+    			<div class="list list-inset no-padding-element">
+      				<input type="text" placeholder="Jog. 3" ng-model="kingsheet.p3_name">
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<input type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name">
+  				</div>
+    		</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+    				<div class="item-content">
+      					Totais
+    				</div>
+  				</div>
+    		</div>
+    	</div>
+    	<!-- Segunda linha: Não fazer vazas -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Vazas</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_notricks" ng-focus="divideP1NoTricksScore()" ng-blur="calculateP1NoTricksScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_notricks" ng-focus="divideP2NoTricksScore()" ng-blur="calculateP2NoTricksScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_notricks" ng-focus="divideP3NoTricksScore()" ng-blur="calculateP3NoTricksScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_notricks" ng-focus="divideP4NoTricksScore()" ng-blur="calculateP4NoTricksScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element" ng-model="kingsheet.notricks_total">
+      					<!--{{ parseInt(kingsheet.p1_notricks) + parseInt(kingsheet.p2_notricks) + parseInt(kingsheet.p3_notricks) + parseInt(kingsheet.p4_notricks) }}-->
+                <!--{{ calculateNoTricksTotal }}-->
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.notricks_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Terceira linha: Não fazer copas -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Copas</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_hearts" ng-focus="divideP1HeartsScore()" ng-blur="calculateP1HeartsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_hearts" ng-focus="divideP2HeartsScore()" ng-blur="calculateP2HeartsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_hearts" ng-focus="divideP3HeartsScore()" ng-blur="calculateP3HeartsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_hearts" ng-focus="divideP4HeartsScore()" ng-blur="calculateP4HeartsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element">
+      					<!--{{ kingsheet.p1_hearts + kingsheet.p2_hearts + kingsheet.p3_hearts + kingsheet.p4_hearts }}-->
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.hearts_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Quarta linha: Não fazer damas -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Damas</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_dames" ng-focus="divideP1DamesScore()" ng-blur="calculateP1DamesScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_dames" ng-focus="divideP2DamesScore()" ng-blur="calculateP2DamesScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_dames" ng-focus="divideP3DamesScore()" ng-blur="calculateP3DamesScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_dames" ng-focus="divideP4DamesScore()" ng-blur="calculateP4DamesScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element">
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.dames_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Quinta linha: Não fazer Reis e Condes -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Homens</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_gents" ng-focus="divideP1GentsScore()" ng-blur="calculateP1GentsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_gents" ng-focus="divideP2GentsScore()" ng-blur="calculateP2GentsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_gents" ng-focus="divideP3GentsScore()" ng-blur="calculateP3GentsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_gents" ng-focus="divideP4GentsScore()" ng-blur="calculateP4GentsScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element">
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.gents_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Sexta linha: Não fazer King -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">King</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_king" ng-focus="divideP1KingScore()" ng-blur="calculateP1KingScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_king" ng-focus="divideP2KingScore()" ng-blur="calculateP2KingScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_king" ng-focus="divideP3KingScore()" ng-blur="calculateP3KingScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_king" ng-focus="divideP4KingScore()" ng-blur="calculateP4KingScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element">
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.king_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Sétima linha: Não fazer 2 últimas -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">2 Últ.</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_last_2" ng-focus="divideP1LastTwoScore()" ng-blur="calculateP1LastTwoScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_last_2" ng-focus="divideP2LastTwoScore()" ng-blur="calculateP2LastTwoScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_last_2" ng-focus="divideP3LastTwoScore()" ng-blur="calculateP3LastTwoScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_last_2" ng-focus="divideP4LastTwoScore()" ng-blur="calculateP4LastTwoScore()">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class="no-padding-element">
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.last_2_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Oitava linha: Totais de Negativos -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Total</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class=' no-padding-element'>
+      					<input type="number" ng-value="0" placeholder="0" ng-model='kingsheet.p1_first_total' ng-value="{{ kingsheet.p1_first_total_val }}">{{ kingsheet.p1_first_total_val }}
+      				</div>
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class='no-padding-element'>
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_first_total" ng-value="kingsheet.p2_notricks + kingsheet.p2_hearts + kingsheet.p2_dames + kingsheet.p2_gents + kingsheet.p2_king + kingsheet.p2_last_2">
+      				</div>
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class='no-padding-element'>
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_first_total" ng-value="kingsheet.p3_notricks + kingsheet.p3_hearts + kingsheet.p3_dames + kingsheet.p3_gents + kingsheet.p3_king + kingsheet.p3_last_2">
+      				</div>
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class='no-padding-element'>
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_first_total" ng-value="kingsheet.p4_notricks + kingsheet.p4_hearts + kingsheet.p4_dames + kingsheet.p4_gents + kingsheet.p4_king + kingsheet.p4_last_2">
+      				</div>
+  				</div>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div class='no-padding-element'>
+      					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.first_totals" ng-value="kingsheet.p2_first_total + kingsheet.p3_first_total + kingsheet.p4_first_total">
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Publicidade -->
+    	<div class="row no-padding-element">
+    		<div class="col col-100 col-center" style="text-align:center;">Publicidade</div>
+    	</div>
+    	<!-- Nona linha: Primeira Festa -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">Festa {{ kingsheet.p3_name }}</div>
+    		<div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_first_auction" ng-focus="divideP1FirstAuctionScore()" ng-blur="calculateP1FirstAuctionScore()">
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_first_auction" ng-focus="divideP2FirstAuctionScore()" ng-blur="calculateP2FirstAuctionScore()">
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_first_auction" ng-focus="divideP3FirstAuctionScore()" ng-blur="calculateP3FirstAuctionScore()">
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_first_auction" ng-focus="divideP4FirstAuctionScore()" ng-blur="calculateP4FirstAuctionScore()">
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+              <div class="no-padding-element">
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.first_auction_total">
+              </div>
+          </div>
+        </div>
+    	</div>
+    	<!-- Décima linha: Resultado parcial da primeira Festa -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">
+          <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="kingsheet.first_auction_toggle" ng-click="firstAuctionToggle()">
+             <div class="track">
+              <span style="font-size: 65%; color: white">Neg.</span><div class="handle"></div>
+             </div>
+          </label>
+          <!--<ion-toggle class="no-padding-element" toggle-class="toggle-assertive" ng-model="kingsheet.first_auction_toggle" ng-change="firstAuctionToggle()">Neg.</ion-toggle>-->
+        </div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_first_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_first_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_first_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_first_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div id='total_no_tricks no-padding-element'>
+      					Total
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Décima-primeira linha: Segunda Festa -->
+    	<div class="row no-padding-element">
+        <div class="col col-20 no-padding-element">Festa {{ kingsheet.p4_name }}</div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_second_auction" ng-focus="divideP1SecondAuctionScore()" ng-blur="calculateP1SecondAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_second_auction" ng-focus="divideP2SecondAuctionScore()" ng-blur="calculateP2SecondAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_second_auction" ng-focus="divideP3SecondAuctionScore()" ng-blur="calculateP3SecondAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_second_auction" ng-focus="divideP4SecondAuctionScore()" ng-blur="calculateP4SecondAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+              <div class="no-padding-element">
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.second_auction_total">
+              </div>
+          </div>
+        </div>
+      </div>
+    	<!-- Décima-segunda linha: Resultado parcial da segunda Festa -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">
+          <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="kingsheet.second_auction_toggle" ng-click="secondAuctionToggle()">
+             <div class="track">
+              <span style="font-size: 65%; color: white">Neg.</span><div class="handle"></div>
+             </div>
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_second_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_second_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_second_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_second_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div id='total_no_tricks no-padding-element'>
+      					Total
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Décima-terceira linha: Terceira Festa -->
+    	<div class="row no-padding-element">
+        <div class="col col-20 no-padding-element">Festa {{ kingsheet.p1_name }}</div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_third_auction" ng-focus="divideP1ThirdAuctionScore()" ng-blur="calculateP1ThirdAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_third_auction" ng-focus="divideP2ThirdAuctionScore()" ng-blur="calculateP2ThirdAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_third_auction" ng-focus="divideP3ThirdAuctionScore()" ng-blur="calculateP3ThirdAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_third_auction" ng-focus="divideP4ThirdAuctionScore()" ng-blur="calculateP4ThirdAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+              <div class="no-padding-element">
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.third_auction_total">
+              </div>
+          </div>
+        </div>
+      </div>
+    	<!-- Décima-quarta linha: Resultado parcial da terceira Festa -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">
+          <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="kingsheet.third_auction_toggle" ng-click="thirdAuctionToggle()">
+             <div class="track">
+              <span style="font-size: 65%; color: white">Neg.</span><div class="handle"></div>
+             </div>
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_third_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_third_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_third_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_third_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div id='total_no_tricks no-padding-element'>
+      					Total
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Décima-quinta linha: Quarta Festa -->
+    	<div class="row no-padding-element">
+        <div class="col col-20 no-padding-element">Festa {{ kingsheet.p2_name }}</div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_fourth_auction" ng-focus="divideP1FourthAuctionScore()" ng-blur="calculateP1FourthAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_fourth_auction" ng-focus="divideP2FourthAuctionScore()" ng-blur="calculateP2FourthAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_fourth_auction" ng-focus="divideP3FourthAuctionScore()" ng-blur="calculateP3FourthAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <label class="item item-input no-padding-element">
+              <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_fourth_auction" ng-focus="divideP4FourthAuctionScore()" ng-blur="calculateP4FourthAuctionScore()">
+          </label>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+              <div class="no-padding-element">
+                <input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.fourth_auction_total">
+              </div>
+          </div>
+        </div>
+      </div>
+    	<!-- Décima-sexta linha: Resultado parcial da quarta Festa -->
+    	<div class="row no-padding-element">
+    		<div class="col col-20 no-padding-element">
+          <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="kingsheet.fourth_auction_toggle" ng-click="fourthAuctionToggle()">
+             <div class="track">
+              <span style="font-size: 65%; color: white">Neg.</span><div class="handle"></div>
+             </div>
+          </label>
+        </div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_fourth_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_fourth_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_fourth_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<label class="item item-input no-padding-element">
+    					<input type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_fourth_auction_total">
+  				</label>
+  			</div>
+    		<div class="col no-padding-element">
+    			<div class="list list-inset no-padding-element">
+      				<div id='total_no_tricks no-padding-element'>
+      					Final
+      				</div>
+  				</div>
+  			</div>
+    	</div>
+    	<!-- Publicidade -->
+    	<div class="row no-padding-element">
+    		<div class="col col-100 col-center" style="text-align:center;">Publicidade</div>
+    	</div>
+      <!-- Botão de Reset -->
+      <button class="button button-block button-assertive" ng-model="kingsheet.reset_button" ng-click="resetKingScores()">
+        Recomeçar
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
