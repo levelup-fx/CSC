@@ -1,0 +1,131 @@
+<ion-modal-view class="background-modal">
+        <ion-header-bar>
+          <h1 class="title">Não fazer as duas últimas vazas</h1>
+        </ion-header-bar>
+        <ion-content style="color:#000000;" ng-controller="kingCtrl">
+          <p>Quem fez as duas últimas vazas?</p>
+          <!-- Names -->
+          <div class="row no-padding-element">
+            <div class="col no-padding-element">
+              <div class="list list-inset no-padding-element">
+                <input class="modal_player_name_input" type="text" placeholder="Jog. 1" ng-model="kingsheet.last_2_modal_p1_name" disabled>
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset no-padding-element">
+                  <input class="modal_player_name_input" type="text" placeholder="Jog. 2" ng-model="kingsheet.last_2_modal_p2_name" disabled>
+              </div>
+            </div>
+            <div class="col no-padding-element">          
+              <div class="list list-inset no-padding-element">
+                  <input class="modal_player_name_input" type="text" placeholder="Jog. 3" ng-model="kingsheet.last_2_modal_p3_name" disabled>
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset no-padding-element">
+                  <input class="modal_player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.last_2_modal_p4_name" disabled>
+              </div> 
+            </div>
+          </div>
+
+          <!-- Increase last_2 buttons -->
+          <div class="row no-padding-element">
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button1" ng-click="increase('p1_last_2_modal')">
+                  ▲
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button2" ng-click="increase('p2_last_2_modal')">
+                  ▲
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">          
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button3" ng-click="increase('p3_last_2_modal')">
+                  ▲
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button4" ng-click="increase('p4_last_2_modal')">
+                  ▲
+                </button> 
+              </div> 
+            </div>
+          </div>
+
+          <!-- Score inputs -->
+          <div class="row no-padding-element">
+            <div class="col no-padding-element">
+              <input class="modal_score_input_left" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_last_2_modal" ng-focus="" ng-blur="updateModalTotal('last_2', 2)">
+          </div>
+          <div class="col no-padding-element">
+              <input class="modal_score_input_middle" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_last_2_modal" ng-focus="" ng-blur="updateModalTotal('last_2', 2)">
+          </div>
+          <div class="col no-padding-element">
+              <input class="modal_score_input_middle" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_last_2_modal" ng-focus="" ng-blur="updateModalTotal('last_2', 2)">
+          </div>
+          <div class="col no-padding-element">
+              <input class="modal_score_input_right" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_last_2_modal" ng-focus="" ng-blur="updateModalTotal('last_2', 2)">
+          </div>
+        </div>
+
+        <!-- Decrease tricks buttons -->
+          <div class="row no-padding-element">
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button" ng-click="decrease('p1_last_2_modal')">
+                  ▼
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button" ng-click="decrease('p2_last_2_modal')">
+                  ▼
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">          
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button" ng-click="decrease('p3_last_2_modal')">
+                  ▼
+                </button> 
+              </div>
+            </div>
+            <div class="col no-padding-element">
+              <div class="list list-inset small-padding-element">
+                <button class="button button-clear modal-button" ng-model="kingsheet.openmodal_button" ng-click="decrease('p4_last_2_modal')">
+                  ▼
+                </button> 
+              </div> 
+            </div>
+          </div>
+
+        <!-- Publicidade -->
+        <div class="row no-padding-element">
+            <div class="col col-100 modal_total_div" style="padding: 5px;">
+              <div class="inline-element">Total:</div>
+              <input class="modal_score_total" type="Number" ng-value="0" value="0" placeholder="0" ng-model="kingsheet.last_2_modal_total" disabled>
+              <div class="inline-element" ng-bind="kingsheet.last_2_modal_total" ng-model="kingsheet.last_2_modal_total" value="0" ng-class="customColorClass.colorClass">0</div>
+            </div>
+        </div>
+
+        <!-- OK button -->
+        <div class="row no-padding-element">
+            <div class="col no-padding-element" style="padding: 5px;">
+            <!-- Botão de Reset -->
+            <button class="button button-block button-balanced" ng-model="kingsheet.reset_button" ng-click="closeModal(6)">
+              OK
+            </button>
+            </div>
+        </div>
+
+        </ion-content>
+      </ion-modal-view>

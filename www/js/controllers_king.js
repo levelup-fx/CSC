@@ -1,21 +1,14 @@
-angular.module('starter.controllers', ['ionic'])
+angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) 
 {
   //Required to use parseInt() in expressions
   $scope.parseInt = parseInt;
-  $scope.isNaN = isNaN;
 
   // Form data for the login modal
   //$scope.loginData = {};
 
-  $scope.baccaratsheet = {};
   $scope.kingsheet = {};
-  $scope.modal = {};
-
-  //Custom CSS classes
-  $scope.customColorClass = {};
-  $scope.customColorClass.colorClass = "error_color";
 
   // Create the login modal that we will use later
   /*$ionicModal.fromTemplateUrl('templates/login.html', {
@@ -44,810 +37,6 @@ angular.module('starter.controllers', ['ionic'])
       $scope.closeLogin();
     }, 1000);
   };*/
-
-  $ionicModal.fromTemplateUrl('templates/king_notricks_modal.html',
-  {
-    id: 1,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_notricks_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_hearts_modal.html',
-  {
-    id: 2,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_hearts_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_dames_modal.html',
-  {
-    id: 3,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_dames_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_gents_modal.html',
-  {
-    id: 4,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_gents_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_king_modal.html',
-  {
-    id: 5,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_king_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_last_2_modal.html',
-  {
-    id: 6,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_last_2_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_first_auction_modal.html',
-  {
-    id: 7,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_first_auction_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_second_auction_modal.html',
-  {
-    id: 8,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_second_auction_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_third_auction_modal.html',
-  {
-    id: 9,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_third_auction_modal = modal;
-  });
-
-  $ionicModal.fromTemplateUrl('templates/king_fourth_auction_modal.html',
-  {
-    id: 10,
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) 
-  {
-      $scope.king_fourth_auction_modal = modal;
-  });
-
-  $scope.showModal = function(id, ng_model_name)
-  {
-    //$event.preventDefault();
-    $scope.openModal(id);
-    $scope.kingsheet[ng_model_name].blur();
-    
-  }
-
-  $scope.openModal = function(id) 
-  {
-    var game = "",
-        desired_value = 0,
-        modal_name = "";
-
-    switch(id) 
-    {
-      case 1: //No tricks modal
-      {
-        game = "notricks";
-        desired_value = 13;
-        break;
-      }
-      case 2: //Hearts modal
-      {
-        game = "hearts";
-        desired_value = 13;
-        break;
-      }
-      case 3: //Dames modal
-      {
-        game = "dames";
-        desired_value = 4;
-        break;
-      }
-      case 4: //Gents modal
-      {
-        game = "gents";
-        desired_value = 8;
-        break;
-      }
-      case 5: //King modal
-      {
-        game = "king";
-        desired_value = 1;
-        break;
-      }
-      case 6: //Last 2 modal
-      {
-        game = "last_2";
-        desired_value = 2;
-        break;
-      }
-      case 7: //First auction
-      {
-        game = "first_auction";
-        desired_value = 13;
-        break;
-      }
-      case 8: //Second auction
-      {
-        game = "second_auction";
-        desired_value = 13;
-        break;
-      }
-      case 9: //Third auction
-      {
-        game = "third_auction";
-        desired_value = 13;
-        break;
-      }
-      case 10: //Fourth auction
-      {
-        game = "fourth_auction";
-        desired_value = 13;
-        break;
-      }
-
-      default:
-      {
-        //Show publicity
-        break;
-      }
-    }
-
-    modal_name = "king_" + game + "_modal";
-
-    //Prepare the modal window and show it
-    $scope.prepareModal(game);
-    $scope.divideScores(game);
-    $scope.updateModalTotal(game, desired_value);
-
-    $scope[modal_name].show();
-  }
-
-  //Makes all preparations and initializations needed when opening a modal
-  $scope.prepareModal = function(game)
-  {
-    //Get the Player names, scores and calculate the total
-    $scope.fetchNamesToModal(game);
-    $scope.fetchScoresToModal(game);
-    $scope.fetchModalTotal(game);
-
-    //Some variables should be reset when a new modal is shown
-    $scope.resetModalVariables();
-  }
-
-  $scope.fetchNamesToModal = function(game)
-  {
-      //Fetch names
-      var p1_modal_name_model = game + "_modal_p1_name",
-          p2_modal_name_model = game + "_modal_p2_name",
-          p3_modal_name_model = game + "_modal_p3_name",
-          p4_modal_name_model = game + "_modal_p4_name";
-
-      $scope.kingsheet[p1_modal_name_model] = $scope.kingsheet.p1_name;
-      $scope.kingsheet[p2_modal_name_model] = $scope.kingsheet.p2_name;
-      $scope.kingsheet[p3_modal_name_model] = $scope.kingsheet.p3_name;
-      $scope.kingsheet[p4_modal_name_model] = $scope.kingsheet.p4_name;
-  }
-
-  $scope.fetchScoresToModal = function(game)
-  {
-      //Fetch names
-      var p1_modal_score_model = "p1_" + game + "_modal",
-          p2_modal_score_model = "p2_" + game + "_modal",
-          p3_modal_score_model = "p3_" + game + "_modal",
-          p4_modal_score_model = "p4_" + game + "_modal",
-          p1_score_model = "p1_" + game,
-          p2_score_model = "p2_" + game,
-          p3_score_model = "p3_" + game,
-          p4_score_model = "p4_" + game;
-
-      if($scope.kingsheet[p1_score_model] != undefined && !$scope.isNaN($scope.kingsheet[p1_score_model]))
-      {
-        $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_score_model];
-      }
-      else
-      {
-        $scope.kingsheet[p1_modal_score_model] = 0;
-      }
-
-      if($scope.kingsheet[p2_score_model] != undefined && !$scope.isNaN($scope.kingsheet[p2_score_model]))
-      {
-        $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_score_model];
-      }
-      else
-      {
-        $scope.kingsheet[p2_modal_score_model] = 0;
-      }
-
-      if($scope.kingsheet[p3_score_model] != undefined && !$scope.isNaN($scope.kingsheet[p3_score_model]))
-      {
-        $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_score_model];
-      }
-      else
-      {
-        $scope.kingsheet[p3_modal_score_model] = 0;
-      }
-
-      if($scope.kingsheet[p4_score_model] != undefined && !$scope.isNaN($scope.kingsheet[p4_score_model]))
-      {
-        $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_score_model];
-      }
-      else
-      {
-        $scope.kingsheet[p4_modal_score_model] = 0;
-      }
-  }
-
-  $scope.fetchModalTotal = function(game)
-  {
-    var p1_score_model = "p1_" + game,
-        p2_score_model = "p2_" + game,
-        p3_score_model = "p3_" + game,
-        p4_score_model = "p4_" + game,
-        modal_total_model = game + "_modal_total",
-        modal_total = 0;
-
-    if($scope.kingsheet[p1_score_model] != undefined)
-    {
-      modal_total += $scope.kingsheet[p1_score_model];
-    }
-
-    if($scope.kingsheet[p2_score_model] != undefined)
-    {
-      modal_total += $scope.kingsheet[p2_score_model];
-    }
-
-    if($scope.kingsheet[p3_score_model] != undefined)
-    {
-      modal_total += $scope.kingsheet[p3_score_model];
-    }
-
-    if($scope.kingsheet[p4_score_model] != undefined)
-    {
-      modal_total += $scope.kingsheet[p4_score_model];
-    }
-
-    $scope.kingsheet[modal_total_model] = modal_total;
-  }
-
-  $scope.closeModal = function(id) 
-  {
-    var game = "";
-
-    switch(id) 
-    {
-      case 1: //No tricks modal
-      {
-        game = "notricks";
-        break;
-      }
-      case 2:
-      {
-        game = "hearts";
-        break;
-      }
-      case 3:
-      {
-        game = "dames";
-        break;
-      }
-      case 4:
-      {
-        game = "gents";
-        break;
-      }
-      case 5:
-      {
-        game = "king";
-        break;
-      }
-      case 6:
-      {
-        game = "last_2";
-        break;
-      }
-      case 7:
-      {
-        game = "first_auction";
-        break;
-      }
-      case 8:
-      {
-        game = "second_auction";
-        break;
-      }
-      case 9:
-      {
-        game = "third_auction";
-        break;
-      }
-      case 10:
-      {
-        game = "fourth_auction";
-        break;
-      }
-      default:
-      {
-        //Close company info
-        break;
-      }
-    }
-
-    modal_name = "king_" + game + "_modal";
-
-    //Transfer the modal data before exiting from it
-    $scope.transferModalScores(game);
-    $scope.calculateScores(game);
-
-    $scope[modal_name].hide();
-  }
-
-  $scope.calculateScores = function(game)
-  {
-    var p1_score_model = "p1_" + game,
-        p2_score_model = "p2_" + game,
-        p3_score_model = "p3_" + game,
-        p4_score_model = "p4_" + game;
-
-    switch(game) 
-    {
-      case 'notricks': //No tricks
-      {
-        //Each trick is worth -20 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 20;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 20;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 20;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 20;
-        break;
-      }
-      case 'hearts': //Hearts
-      {
-        //Each heart is worth -20 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 20;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 20;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 20;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 20;
-        break;
-      }
-      case 'dames': //Dames
-      {
-        //Each queen is worth -50 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 50;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 50;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 50;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 50;
-        break;
-      }
-      case 'gents': //Kings and Jacks
-      {
-        //Each king/jack is worth -30 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 30;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 30;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 30;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 30;
-        break;
-      }
-      case 'king': //Kings of Hearts
-      {
-        //The King is worth -160 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 160;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 160;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 160;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 160;
-        break;
-      }
-      case 'last_2': //Last 2 tricks
-      {
-        //Each trick is worth -90 points
-        $scope.kingsheet[p1_score_model] = -$scope.kingsheet[p1_score_model] * 90;
-        $scope.kingsheet[p2_score_model] = -$scope.kingsheet[p2_score_model] * 90;
-        $scope.kingsheet[p3_score_model] = -$scope.kingsheet[p3_score_model] * 90;
-        $scope.kingsheet[p4_score_model] = -$scope.kingsheet[p4_score_model] * 90;
-        break;
-      }
-      case 'first_auction':
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          $scope.kingsheet[p1_score_model] = $scope.kingsheet[p1_score_model] * 25;
-          $scope.kingsheet[p2_score_model] = $scope.kingsheet[p2_score_model] * 25;
-          $scope.kingsheet[p3_score_model] = $scope.kingsheet[p3_score_model] * 25;
-          $scope.kingsheet[p4_score_model] = $scope.kingsheet[p4_score_model] * 25;
-        }
-        else
-        {
-          $scope.kingsheet[p1_score_model] = 325 - ($scope.kingsheet[p1_score_model] * 75);
-          $scope.kingsheet[p2_score_model] = 325 - ($scope.kingsheet[p2_score_model] * 75);
-          $scope.kingsheet[p3_score_model] = 325 - ($scope.kingsheet[p3_score_model] * 75);
-          $scope.kingsheet[p4_score_model] = 325 - ($scope.kingsheet[p4_score_model] * 75);
-        }
-        break;
-      }
-      case 'second_auction':
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          $scope.kingsheet[p1_score_model] = $scope.kingsheet[p1_score_model] * 25;
-          $scope.kingsheet[p2_score_model] = $scope.kingsheet[p2_score_model] * 25;
-          $scope.kingsheet[p3_score_model] = $scope.kingsheet[p3_score_model] * 25;
-          $scope.kingsheet[p4_score_model] = $scope.kingsheet[p4_score_model] * 25;
-        }
-        else
-        {
-          $scope.kingsheet[p1_score_model] = 325 - ($scope.kingsheet[p1_score_model] * 75);
-          $scope.kingsheet[p2_score_model] = 325 - ($scope.kingsheet[p2_score_model] * 75);
-          $scope.kingsheet[p3_score_model] = 325 - ($scope.kingsheet[p3_score_model] * 75);
-          $scope.kingsheet[p4_score_model] = 325 - ($scope.kingsheet[p4_score_model] * 75);
-        }
-        break;
-      }
-      case 'third_auction':
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          $scope.kingsheet[p1_score_model] = $scope.kingsheet[p1_score_model] * 25;
-          $scope.kingsheet[p2_score_model] = $scope.kingsheet[p2_score_model] * 25;
-          $scope.kingsheet[p3_score_model] = $scope.kingsheet[p3_score_model] * 25;
-          $scope.kingsheet[p4_score_model] = $scope.kingsheet[p4_score_model] * 25;
-        }
-        else
-        {
-          $scope.kingsheet[p1_score_model] = 325 - ($scope.kingsheet[p1_score_model] * 75);
-          $scope.kingsheet[p2_score_model] = 325 - ($scope.kingsheet[p2_score_model] * 75);
-          $scope.kingsheet[p3_score_model] = 325 - ($scope.kingsheet[p3_score_model] * 75);
-          $scope.kingsheet[p4_score_model] = 325 - ($scope.kingsheet[p4_score_model] * 75);
-        }
-        break;
-      }
-      case 'fourth_auction':
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          $scope.kingsheet[p1_score_model] = $scope.kingsheet[p1_score_model] * 25;
-          $scope.kingsheet[p2_score_model] = $scope.kingsheet[p2_score_model] * 25;
-          $scope.kingsheet[p3_score_model] = $scope.kingsheet[p3_score_model] * 25;
-          $scope.kingsheet[p4_score_model] = $scope.kingsheet[p4_score_model] * 25;
-        }
-        else
-        {
-          $scope.kingsheet[p1_score_model] = 325 - ($scope.kingsheet[p1_score_model] * 75);
-          $scope.kingsheet[p2_score_model] = 325 - ($scope.kingsheet[p2_score_model] * 75);
-          $scope.kingsheet[p3_score_model] = 325 - ($scope.kingsheet[p3_score_model] * 75);
-          $scope.kingsheet[p4_score_model] = 325 - ($scope.kingsheet[p4_score_model] * 75);
-        }
-        break;
-      }
-      default:
-      {
-        //Close company info
-        break;
-      }
-    }
-  }
-
-  $scope.divideScores = function(game) 
-  {
-    var p1_modal_score_model = "p1_" + game + "_modal",
-        p2_modal_score_model = "p2_" + game + "_modal",
-        p3_modal_score_model = "p3_" + game + "_modal",
-        p4_modal_score_model = "p4_" + game + "_modal";
-
-    switch(game) 
-    {
-      case 'notricks': //No tricks
-      {
-        //Each trick is worth -20 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 20;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 20;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 20;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 20;
-        break;
-      }
-      case 'hearts': //Hearts
-      {
-        //Each heart is worth -20 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 20;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 20;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 20;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 20;
-        break;
-      }
-      case 'dames': //Dames
-      {
-        //Each queen is worth -50 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 50;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 50;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 50;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 50;
-        break;
-      }
-      case 'gents': //Kings and Jacks
-      {
-        //Each queen is worth -30 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 30;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 30;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 30;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 30;
-        break;
-      }
-      case 'king': //King of Hearts
-      {
-        //The king is worth -160 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 160;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 160;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 160;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 160;
-        break;
-      }
-      case 'last_2': //Last 2 tricks
-      {
-        //The king is worth -90 points
-        $scope.kingsheet[p1_modal_score_model] = -$scope.kingsheet[p1_modal_score_model] / 90;
-        $scope.kingsheet[p2_modal_score_model] = -$scope.kingsheet[p2_modal_score_model] / 90;
-        $scope.kingsheet[p3_modal_score_model] = -$scope.kingsheet[p3_modal_score_model] / 90;
-        $scope.kingsheet[p4_modal_score_model] = -$scope.kingsheet[p4_modal_score_model] / 90;
-        break;
-      }
-      case 'first_auction': //1st auction
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          //console.log('positives divide');
-          $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_modal_score_model] / 25;
-          $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_modal_score_model] / 25;
-          $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_modal_score_model] / 25;
-          $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_modal_score_model] / 25;
-          
-          //$scope.kingsheet.p1_third_auction = $scope.kingsheet.p1_third_auction / 25;
-        }
-        else
-        {
-          //console.log('negatives divide');
-          $scope.kingsheet[p1_modal_score_model] = (325 - $scope.kingsheet[p1_modal_score_model]) / 75;
-          $scope.kingsheet[p2_modal_score_model] = (325 - $scope.kingsheet[p2_modal_score_model]) / 75;
-          $scope.kingsheet[p3_modal_score_model] = (325 - $scope.kingsheet[p3_modal_score_model]) / 75;
-          $scope.kingsheet[p4_modal_score_model] = (325 - $scope.kingsheet[p4_modal_score_model]) / 75;
-        }
-
-        break;
-      }
-      case 'second_auction': //2nd auction
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          //console.log('positives divide');
-          $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_modal_score_model] / 25;
-          $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_modal_score_model] / 25;
-          $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_modal_score_model] / 25;
-          $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_modal_score_model] / 25;
-          
-          //$scope.kingsheet.p1_third_auction = $scope.kingsheet.p1_third_auction / 25;
-        }
-        else
-        {
-          //console.log('negatives divide');
-          $scope.kingsheet[p1_modal_score_model] = (325 - $scope.kingsheet[p1_modal_score_model]) / 75;
-          $scope.kingsheet[p2_modal_score_model] = (325 - $scope.kingsheet[p2_modal_score_model]) / 75;
-          $scope.kingsheet[p3_modal_score_model] = (325 - $scope.kingsheet[p3_modal_score_model]) / 75;
-          $scope.kingsheet[p4_modal_score_model] = (325 - $scope.kingsheet[p4_modal_score_model]) / 75;
-        }
-        break;
-      }
-      case 'third_auction': //3rd auction
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          //console.log('positives divide');
-          $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_modal_score_model] / 25;
-          $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_modal_score_model] / 25;
-          $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_modal_score_model] / 25;
-          $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_modal_score_model] / 25;
-          
-          //$scope.kingsheet.p1_third_auction = $scope.kingsheet.p1_third_auction / 25;
-        }
-        else
-        {
-          //console.log('negatives divide');
-          $scope.kingsheet[p1_modal_score_model] = (325 - $scope.kingsheet[p1_modal_score_model]) / 75;
-          $scope.kingsheet[p2_modal_score_model] = (325 - $scope.kingsheet[p2_modal_score_model]) / 75;
-          $scope.kingsheet[p3_modal_score_model] = (325 - $scope.kingsheet[p3_modal_score_model]) / 75;
-          $scope.kingsheet[p4_modal_score_model] = (325 - $scope.kingsheet[p4_modal_score_model]) / 75;
-        }
-        break;
-      }
-      case 'fourth_auction': //Last auction
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          //console.log('positives divide');
-          $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_modal_score_model] / 25;
-          $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_modal_score_model] / 25;
-          $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_modal_score_model] / 25;
-          $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_modal_score_model] / 25;
-          
-          //$scope.kingsheet.p1_third_auction = $scope.kingsheet.p1_third_auction / 25;
-        }
-        else
-        {
-          //console.log('negatives divide');
-          $scope.kingsheet[p1_modal_score_model] = (325 - $scope.kingsheet[p1_modal_score_model]) / 75;
-          $scope.kingsheet[p2_modal_score_model] = (325 - $scope.kingsheet[p2_modal_score_model]) / 75;
-          $scope.kingsheet[p3_modal_score_model] = (325 - $scope.kingsheet[p3_modal_score_model]) / 75;
-          $scope.kingsheet[p4_modal_score_model] = (325 - $scope.kingsheet[p4_modal_score_model]) / 75;
-        }
-        break;
-      }
-      case 'fourth_auction':
-      {
-        var toggle_model = game + "_toggle";
-
-        if($scope.kingsheet[toggle_model] == false || $scope.kingsheet[toggle_model] == undefined)
-        {
-          //console.log('positives divide');
-          $scope.kingsheet[p1_modal_score_model] = $scope.kingsheet[p1_modal_score_model] / 25;
-          $scope.kingsheet[p2_modal_score_model] = $scope.kingsheet[p2_modal_score_model] / 25;
-          $scope.kingsheet[p3_modal_score_model] = $scope.kingsheet[p3_modal_score_model] / 25;
-          $scope.kingsheet[p4_modal_score_model] = $scope.kingsheet[p4_modal_score_model] / 25;
-          
-          //$scope.kingsheet.p1_third_auction = $scope.kingsheet.p1_third_auction / 25;
-        }
-        else
-        {
-          //console.log('negatives divide');
-          $scope.kingsheet[p1_modal_score_model] = (325 - $scope.kingsheet[p1_modal_score_model]) / 75;
-          $scope.kingsheet[p2_modal_score_model] = (325 - $scope.kingsheet[p2_modal_score_model]) / 75;
-          $scope.kingsheet[p3_modal_score_model] = (325 - $scope.kingsheet[p3_modal_score_model]) / 75;
-          $scope.kingsheet[p4_modal_score_model] = (325 - $scope.kingsheet[p4_modal_score_model]) / 75;
-        }
-        break;
-      }
-      default:
-      {
-        //Close company info
-        break;
-      }
-    }
-  }
-
-  $scope.updateModalTotal = function(game, desired_value)
-  {
-    //Build the ng-model of the total input
-    var game_model = game + "_modal_total",
-        model_p1 = "p1_" + game + "_modal",
-        model_p2 = "p2_" + game + "_modal",
-        model_p3 = "p3_" + game + "_modal",
-        model_p4 = "p4_" + game + "_modal",
-        total = 0;
-
-    if($scope.kingsheet[model_p1] != undefined && !$scope.isNaN($scope.kingsheet[model_p1]))
-    {
-      total += $scope.kingsheet[model_p1];
-    }
-
-    if($scope.kingsheet[model_p2] != undefined && !$scope.isNaN($scope.kingsheet[model_p2]))
-    {
-      total += $scope.kingsheet[model_p2];
-    }
-
-    if($scope.kingsheet[model_p3] != undefined && !$scope.isNaN($scope.kingsheet[model_p3]))
-    {
-      total += $scope.kingsheet[model_p3];
-    }
-
-    if($scope.kingsheet[model_p4] != undefined && !$scope.isNaN($scope.kingsheet[model_p4]))
-    {
-      total += $scope.kingsheet[model_p4];
-    }
-
-    $scope.kingsheet[game_model] = total;
-
-    $scope.changeModalTotalColor(game_model, desired_value);
-  }
-
-  $scope.changeModalTotalColor = function(ng_model_value, desired_value)
-  {
-    if($scope.kingsheet[ng_model_value] == desired_value)
-    {
-      $scope.customColorClass.colorClass = "ok_color";
-    }
-    else
-    {
-      $scope.customColorClass.colorClass = "error_color";
-    }
-  }
-
-  $scope.resetModalVariables = function()
-  {
-    $scope.customColorClass.colorClass = "error_color";
-  }
-
-  $scope.transferModalScores = function(game)
-  {
-    //Fetch names
-      var p1_modal_score_model = "p1_" + game + "_modal",
-          p2_modal_score_model = "p2_" + game + "_modal",
-          p3_modal_score_model = "p3_" + game + "_modal",
-          p4_modal_score_model = "p4_" + game + "_modal",
-          p1_score_model = "p1_" + game,
-          p2_score_model = "p2_" + game,
-          p3_score_model = "p3_" + game,
-          p4_score_model = "p4_" + game;
-
-      $scope.kingsheet[p1_score_model] = $scope.kingsheet[p1_modal_score_model];
-      $scope.kingsheet[p2_score_model] = $scope.kingsheet[p2_modal_score_model];
-      $scope.kingsheet[p3_score_model] = $scope.kingsheet[p3_modal_score_model];
-      $scope.kingsheet[p4_score_model] = $scope.kingsheet[p4_modal_score_model];
-  }
-
-  //Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() 
-  {
-    $scope.king_notricks_modal.remove();
-  });
-
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() 
-  {
-    // Execute action
-  });
-
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() 
-  {
-    // Execute action
-  });
 })
 
 /*.controller('PlaylistsCtrl', function($scope) {
@@ -861,387 +50,44 @@ angular.module('starter.controllers', ['ionic'])
   ];
 })*/
 
-// ||||||||||||||||||||||||||||||||||||-- BACCARAT LOGIC --||||||||||||||||||||||||||||||||||||
-
-
 .controller('baccaratCtrl', function($scope, $stateParams) 
 {
 
 })
-
-// ||||||||||||||||||||||||||||||||||||-- BISCA LOGIC --||||||||||||||||||||||||||||||||||||
-
-.controller('biscaCtrl', function($scope, $stateParams) 
-{
-
-})
-
-// ||||||||||||||||||||||||||||||||||||-- BRIDGE LOGIC --||||||||||||||||||||||||||||||||||||
 
 .controller('bridgeCtrl', function($scope, $stateParams) 
 {
 
 })
 
-// ||||||||||||||||||||||||||||||||||||-- CANASTA LOGIC --||||||||||||||||||||||||||||||||||||
+.controller('biscaCtrl', function($scope, $stateParams) 
+{
+
+})
 
 .controller('canastaCtrl', function($scope, $stateParams) 
 {
 
 })
 
-// ||||||||||||||||||||||||||||||||||||-- CASINO LOGIC --||||||||||||||||||||||||||||||||||||
-
 .controller('casinoCtrl', function($scope, $stateParams) 
 {
 
 })
-
-// ||||||||||||||||||||||||||||||||||||-- COPAS LOGIC --||||||||||||||||||||||||||||||||||||
 
 .controller('copasCtrl', function($scope, $stateParams) 
 {
 
 })
 
-// ||||||||||||||||||||||||||||||||||||-- KING LOGIC --||||||||||||||||||||||||||||||||||||
-
 .controller('kingCtrl', function($scope, $stateParams) 
 {
-
-  $scope.initKingScores = function()
-  {
-    //No tricks
-    $scope.kingsheet.p1_notricks = 0;
-    $scope.kingsheet.p2_notricks = 0;
-    $scope.kingsheet.p3_notricks = 0;
-    $scope.kingsheet.p4_notricks = 0;
-
-    //hearts
-    $scope.kingsheet.p1_hearts = 0;
-    $scope.kingsheet.p2_hearts = 0;
-    $scope.kingsheet.p3_hearts = 0;
-    $scope.kingsheet.p4_hearts = 0;
-
-    //Dames
-    $scope.kingsheet.p1_dames = 0;
-    $scope.kingsheet.p2_dames = 0;
-    $scope.kingsheet.p3_dames = 0;
-    $scope.kingsheet.p4_dames = 0;
-
-    //Gents
-    $scope.kingsheet.p1_gents = 0;
-    $scope.kingsheet.p2_gents = 0;
-    $scope.kingsheet.p3_gents = 0;
-    $scope.kingsheet.p4_gents = 0;
-
-    //King
-    $scope.kingsheet.p1_king = 0;
-    $scope.kingsheet.p2_king = 0;
-    $scope.kingsheet.p3_king = 0;
-    $scope.kingsheet.p4_king = 0;
-
-    //Last 2
-    $scope.kingsheet.p1_last_2 = 0;
-    $scope.kingsheet.p2_last_2 = 0;
-    $scope.kingsheet.p3_last_2 = 0;
-    $scope.kingsheet.p4_last_2 = 0;
-
-    //First auction
-    $scope.kingsheet.p1_first_auction = 0;
-    $scope.kingsheet.p2_first_auction = 0;
-    $scope.kingsheet.p3_first_auction = 0;
-    $scope.kingsheet.p4_first_auction = 0;
-
-    //Second auction
-    $scope.kingsheet.p1_second_auction = 0;
-    $scope.kingsheet.p2_second_auction = 0;
-    $scope.kingsheet.p3_second_auction = 0;
-    $scope.kingsheet.p4_second_auction = 0;
-
-    //Third auction
-    $scope.kingsheet.p1_third_auction = 0;
-    $scope.kingsheet.p2_third_auction = 0;
-    $scope.kingsheet.p3_third_auction = 0;
-    $scope.kingsheet.p4_third_auction = 0;
-
-    //Fourth auction
-    $scope.kingsheet.p1_fourth_auction = 0;
-    $scope.kingsheet.p2_fourth_auction = 0;
-    $scope.kingsheet.p3_fourth_auction = 0;
-    $scope.kingsheet.p4_fourth_auction = 0;
-  }
-
-
-  //Reset the scores
-  $scope.initKingScores();
 
   //When the user enters the number of tricks - convert them to score.
   //When the user clicks on a cell, convert the score back to tricks
 
-  //################################# MODAL FUNCTIONS #################################
-  $scope.getGameName = function(ng_model_name)
-  {
-    var ng_model_name_array = ng_model_name.split("_"),
-        game_name = "";
-
-    game_name = ng_model_name_array[1];
-
-    //In the case of games like "last_2" or "third_auction"...
-
-    if(game_name.indexOf('last') != -1 || game_name.indexOf('first') != -1 || game_name.indexOf('second') != -1 || game_name.indexOf('third') != -1 || game_name.indexOf('fourth') != -1)
-    {
-      game_name += "_" + ng_model_name_array[2];
-    }
-
-    return game_name;
-  }
-
-  //Called when the player presses the modal window button to increase a player score.
-  $scope.increase = function(ng_model_name)
-  {
-    var game = $scope.getGameName(ng_model_name),
-        max,
-        desired_value = 0,
-        model_p1 = "p1_" + game + "_modal",
-        model_p2 = "p2_" + game + "_modal",
-        model_p3 = "p3_" + game + "_modal",
-        model_p4 = "p4_" + game + "_modal",
-        total = 0;
-
-    if($scope.kingsheet[model_p1] != undefined)
-    {
-      total += $scope.kingsheet[model_p1];
-    }
-
-    if($scope.kingsheet[model_p2] != undefined)
-    {
-      total += $scope.kingsheet[model_p2];
-    }
-
-    if($scope.kingsheet[model_p3] != undefined)
-    {
-      total += $scope.kingsheet[model_p3];
-    }
-
-    if($scope.kingsheet[model_p4] != undefined)
-    {
-      total += $scope.kingsheet[model_p4];
-    }
-
-    switch(game)
-    {
-      case 'notricks':
-      {
-        max = 13;
-        desired_value = 13;
-
-        break;
-      }
-      case 'hearts':
-      {
-        max = 13;
-        desired_value = 13;
-
-        break;
-      }
-      case 'dames':
-      {
-        max = 4;
-        desired_value = 4;
-
-        break;
-      }
-      case 'gents':
-      {
-        max = 8;
-        desired_value = 8;
-
-        break;
-      }
-      case 'king':
-      {
-        max = 1;
-        desired_value = 1;
-
-        break;
-      }
-      case 'last_2':
-      {
-        max = 2;
-        desired_value = 2;
-
-        break;
-      }
-      case 'first_auction':
-      {
-        max = 21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'second_auction':
-      {
-        max = 21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'third_auction':
-      {
-        max = 21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'fourth_auction':
-      {
-        max = 21;
-        desired_value = 13;
-
-        break;
-      }
-    }
-
-    if(total < max)
-    {
-      if($scope.kingsheet[ng_model_name] == undefined || $scope.kingsheet[ng_model_name] == 0)
-      {
-        $scope.kingsheet[ng_model_name] = 1;
-      }
-      else
-      {
-          $scope.kingsheet[ng_model_name]++;
-      }
-    }
-
-    //Finally, update the "Total" value
-   $scope.updateModalTotal(game, desired_value);
-  }
-
-  //Called when the player presses the modal window button to decrease a player score.
-  $scope.decrease = function(ng_model_name)
-  {
-    var game = $scope.getGameName(ng_model_name),
-        min,
-        desired_value = 0,
-        model_p1 = "p1_" + game + "_modal",
-        model_p2 = "p2_" + game + "_modal",
-        model_p3 = "p3_" + game + "_modal",
-        model_p4 = "p4_" + game + "_modal",
-        total = 0;
-
-    if($scope.kingsheet[model_p1] != undefined)
-    {
-      total += $scope.kingsheet[model_p1];
-    }
-
-    if($scope.kingsheet[model_p2] != undefined)
-    {
-      total += $scope.kingsheet[model_p2];
-    }
-
-    if($scope.kingsheet[model_p3] != undefined)
-    {
-      total += $scope.kingsheet[model_p3];
-    }
-
-    if($scope.kingsheet[model_p4] != undefined)
-    {
-      total += $scope.kingsheet[model_p4];
-    }
-
-    switch(game)
-    {
-      case 'notricks':
-      {
-        min = 0;
-        desired_value = 13;
-
-        break;
-      }
-      case 'hearts':
-      {
-        min = 0;
-        desired_value = 13;
-
-        break;
-      }
-      case 'dames':
-      {
-        min = 0;
-        desired_value = 4;
-
-        break;
-      }
-      case 'gents':
-      {
-        min = 0;
-        desired_value = 8;
-
-        break;
-      }
-      case 'king':
-      {
-        min = 0;
-        desired_value = 1;
-
-        break;
-      }
-      case 'last_2':
-      {
-        min = 0;
-        desired_value = 2;
-
-        break;
-      }
-      case 'first_auction':
-      {
-        min = -21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'second_auction':
-      {
-        min = -21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'third_auction':
-      {
-        min = -21;
-        desired_value = 13;
-
-        break;
-      }
-      case 'fourth_auction':
-      {
-        min = -21;
-        desired_value = 13;
-
-        break;
-      }
-    }
-
-    if(total > min)
-    {
-      if($scope.kingsheet[ng_model_name] == undefined || $scope.kingsheet[ng_model_name] == 0)
-      {
-        $scope.kingsheet[ng_model_name] = -1;
-      }
-      else
-      {
-        $scope.kingsheet[ng_model_name]--;
-      }
-    }
-
-    //Finally, update the "Total" value
-   $scope.updateModalTotal(game, desired_value);
-  }
-
   //################################# NO TRICKS #################################
+
   $scope.calculateP1NoTricksScore = function()
   {
       $scope.kingsheet.p1_notricks = -$scope.kingsheet.p1_notricks * 20;
@@ -4455,7 +3301,6 @@ angular.module('starter.controllers', ['ionic'])
 
       $scope.kingsheet.p1_first_auction_total = total;*/
 
-      $scope.calculateFirstAuctionTotal();
       $scope.calculateP1FirstAuctionTotal();
       $scope.calculateP1SecondAuctionTotal();
       $scope.calculateP1ThirdAuctionTotal();
@@ -4485,7 +3330,6 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p2_first_auction_total = total;*/
-      $scope.calculateFirstAuctionTotal();
       $scope.calculateP2FirstAuctionTotal();
       $scope.calculateP2SecondAuctionTotal();
       $scope.calculateP2ThirdAuctionTotal();
@@ -4515,7 +3359,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p3_first_auction_total = total;*/
-      $scope.calculateFirstAuctionTotal();
+
       $scope.calculateP3FirstAuctionTotal();
       $scope.calculateP3SecondAuctionTotal();
       $scope.calculateP3ThirdAuctionTotal();
@@ -4545,7 +3389,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p4_first_auction_total = total;*/
-      $scope.calculateFirstAuctionTotal();
+
       $scope.calculateP4FirstAuctionTotal();
       $scope.calculateP4SecondAuctionTotal();
       $scope.calculateP4ThirdAuctionTotal();
@@ -4575,7 +3419,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p1_second_auction_total = total;*/
-      $scope.calculateSecondAuctionTotal();
+
       $scope.calculateP1SecondAuctionTotal();
       $scope.calculateP1ThirdAuctionTotal();
       $scope.calculateP1FourthAuctionTotal();
@@ -4604,7 +3448,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p2_second_auction_total = total;*/
-      $scope.calculateSecondAuctionTotal();
+
       $scope.calculateP2SecondAuctionTotal();
       $scope.calculateP2ThirdAuctionTotal();
       $scope.calculateP2FourthAuctionTotal();
@@ -4633,7 +3477,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p3_second_auction_total = total;*/
-      $scope.calculateSecondAuctionTotal();
+
       $scope.calculateP3SecondAuctionTotal();
       $scope.calculateP3ThirdAuctionTotal();
       $scope.calculateP3FourthAuctionTotal();
@@ -4662,10 +3506,10 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p4_second_auction_total = total;*/
-      $scope.calculateSecondAuctionTotal();
+
       $scope.calculateP4SecondAuctionTotal();
       $scope.calculateP4ThirdAuctionTotal();
-      $scope.calculateP4FourthAuctionTotal();
+      $scope.calculateP4ourthAuctionTotal();
    });
 
   $scope.$watch('kingsheet.p1_third_auction', function() 
@@ -4691,7 +3535,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p1_third_auction_total = total;*/
-      $scope.calculateThirdAuctionTotal();
+
       $scope.calculateP1ThirdAuctionTotal();
       $scope.calculateP1FourthAuctionTotal();
    });
@@ -4719,7 +3563,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p2_third_auction_total = total;*/
-      $scope.calculateThirdAuctionTotal();
+
       $scope.calculateP2ThirdAuctionTotal();
       $scope.calculateP2FourthAuctionTotal();
    });
@@ -4747,7 +3591,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p3_third_auction_total = total;*/
-      $scope.calculateThirdAuctionTotal();
+
       $scope.calculateP3ThirdAuctionTotal();
       $scope.calculateP3FourthAuctionTotal();
    });
@@ -4775,7 +3619,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p4_third_auction_total = total;*/
-      $scope.calculateThirdAuctionTotal();
+
       $scope.calculateP4ThirdAuctionTotal();
       $scope.calculateP4FourthAuctionTotal();
    });
@@ -4803,7 +3647,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p1_fourth_auction_total = total;*/
-      $scope.calculateFourthAuctionTotal();
+
       $scope.calculateP1FourthAuctionTotal();
    });
 
@@ -4830,7 +3674,6 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p2_fourth_auction_total = total;*/
-      $scope.calculateFourthAuctionTotal();
       $scope.calculateP2FourthAuctionTotal();
    });
 
@@ -4857,7 +3700,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p3_fourth_auction_total = total;*/
-      $scope.calculateFourthAuctionTotal();
+
       $scope.calculateP3FourthAuctionTotal();
    });
 
@@ -4884,7 +3727,7 @@ angular.module('starter.controllers', ['ionic'])
       }
 
       $scope.kingsheet.p4_fourth_auction_total = total;*/
-      $scope.calculateFourthAuctionTotal();
+
       $scope.calculateP4FourthAuctionTotal();
    });
 
@@ -5621,8 +4464,6 @@ angular.module('starter.controllers', ['ionic'])
   }
 
 })
-
-// ||||||||||||||||||||||||||||||||||||-- SUECA LOGIC --||||||||||||||||||||||||||||||||||||
 
 .controller('suecaCtrl', function($scope, $stateParams) 
 {

@@ -30,24 +30,105 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
+  /*.state('app.search', {
     url: "/search",
     views: {
       'menuContent': {
         templateUrl: "templates/search.html"
       }
     }
-  })
+  })*/
 
-  .state('app.browse', {
+  /*.state('app.browse', {
     url: "/browse",
     views: {
       'menuContent': {
         templateUrl: "templates/browse.html"
       }
     }
+  })*/
+  .state('app.baccarat', {
+    url: "/baccarat",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/baccarat.html"
+      }
+    }
   })
-    .state('app.cardgames', {
+
+  .state('app.bisca', {
+    url: "/bisca",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/bisca.html"
+      }
+    }
+  })
+
+  .state('app.bridge', {
+    url: "/bridge",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/bridge.html"
+      }
+    }
+  })
+
+  .state('app.canasta', {
+    url: "/canasta",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/canasta.html"
+      }
+    }
+  })
+
+  .state('app.casino', {
+    url: "/casino",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/casino.html"
+      }
+    }
+  })
+
+  .state('app.copas', {
+    url: "/copas",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/copas.html"
+      }
+    }
+  })
+
+  .state('app.king', {
+    url: "/king",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/king.html"
+      }
+    }
+  })
+
+  .state('app.sueca', {
+    url: "/sueca",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/sueca.html"
+      }
+    }
+  })
+
+  .state('app.cover', {
+    url: "/cover",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/cover.html"
+      }
+    }
+  });
+
+    /*.state('app.cardgames', {
       url: "/cardgames",
       views: {
         'menuContent': {
@@ -55,9 +136,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'cardGamesCtrl'
         }
       }
-    })
+    })*/
 
-  .state('app.single', {
+  /*.state('app.single', {
     url: "/cardgames/:cardgameId",
     views: {
       'menuContent': {
@@ -65,7 +146,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'kingCtrl'
       }
     }
-  });
+  });*/
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/cardgames');
+  $urlRouterProvider.otherwise('/app/cover');
 });

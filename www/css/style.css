@@ -1,6 +1,564 @@
 /* CSC custom CSS */
+/*Custom fonts*/
+
+@font-face 
+{
+    font-family: CSCFont;
+    src: url(font/carme-regular.ttf);
+}
+
+@font-face 
+{
+    font-family: CSCCover;
+    src: url(font/CoffeeTin-Initials.ttf);
+}
+
+body
+{
+    background: #235A00 !important;
+    color: #FFFFFF;
+    /*font-family: CSCFont;*/
+    font-family: CSCFont;
+}
+
+/*Custom color classes*/
+.ok_color
+{
+    color: #33CD5F;
+}
+
+.error_color
+{
+    color: #EF473A;
+}
+
+.regular_text
+{
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.background
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #235A00 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #235A00 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #235A00 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #235A00), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #235A00 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #235A00 0%, #000305 100%);
+}
+
+.background-cover
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, ellipse farthest-corner, #550000 0%, #000000 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, ellipse farthest-corner, #550000 0%, #000000 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, ellipse farthest-corner, #550000 0%, #000000 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #550000), color-stop(1, #000000));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #550000 0%, #000000 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(ellipse farthest-corner at center, #550000 0%, #000000 100%);
+}
+
+.background-modal
+{
+
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, ellipse farthest-corner, #235A00 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, ellipse farthest-corner, #235A00 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, ellipse farthest-corner, #235A00 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #235A00), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #235A00 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(ellipse farthest-corner at center, #235A00 0%, #000305 100%);
+    height; 100%;
+}
+
+.background .pane, .background .item, .background .item-complex .item-content, .list, .list-inset
+{
+    background-color: #194D1E;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+
 .no-padding-element
 {
 	padding: 0;
 	margin: 0;
+    border: none;
 }
+
+.small-padding-element
+{
+    padding: 0;
+    margin: 2px;
+    border: none;
+}
+
+/* To remove the spin buttons on number-type inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+{
+	display: none;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0;
+    padding-right: 0;
+}
+
+input[type=number], input[type=text]
+{
+    -moz-appearance:textfield;
+    padding-right: 0;
+    border-radius: 10px;
+    border: 1px solid #FFDEB0;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-family: CSCFont;
+}
+
+.score_input_middle
+{
+	text-align: center;
+	width: 100%;
+    border-radius: 0px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    /*border: 0px none !important;*/
+    border: 1px solid #FFDEB0;
+    /*border-bottom: 2px solid #FFDE80;*/
+    /*border-left: 0px;
+    border-right: 0px;*/
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+input.modal_score_input_middle
+{
+    width: 100%;
+    border-radius: 0px;
+    /*border: 0px none !important;*/
+    border: 2px solid #FFDEB0;
+    /*border-bottom: 2px solid #FFDE80;*/
+    /*border-left: 0px;
+    border-right: 0px;*/
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    height: 40px;
+    /*font-size: 200%;*/
+}
+
+.score_input_left
+{
+    text-align: center;
+    /*vertical-align: middle;*/
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*border: 0px none !important;*/
+    border-left: 1px solid #FFDEB0;
+    border-top: 1px solid #FFDEB0;
+    border-bottom: 1px solid #FFDEB0;
+    border-right: 1px solid #FFDEB0;
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+input.modal_score_input_left
+{
+    text-align: center;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*border: 0px none !important;*/
+    border-left: 2px solid #FFDEB0;
+    border-top: 2px solid #FFDEB0;
+    border-bottom: 2px solid #FFDEB0;
+    border-right: 2px solid #FFDEB0;
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    height: 40px;
+}
+
+.score_input_right
+{
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    /*border: 0px none !important;*/
+    border-right: 1px solid #FFDEB0;
+    border-top: 1px solid #FFDEB0;
+    border-bottom: 1px solid #FFDEB0;
+    border-left: 1px solid #FFDEB0;
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+input.modal_score_input_right
+{
+    text-align: center;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    /*border: 0px none !important;*/
+    border-right: 2px solid #FFDEB0;
+    border-top: 2px solid #FFDEB0;
+    border-bottom: 2px solid #FFDEB0;
+    border-left: 2px solid #FFDEB0;
+    border-collapse: collapse;
+    color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    height: 40px;
+}
+
+input.score_input_middle:focus, input.score_input_left:focus, input.score_input_right:focus
+{
+    border: 2px solid #FFFF00;
+    color: #FFFF00;
+    font-weight: bold;
+}
+
+input.modal_score_input_middle:focus, input.modal_score_input_left:focus, input.modal_score_input_right:focus
+{
+    border: 4px solid #FFFF00;
+    color: #FFFF00;
+    font-weight: bold;
+}
+
+.modal-button
+{
+    /*border-radius: 10px;*/
+    font-size: 400%;
+    font-weight: bolder;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #FFDEB0 !important;
+}
+
+input.score_input:disabled
+{
+    /*border: 2px solid #FFDEB0;*/
+    /*border-collapse: collapse;*/
+    border: 0px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    -webkit-appearance: none;
+    text-align: center;
+    width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    font-weight: bold;
+}
+
+input.modal_score_total
+{
+    /*border: 0px;
+    color: #444444;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    -webkit-appearance: none;
+    text-align: center;
+    box-shadow: none;
+    opacity: 1;
+    font-weight: bold;*/
+    display: none;
+}
+
+.inline-element
+{
+    display: inline;
+}
+
+.modal_total_div
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 250%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FFDEB0;
+}
+
+.positives_negatives_div
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input.player_name_input 
+{
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    /*border: 0px none !important;*/
+    border: 0px solid rgba(255, 255, 255, 0);
+    /*color: #FFDEB0;*/
+    color: #FFFFFF;
+    background: #194D1E; /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input.modal_player_name_input 
+{
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    /*border: 0px none !important;*/
+    border: 0px solid rgba(255, 255, 255, 0);
+    /*color: #FFDEB0;*/
+    color: #444444;
+    background: #EFEFEF; /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input.regular_text_input 
+{
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    /*border: 0px none !important;*/
+    border: 0px solid rgba(255, 255, 255, 0);
+    /*color: #FFDEB0;*/
+    color: #FFFFFF;
+    background: #194D1E; /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    opacity: 1;
+}
+
+button
+{
+    font-family: CSCFont;
+    font-weight: bold;
+}
+
+.full-content
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.cover_banner
+{
+    width: 100%;
+    border: 4px solid #1156A1;
+    text-align: center;
+    padding: 25px;
+    z-index: -1;
+    display: block;
+    margin: 0;
+    font-family: CSCCover;
+    font-size: 30px;
+	/*background: #000000;*/
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #330000 0%, #000000 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #330000 0%, #000000 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #330000 0%, #000000 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #330000), color-stop(1, #000000));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #330000 0%, #000000 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #330000 0%, #000000 100%);
+}
+
+.spades
+{
+    color: #000000;
+    font-size: 100%;
+}
+
+.hearts
+{
+    color: #FFFFFF;
+    font-size: 100%;
+}
+
+
+.diamonds
+{
+    color: #FFFFFF;
+    font-size: 100%;
+}
+
+
+.clubs
+{
+    color: #000000;
+    font-size: 100%;
+}
+
+
+.cover_image
+{
+    width: 100%;
+    height: auto;
+}
+
+a.levelup-link:link
+{
+    color: #FFDEB0;
+    text-decoration: none;
+}
+
+a.levelup-link:visited
+{
+    color: #FFDEB0;
+    text-decoration: none;
+}
+
+a.levelup-link:hover
+{
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+a.levelup-link:active
+{
+    color: #FF0000;
+    text-decoration: underline;
+}
+
+/* Generic class to center an element horizontally and vertically */
+.center
+{
+    background-size: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
