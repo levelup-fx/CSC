@@ -1,52 +1,56 @@
 <ion-view view-title="King" class="background">
+  <ion-header-bar class="bar-subheader item-input-inset no-padding-element" style="text-align: center;">
+  <div class="row no-padding-element">
+    <div class="col col-20">&nbsp;</div>
+    <div class="col no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 1" ng-model="kingsheet.p1_name">
+      </div>
+    </div>
+    <div class="col no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 2" ng-model="kingsheet.p2_name">
+      </div>
+    </div>
+    <div class="col no-padding-element">          
+      <div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="kingsheet.p3_name">
+      </div>
+    </div>
+    <div class="col no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name">
+      </div>
+    </div>
+    <div class="col no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <input type="text" class="subheader_input" value="Totais" disabled>
+      </div>
+    </div>
+  </div>
+  </ion-header-bar>
   <ion-content>
+
     <!--<h1>Pontuação</h1>-->
     <div ng-controller="kingCtrl">
     	<!-- Primeira linha: Jogadores -->
-    	<div class="row no-padding-element">
-    		<div class="col col-20">&nbsp;</div>
-    		<div class="col no-padding-element">
-    			<div class="list list-inset no-padding-element">
-    				<input class="player_name_input" type="text" placeholder="Jog. 1" ng-model="kingsheet.p1_name">
-  				</div>
-      	</div>
-    		<div class="col no-padding-element">
-    			<div class="list list-inset no-padding-element">
-      			<input class="player_name_input" type="text" placeholder="Jog. 2" ng-model="kingsheet.p2_name">
-  				</div>
-  			</div>
-    		<div class="col no-padding-element">    			
-    			<div class="list list-inset no-padding-element">
-      			<input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="kingsheet.p3_name">
-  				</div>
-  			</div>
-    		<div class="col no-padding-element">
-    			<div class="list list-inset no-padding-element">
-      			<input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name">
-  				</div>
-    		</div>
-    		<div class="col no-padding-element">
-          <div class="list list-inset no-padding-element">
-            <input type="text" class="regular_text_input" value="Totais" disabled>
-          </div>
-        </div>
-    	</div>
+    	
     	<!-- Segunda linha: Não fazer vazas -->
     	<div class="row">
     		<div class="col col-20 no-padding-element">
               <input type="text" class="regular_text_input" value="Vazas" disabled>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_notricks" ng-bind="kingsheet.p1_notricks" ng-click="openModal(1)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_notricks" ng-bind="kingsheet.p1_notricks" ng-click="openKingModal(1)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p2_notricks" ng-bind="kingsheet.p2_notricks" ng-click="openModal(1)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p2_notricks" ng-bind="kingsheet.p2_notricks" ng-click="openKingModal(1)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p3_notricks" ng-bind="kingsheet.p3_notricks" ng-click="openModal(1)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p3_notricks" ng-bind="kingsheet.p3_notricks" ng-click="openKingModal(1)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p4_notricks" ng-bind="kingsheet.p4_notricks" ng-click="openModal(1)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p4_notricks" ng-bind="kingsheet.p4_notricks" ng-click="openKingModal(1)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -64,16 +68,16 @@
             <input type="text" class="regular_text_input" value="Copas" disabled>
         </div>
     		<div class="col no-padding-element">
-            <div class="score_input_left" ng-model="kingsheet.p1_hearts" ng-bind="kingsheet.p1_hearts" ng-click="openModal(2)" ng-value="0">0</div>
+            <div class="score_input_left" ng-model="kingsheet.p1_hearts" ng-bind="kingsheet.p1_hearts" ng-click="openKingModal(2)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p2_hearts" ng-bind="kingsheet.p2_hearts" ng-click="openModal(2)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p2_hearts" ng-bind="kingsheet.p2_hearts" ng-click="openKingModal(2)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p3_hearts" ng-bind="kingsheet.p3_hearts" ng-click="openModal(2)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p3_hearts" ng-bind="kingsheet.p3_hearts" ng-click="openKingModal(2)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_right" ng-model="kingsheet.p4_hearts" ng-bind="kingsheet.p4_hearts" ng-click="openModal(2)" ng-value="0">0</div>
+    			<div class="score_input_right" ng-model="kingsheet.p4_hearts" ng-bind="kingsheet.p4_hearts" ng-click="openKingModal(2)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -90,16 +94,16 @@
               <input type="text" class="regular_text_input" value="Damas" disabled>
         </div>
     		<div class="col no-padding-element">
-    			<div class="score_input_left" ng-model="kingsheet.p1_dames" ng-bind="kingsheet.p1_dames" ng-click="openModal(3)" ng-value="0">0</div>
+    			<div class="score_input_left" ng-model="kingsheet.p1_dames" ng-bind="kingsheet.p1_dames" ng-click="openKingModal(3)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p2_dames" ng-bind="kingsheet.p2_dames" ng-click="openModal(3)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p2_dames" ng-bind="kingsheet.p2_dames" ng-click="openKingModal(3)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p3_dames" ng-bind="kingsheet.p3_dames" ng-click="openModal(3)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p3_dames" ng-bind="kingsheet.p3_dames" ng-click="openKingModal(3)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_right" ng-model="kingsheet.p4_dames" ng-bind="kingsheet.p4_dames" ng-click="openModal(3)" ng-value="0">0</div>
+    			<div class="score_input_right" ng-model="kingsheet.p4_dames" ng-bind="kingsheet.p4_dames" ng-click="openKingModal(3)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -115,16 +119,16 @@
               <input type="text" class="regular_text_input" value="Homens" disabled>
         </div>
     		<div class="col no-padding-element">
-    			<div class="score_input_left" ng-model="kingsheet.p1_gents" ng-bind="kingsheet.p1_gents" ng-click="openModal(4)" ng-value="0">0</div>
+    			<div class="score_input_left" ng-model="kingsheet.p1_gents" ng-bind="kingsheet.p1_gents" ng-click="openKingModal(4)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p2_gents" ng-bind="kingsheet.p2_gents" ng-click="openModal(4)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p2_gents" ng-bind="kingsheet.p2_gents" ng-click="openKingModal(4)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p3_gents" ng-bind="kingsheet.p3_gents" ng-click="openModal(4)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p3_gents" ng-bind="kingsheet.p3_gents" ng-click="openKingModal(4)" ng-value="0">0</div>
         </div>
     		<div class="col no-padding-element">
-    			<div class="score_input_right" ng-model="kingsheet.p4_gents" ng-bind="kingsheet.p4_gents" ng-click="openModal(4)" ng-value="0">0</div>
+    			<div class="score_input_right" ng-model="kingsheet.p4_gents" ng-bind="kingsheet.p4_gents" ng-click="openKingModal(4)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -140,16 +144,16 @@
               <input type="text" class="regular_text_input" value="King" disabled>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_king" ng-bind="kingsheet.p1_king" ng-click="openModal(5)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_king" ng-bind="kingsheet.p1_king" ng-click="openKingModal(5)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p2_king" ng-bind="kingsheet.p2_king" ng-click="openModal(5)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p2_king" ng-bind="kingsheet.p2_king" ng-click="openKingModal(5)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p3_king" ng-bind="kingsheet.p3_king" ng-click="openModal(5)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p3_king" ng-bind="kingsheet.p3_king" ng-click="openKingModal(5)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_right" ng-model="kingsheet.p4_king" ng-bind="kingsheet.p4_king" ng-click="openModal(5)" ng-value="0">0</div>
+    			<div class="score_input_right" ng-model="kingsheet.p4_king" ng-bind="kingsheet.p4_king" ng-click="openKingModal(5)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -165,16 +169,16 @@
               <input type="text" class="regular_text_input" value="2 Últ." disabled>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_last_2" ng-bind="kingsheet.p1_last_2" ng-click="openModal(6)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_last_2" ng-bind="kingsheet.p1_last_2" ng-click="openKingModal(6)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p2_last_2" ng-bind="kingsheet.p2_last_2" ng-click="openModal(6)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p2_last_2" ng-bind="kingsheet.p2_last_2" ng-click="openKingModal(6)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_middle" ng-model="kingsheet.p3_last_2" ng-bind="kingsheet.p3_last_2" ng-click="openModal(6)" ng-value="0">0</div>
+    			<div class="score_input_middle" ng-model="kingsheet.p3_last_2" ng-bind="kingsheet.p3_last_2" ng-click="openKingModal(6)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
-    			<div class="score_input_right" ng-model="kingsheet.p4_last_2" ng-bind="kingsheet.p4_last_2" ng-click="openModal(6)" ng-value="0">0</div>
+    			<div class="score_input_right" ng-model="kingsheet.p4_last_2" ng-bind="kingsheet.p4_last_2" ng-click="openKingModal(6)" ng-value="0">0</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
@@ -226,9 +230,9 @@
   			</div>
     	</div>
     	<!-- Publicidade -->
-    	<div class="row no-padding-element">
+    	<!--<div class="row no-padding-element">
     		<div class="col col-100 col-center" style="text-align:center;">Publicidade</div>
-    	</div>
+    	</div>-->
     	<!-- Nona linha: Primeira Festa -->
     	<div class="row">
     		<!--<div class="col col-20 no-padding-element">Festa {{ kingsheet.p3_name }}</div>-->
@@ -236,16 +240,16 @@
           <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p3_name }}" disabled>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_first_auction" ng-bind="kingsheet.p1_first_auction" ng-click="openModal(7)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_first_auction" ng-bind="kingsheet.p1_first_auction" ng-click="openKingModal(7)" ng-value="0">0</div>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p2_first_auction" ng-bind="kingsheet.p2_first_auction" ng-click="openModal(7)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p2_first_auction" ng-bind="kingsheet.p2_first_auction" ng-click="openKingModal(7)" ng-value="0">0</div>
         </div>
     		<div class="col no-padding-element">
-           <div class="score_input_middle" ng-model="kingsheet.p3_first_auction" ng-bind="kingsheet.p3_first_auction" ng-click="openModal(7)" ng-value="0">0</div>
+           <div class="score_input_middle" ng-model="kingsheet.p3_first_auction" ng-bind="kingsheet.p3_first_auction" ng-click="openKingModal(7)" ng-value="0">0</div>
         </div>
     		<div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p4_first_auction" ng-bind="kingsheet.p4_first_auction" ng-click="openModal(7)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p4_first_auction" ng-bind="kingsheet.p4_first_auction" ng-click="openKingModal(7)" ng-value="0">0</div>
         </div>
     		<div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -304,16 +308,16 @@
               <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p4_name }}" disabled>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_second_auction" ng-bind="kingsheet.p1_second_auction" ng-click="openModal(8)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_second_auction" ng-bind="kingsheet.p1_second_auction" ng-click="openKingModal(8)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p2_second_auction" ng-bind="kingsheet.p2_second_auction" ng-click="openModal(8)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p2_second_auction" ng-bind="kingsheet.p2_second_auction" ng-click="openKingModal(8)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p3_second_auction" ng-bind="kingsheet.p3_second_auction" ng-click="openModal(8)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p3_second_auction" ng-bind="kingsheet.p3_second_auction" ng-click="openKingModal(8)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p4_second_auction" ng-bind="kingsheet.p4_second_auction" ng-click="openModal(8)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p4_second_auction" ng-bind="kingsheet.p4_second_auction" ng-click="openKingModal(8)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -371,16 +375,16 @@
               <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p1_name }}" disabled>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_third_auction" ng-bind="kingsheet.p1_third_auction" ng-click="openModal(9)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_third_auction" ng-bind="kingsheet.p1_third_auction" ng-click="openKingModal(9)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p2_third_auction" ng-bind="kingsheet.p2_third_auction" ng-click="openModal(9)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p2_third_auction" ng-bind="kingsheet.p2_third_auction" ng-click="openKingModal(9)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p3_third_auction" ng-bind="kingsheet.p3_third_auction" ng-click="openModal(9)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p3_third_auction" ng-bind="kingsheet.p3_third_auction" ng-click="openKingModal(9)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p4_third_auction" ng-bind="kingsheet.p4_third_auction" ng-click="openModal(9)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p4_third_auction" ng-bind="kingsheet.p4_third_auction" ng-click="openKingModal(9)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -438,16 +442,16 @@
               <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p2_name }}" disabled>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_left" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openModal(10)" ng-value="0">0</div>
+          <div class="score_input_left" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p2_fourth_auction" ng-bind="kingsheet.p2_fourth_auction" ng-click="openModal(10)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p2_fourth_auction" ng-bind="kingsheet.p2_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_middle" ng-model="kingsheet.p3_fourth_auction" ng-bind="kingsheet.p3_fourth_auction" ng-click="openModal(10)" ng-value="0">0</div>
+          <div class="score_input_middle" ng-model="kingsheet.p3_fourth_auction" ng-bind="kingsheet.p3_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openModal(10)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -500,11 +504,11 @@
         </div>
     	</div>
     	<!-- Publicidade -->
-    	<div class="row">
+    	<!--<div class="row">
     		<div class="col col-100 col-center" style="text-align:center;">Publicidade</div>
-    	</div>
+    	</div>-->
       <!-- Botão de Reset -->
-      <button class="button button-block button-assertive" ng-model="kingsheet.reset_button" ng-click="resetKingScores()">
+      <button class="button button-block button-assertive" ng-model="kingsheet.reset_button" ng-click="openKingModal(12)">
         Recomeçar
       </button>
     </div>

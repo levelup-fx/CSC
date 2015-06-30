@@ -1,0 +1,24 @@
+ <ion-modal-view class="background-modal">
+        <ion-header-bar>
+          <h1 class="title">Reiniciar as pontuações?</h1>
+        </ion-header-bar>
+        <ion-content style="color:#000000;" ng-controller="kingCtrl">
+        <!-- OK button -->
+        <div class="row no-padding-element">
+          <div class="col no-padding-element" style="padding: 5px;">
+            <!-- Botão de Reset -->
+              <button class="button button-block button-assertive" ng-model="kingsheet.back_button" ng-click="closeModal(12)">
+                Não, voltar atrás
+              </button>
+            </div>
+            <div class="col no-padding-element" style="padding: 5px;">
+            <!-- Botão de Reset -->
+              <button class="button button-block button-balanced" ng-model="kingsheet.reset_button" ng-click="initKingScores();closeModal(12);">
+                Sim, recomeçar
+              </button>
+            </div>
+        </div>
+        <p>Se continuar, as pontuações atuais serão apagadas.</p>
+
+        </ion-content>
+      </ion-modal-view>

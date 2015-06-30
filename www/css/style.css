@@ -59,6 +59,27 @@ body
     background-image: radial-gradient(circle closest-corner at center, #235A00 0%, #000305 100%);
 }
 
+.background-casino
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #007041 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #007041 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #007041 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #007041), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #007041 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #007041 0%, #000305 100%);
+}
+
 .background-cover
 {
     /* IE10 Consumer Preview */ 
@@ -100,14 +121,21 @@ body
 
     /* W3C Markup, IE10 Release Preview */ 
     background-image: radial-gradient(ellipse farthest-corner at center, #235A00 0%, #000305 100%);
-    height; 100%;
+    height: 100%;
 }
 
+.background-modal p
+{
+    margin: 5px;
+    text-align: center;
+    color: #FFFFFF !important;
+
+}
 .background .pane, .background .item, .background .item-complex .item-content, .list, .list-inset
 {
     background-color: #194D1E;
     background-color: rgba(0, 0, 0, 0);
-    margin-top: 2px;
+    margin-top: 2px;\
     margin-bottom: 2px;
 }
 
@@ -141,8 +169,8 @@ input[type=number], input[type=text]
 {
     -moz-appearance:textfield;
     padding-right: 0;
-    border-radius: 10px;
-    border: 1px solid #FFDEB0;
+    /*border-radius: 10px;
+    border: 1px solid #FFDEB0;*/
     color: #FFDEB0;
     background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
     background: rgba(0, 0, 0, 0.5);
@@ -150,18 +178,18 @@ input[type=number], input[type=text]
     font-family: CSCFont;
 }
 
-.score_input_middle
+.score_input_middle, input.score_input_middle
 {
 	text-align: center;
 	width: 100%;
-    border-radius: 0px;
+    border-radius: 0px !important;
     height: 40px;
     line-height: 40px;
     font-size: 14px;
     /*border: 0px none !important;*/
     border: 1px solid #FFDEB0;
-    /*border-bottom: 2px solid #FFDE80;*/
-    /*border-left: 0px;
+    /*border-bottom: 1px solid #FFDE80;
+    border-left: 0px;
     border-right: 0px;*/
     border-collapse: collapse;
     color: #FFDEB0;
@@ -176,7 +204,7 @@ input[type=number], input[type=text]
 input.modal_score_input_middle
 {
     width: 100%;
-    border-radius: 0px;
+    border-radius: 0px !important;
     /*border: 0px none !important;*/
     border: 2px solid #FFDEB0;
     /*border-bottom: 2px solid #FFDE80;*/
@@ -192,7 +220,7 @@ input.modal_score_input_middle
     /*font-size: 200%;*/
 }
 
-.score_input_left
+.score_input_left, input.score_input_left
 {
     text-align: center;
     /*vertical-align: middle;*/
@@ -241,7 +269,23 @@ input.modal_score_input_left
     height: 40px;
 }
 
-.score_input_right
+input.settings_input
+{
+    text-align: center;
+    width: 100%;
+    /*border-left: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-collapse: collapse;*/
+    background: #FFF;
+    color: #444;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    height: 40px;
+}
+
+.score_input_right, input.score_input_right
 {
     text-align: center;
     width: 100%;
@@ -314,6 +358,11 @@ input.modal_score_input_middle:focus, input.modal_score_input_left:focus, input.
     color: #FFDEB0 !important;
 }
 
+.new-player-button
+{
+    width: 100%;
+}
+
 input.score_input:disabled
 {
     /*border: 2px solid #FFDEB0;*/
@@ -328,6 +377,7 @@ input.score_input:disabled
     box-shadow: none;
     opacity: 1;
     font-weight: bold;
+    margin-top: 2px;
 }
 
 input.modal_score_total
@@ -371,19 +421,39 @@ input.modal_score_total
 input.player_name_input 
 {
     text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background: #FFFFFF; /* Fall-back for browsers that don't support rgba */
+    color: #000000;
     width: 100%;
-    border-radius: 10px;
-    /*border: 0px none !important;*/
-    border: 0px solid rgba(255, 255, 255, 0);
-    /*color: #FFDEB0;*/
-    color: #FFFFFF;
-    background: #194D1E; /* Fall-back for browsers that don't support rgba */
-    background: rgba(0, 0, 0, 0);
-    outline: none !important;
-    -webkit-appearance: none !important;
-    margin-top: 2px;
-    margin-bottom: 5px;
+    padding: 0;
+    margin: 0;
+    border: 0px solid #FFFFFF;
     font-weight: bold;
+    /*width: 100%;*/
+    /*border-radius: 10px;*/
+    /*border: 0px none !important;*/
+    /*border: 0px solid rgba(255, 255, 255, 0);*/
+    /*color: #FFDEB0;*/
+    /*color: #000000;*/
+    /*background: #194D1E; /* Fall-back for browsers that don't support rgba */
+    /*background: rgba(0, 0, 0, 0);*/
+    /*outline: none !important;*/
+    /*-webkit-appearance: none !important;*/
+    /*margin-top: 2px;
+    margin-bottom: 5px;
+    font-weight: bold;*/
+}
+
+input.subheader_input
+{
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    background: #FFFFFF; /* Fall-back for browsers that don't support rgba */
+    color: #000000;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0px solid #FFFFFF;
 }
 
 input.modal_player_name_input 
