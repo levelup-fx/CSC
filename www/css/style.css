@@ -149,8 +149,44 @@ body
 
 .small-padding-element
 {
-    padding: 0;
+    padding: 1px;
     margin: 2px;
+    border: none;
+}
+
+.medium-padding-element
+{
+    padding: 2px;
+    margin: 5px;
+    border: none;
+}
+
+.big-padding-element
+{
+    padding: 5px;
+    margin: 10px;
+    border: none;
+}
+
+.big-top-bottom-padding-element
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border: none;
+}
+
+.big-top-bottom-margin-element
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
     border: none;
 }
 
@@ -363,12 +399,35 @@ input.modal_score_input_middle:focus, input.modal_score_input_left:focus, input.
     width: 100%;
 }
 
+.centered_paragraph_black
+{
+    text-align: center;
+    color: #000000;
+}
+
 input.score_input:disabled
 {
     /*border: 2px solid #FFDEB0;*/
     /*border-collapse: collapse;*/
     border: 0px;
     color: #FFFFFF;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    -webkit-appearance: none;
+    text-align: center;
+    width: 100%;
+    box-shadow: none;
+    opacity: 1;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+input.final_score_input:disabled
+{
+    /*border: 2px solid #FFDEB0;*/
+    /*border-collapse: collapse;*/
+    border: 0px;
+    color: #FFFF00;
     background: rgba(0, 0, 0, 0);
     outline: none;
     -webkit-appearance: none;
@@ -501,12 +560,12 @@ button
 
 .full-content
 {
-  position: absolute;
+  /*position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
+  margin: auto;*/
 }
 
 .cover_banner
@@ -570,8 +629,12 @@ background-image: linear-gradient(to bottom, #330000 0%, #000000 100%);
 
 .cover_image
 {
-    width: 100%;
+    max-width: 100%;
     height: auto;
+
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;*/
 }
 
 a.levelup-link:link
@@ -605,8 +668,8 @@ a.levelup-link:active
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+    /*display: -webkit-flex;
+    display: flex;*/
     -webkit-box-direction: normal;
     -moz-box-direction: normal;
     -webkit-box-orient: horizontal;
@@ -630,5 +693,22 @@ a.levelup-link:active
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+
+    /*max-width: 100%;
+    height: auto;*/
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;*/
+}
+
+.forbidden, .forbidden .item-content
+{
+    color: #BA4B00;
+    background-color: #F8EDE6 !important;
+}
+
+.csc_header
+{
+    color: #FFF;
 }
 

@@ -1,0 +1,27 @@
+<ion-modal-view ng-controller="casinoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Vencedor</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="casinoCtrl" style="color: #444;">
+
+    <div class="row">
+      <div class="col no-padding-element">
+        <div class="list list-inset no-padding-element">
+          <input class="modal_player_name_input" type="text" ng-model="casinosheet.winner" disabled>
+        </div>
+      </div>
+    </div>
+        
+       
+  <!-- OK button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Botão de Reset -->
+        <button class="button button-block button-balanced" ng-model="casinosheet.reset_button" ng-click="restartCasinoScores();closeCasinoModal(16);">
+        OK
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

@@ -20,86 +20,140 @@ angular.module('starter.controllers', ['ionic'])
 
   $scope.showHowManyPlayersModal = 0;
 
-  //AdMob create ad function
-  $scope.createAdView = function()
+  $scope.showBannerAdView = function()
   {
     // select the right Ad Id according to platform
-  var admobid = {};
+    var admobid = {};
 
-  if(/(android)/i.test(navigator.userAgent) ) 
-  { // for android
-      admobid = 
-      {
-          banner: 'ca-app-pub-4238800067251756/5348965629', // or DFP format "/6253334/dfp_example_ad"
-          interstitial: 'ca-app-pub-4238800067251756/5348965629'
-      };
-  } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) 
-  { // for ios
-      admobid = 
-      {
-          banner: 'ca-app-pub-4238800067251756/9779165222', // or DFP format "/6253334/dfp_example_ad"
-          interstitial: 'ca-app-pub-4238800067251756/9779165222'
-      };
-  } 
-  else 
-  { // for windows phone
-      /*admobid = 
-      {
-          banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
-          interstitial: 'ca-app-pub-xxx/kkk'
-      };*/
-  }
+    if(/(android)/i.test(navigator.userAgent) ) 
+    { // for android
+        admobid = 
+        {
+            banner: 'ca-app-pub-4238800067251756/8855345223', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-4238800067251756/5348965629'
+        };
+    } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) 
+    { // for ios
+        admobid = 
+        {
+            banner: 'ca-app-pub-4238800067251756/4425145629', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-4238800067251756/4425145629'
+        };
+    } 
+    else 
+    { // for windows phone
+        /*admobid = 
+        {
+            banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-xxx/kkk'
+        };*/
+    }
 
-    // preppare and load ad resource in background, e.g. at begining of game level
-    if(AdMob)
+      // preppare and load ad resource in background, e.g. at begining of game level
+      /*if(window.AdMob)
       {
-        AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+        //alert('OK!');
+        window.AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:true} );
       }
       else
       {
+        //alert("Admob plugin not ready");
         console.log("Admob plugin not ready");
-      }
+      }*/
 
-    // show the interstitial later, e.g. at end of game level
-    if(AdMob)
+      // show the interstitial later, e.g. at end of game level
+
+
+
+      if(window.AdMob)
       {
-        AdMob.showInterstitial();
-        }
+        window.AdMob.createBanner({
+        adId: admobid.banner,
+        position: window.AdMob.AD_POSITION.BOTTOM_CENTER,
+        isTesting: false,
+        overlap: false,
+        autoShow: true});
+      }
       else
       {
+        //alert("Admob plugin not ready");
         console.log("Admob plugin not ready");
       }
   }
 
+  //AdMob create ad function
+  $scope.createInterstitialAdView = function()
+  {
+    // select the right Ad Id according to platform
+    var admobid = {};
 
+    if(/(android)/i.test(navigator.userAgent) ) 
+    { // for android
+        admobid = 
+        {
+            banner: 'ca-app-pub-4238800067251756/8855345223', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-4238800067251756/5348965629'
+        };
+    } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) 
+    { // for ios
+        admobid = 
+        {
+            banner: 'ca-app-pub-4238800067251756/9779165222', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-4238800067251756/9779165222'
+        };
+    } 
+    else 
+    { // for windows phone
+        /*admobid = 
+        {
+            banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+            interstitial: 'ca-app-pub-xxx/kkk'
+        };*/
+    }
 
-  // Create the login modal that we will use later
-  /*$ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+      // preppare and load ad resource in background, e.g. at begining of game level
+      if(window.AdMob)
+      {
+        //alert('OK!');
+        window.AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:true} );
+      }
+      else
+      {
+        //alert("Admob plugin not ready");
+        console.log("Admob plugin not ready");
+      }
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+      // show the interstitial later, e.g. at end of game level
+      if(window.AdMob)
+      {
+        window.AdMob.showInterstitial();
+      }
+      else
+      {
+        //alert("Admob plugin not ready");
+        console.log("Admob plugin not ready");
+      }
+  }
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+  $scope.closeKingAndShowAd = function(wid)
+  {
+    if(wid != undefined && wid != null)
+    {
+      $scope.closeKingModal(wid);
+    }
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    $scope.createInterstitialAdView();
+  }
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };*/
+  $scope.closeCasinoAndShowAd = function(wid)
+  {
+    if(wid != undefined && wid != null)
+    {
+      $scope.closeCasinoModal(wid);
+    }
+
+    $scope.createInterstitialAdView();
+  }
 
   $ionicModal.fromTemplateUrl('templates/king_notricks_modal.html',
   {
@@ -222,7 +276,7 @@ angular.module('starter.controllers', ['ionic'])
   });
 
 
-
+  //Casino Modals
 
   $ionicModal.fromTemplateUrl('templates/casino_settings_modal.html',
   {
@@ -233,6 +287,90 @@ angular.module('starter.controllers', ['ionic'])
   {
       $scope.casino_settings_modal = modal;
   });
+
+  $ionicModal.fromTemplateUrl('templates/casino_who_won_modal.html',
+  {
+    id: 14,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_who_won_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_reset_scores_modal.html',
+  {
+    id: 15,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_reset_scores_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_winner_modal.html',
+  {
+    id: 16,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_winner_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_tie_modal.html',
+  {
+    id: 17,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_tie_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/king_winner_modal.html',
+  {
+    id: 18,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.king_winner_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_help_modal.html',
+  {
+    id: 19,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_help_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_how_to_modal.html',
+  {
+    id: 20,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_how_to_modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/casino_score_info_modal.html',
+  {
+    id: 21,
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) 
+  {
+      $scope.casino_score_info_modal = modal;
+  });
+
+  //$scope.showBannerAdView();
+  //$scope.createInterstitialAdView();
+  
 
   $scope.closeHowManyPlayersModal = function()
   {
@@ -250,12 +388,46 @@ angular.module('starter.controllers', ['ionic'])
         
     switch(id) 
     {
-      case 13: //Reset scores
+      case 13: //settings
       {
-        type ="settings";
+        type = "settings";
         break;
       }
-
+      case 14: //who won?
+      {
+        type = "who_won";
+        break;
+      }
+      case 15: //reset
+      {
+        type = "reset_scores";
+        break;
+      }
+      case 16: //winner
+      {
+        type = "winner";
+        break;
+      }
+      case 17: //tie
+      {
+        type = "tie";
+        break;
+      }
+      case 19: //help
+      {
+        type = "help";
+        break;
+      }
+      case 20: //how-to
+      {
+        type = "how_to";
+        break;
+      }
+      case 21: //score info
+      {
+        type = "score_info";
+        break;
+      }
       default:
       {
         //Show publicity
@@ -345,8 +517,12 @@ angular.module('starter.controllers', ['ionic'])
       }
       case 12: //Reset scores
       {
-        game ="reset_scores";
+        game = "reset_scores";
         break;
+      }
+      case 18: //Winners
+      {
+        game = "winner";
       }
 
       default:
@@ -359,15 +535,20 @@ angular.module('starter.controllers', ['ionic'])
     modal_name = "king_" + game + "_modal";
 
     //Prepare the modal window and show it
-    $scope.prepareModal(game);
+    $scope.prepareKingModal(game);
     $scope.divideScores(game);
     $scope.updateModalTotal(game, desired_value);
 
     $scope[modal_name].show();
   }
 
+  /*$scope.prepareCasinoWhoWonModal = function()
+  {
+    $scope.fetchNamesToCasinoWhoWonModal();
+  }*/
+
   //Makes all preparations and initializations needed when opening a modal
-  $scope.prepareModal = function(game)
+  $scope.prepareKingModal = function(game)
   {
     //Get the Player names, scores and calculate the total
     $scope.fetchNamesToModal(game);
@@ -391,6 +572,14 @@ angular.module('starter.controllers', ['ionic'])
       $scope.kingsheet[p3_modal_name_model] = $scope.kingsheet.p3_name;
       $scope.kingsheet[p4_modal_name_model] = $scope.kingsheet.p4_name;
   }
+
+  /*$scope.fetchNamesToCasinoWhoWonModal = function()
+  {
+      $scope.casinosheet.winner_p1_name_modal = $scope.casinosheet.p1_name;
+      $scope.casinosheet.winner_p2_name_modal = $scope.casinosheet.p2_name;
+      $scope.casinosheet.winner_p3_name_modal = $scope.casinosheet.p3_name;
+      $scope.casinosheet.winner_p4_name_modal = $scope.casinosheet.p4_name;
+  }*/
 
   $scope.fetchScoresToModal = function(game)
   {
@@ -473,7 +662,7 @@ angular.module('starter.controllers', ['ionic'])
     $scope.kingsheet[modal_total_model] = modal_total;
   }
 
-  $scope.closeModal = function(id) 
+  $scope.closeKingModal = function(id) 
   {
     var game = "",
         show_ads = false;
@@ -540,6 +729,10 @@ angular.module('starter.controllers', ['ionic'])
         game = "reset_scores";
         break;
       }
+      case 18: //Winners
+      {
+        game = "winner";
+      }
       default:
       {
         //Close company info
@@ -554,6 +747,12 @@ angular.module('starter.controllers', ['ionic'])
     $scope.calculateScores(game);
 
     $scope[modal_name].hide();
+
+    /*if(id == 10)
+    {
+      calculateKingWinnerOrder();
+      openKingModal(18);
+    }*/
 
     if(show_ads)
     {
@@ -570,6 +769,41 @@ angular.module('starter.controllers', ['ionic'])
       case 13:
       {
         type = "settings";
+        break;
+      }
+      case 14:
+      {
+        type = "who_won";
+        break;
+      }
+      case 15:
+      {
+        type = "reset_scores";
+        break;
+      }
+      case 16:
+      {
+        type = "winner";
+        break;
+      }
+      case 17:
+      {
+        type = "tie";
+        break;
+      }
+      case 19:
+      {
+        type = "help";
+        break;
+      }
+      case 20:
+      {
+        type = "how_to";
+        break;
+      }
+      case 21:
+      {
+        type = "score_info";
         break;
       }
       default:
@@ -1074,6 +1308,10 @@ angular.module('starter.controllers', ['ionic'])
 
   //$scope = $scope;
 
+  //$scope.showBannerAdView();
+
+  $scope.showBannerAdView();
+
   $scope.addCasinoGame = function()
   {
     $scope.casinosheet.current_game++;
@@ -1094,7 +1332,7 @@ angular.module('starter.controllers', ['ionic'])
 
     $scope.casinosheet.gameList.push({ 
       number: $scope.casinosheet.current_game,
-      text: "Jogo " + String($scope.casinosheet.current_game), 
+      text: "# " + String($scope.casinosheet.current_game), 
       p1_model: 0,
       p2_model: 0,
       p3_model: 0,
@@ -1103,15 +1341,244 @@ angular.module('starter.controllers', ['ionic'])
        });
   };
 
-  $scope.addVictory = function()
+  $scope.setColorFromScore = function(player_no)
   {
 
-  };
+    if($scope.casinosheet.p1_game_total == $scope.casinosheet.p2_game_total
+      && $scope.casinosheet.p2_game_total == $scope.casinosheet.p3_game_total
+      && $scope.casinosheet.p3_game_total == $scope.casinosheet.p4_game_total)
+    {
+      return 'color: black;';
+    }
+    else
+    {
+      var max, min;
+
+      //Always check the last auction total score
+      max = $scope.casinosheet.p1_game_total;
+
+      if($scope.casinosheet.p2_game_total > max)
+      {
+        max = $scope.casinosheet.p2_game_total;
+      }
+
+      if($scope.casinosheet.p3_game_total > max && $scope.casinosheet.showThirdPlayer)
+      {
+        max = $scope.casinosheet.p3_game_total;
+      }
+
+      if($scope.casinosheet.p4_game_total > max && $scope.casinosheet.showFourthPlayer)
+      {
+        max = $scope.casinosheet.p4_game_total;
+      }
+
+      if($scope.casinosheet['p' + player_no + '_game_total'] == max)
+      {
+        return 'color: blue;';
+      }
+
+      //Always check the last auction total score
+      min = $scope.casinosheet.p1_game_total;
+
+      if($scope.casinosheet.p2_game_total < min)
+      {
+        min = $scope.casinosheet.p2_game_total;
+      }
+
+      if($scope.casinosheet.p3_game_total < min && $scope.casinosheet.showThirdPlayer)
+      {
+        min = $scope.casinosheet.p3_game_total;
+      }
+
+      if($scope.casinosheet.p4_game_total < min && $scope.casinosheet.showFourthPlayer)
+      {
+        min = $scope.casinosheet.p4_game_total;
+      }
+
+      if($scope.casinosheet['p' + player_no + '_game_total'] == min)
+      {
+        return 'color: red;';
+      }
+    }
+  }
+
+  $scope.getMaxScore = function()
+  {
+    var max = 0;
+
+    if($scope.casinosheet.p1_game_total >= max)
+    {
+      max = $scope.casinosheet.p1_game_total;
+    }
+
+    if($scope.casinosheet.p2_game_total >= max)
+    {
+      max = $scope.casinosheet.p2_game_total;
+    }
+
+    if($scope.casinosheet.p3_game_total >= max)
+    {
+      max = $scope.casinosheet.p3_game_total;
+    }
+
+    if($scope.casinosheet.p4_game_total >= max)
+    {
+      max = $scope.casinosheet.p4_game_total;
+    }
+
+    return max;
+  }
+
+  $scope.getMaxPlayers = function(max)
+  {
+    var max_players = [];
+
+    if($scope.casinosheet.p1_game_total == max)
+    {
+      max_players.push('1');
+    }
+
+    if($scope.casinosheet.p3_game_total == max)
+    {
+      max_players.push('3');
+    }
+
+    if($scope.casinosheet.p4_game_total == max)
+    {
+      max_players.push('4');
+    }
+
+    if($scope.casinosheet.p2_game_total == max)
+    {
+      max_players.push('2');
+    }
+
+    
+
+    return max_players;
+  }
+
+
+  $scope.checkTotalForVictory = function()
+  {
+    var has_victory = false,
+        max = 0,
+        winner = "";
+
+        max = $scope.getMaxScore();
+
+        if(max < $scope.casinosheet.targetScore)  //Target score não foi atingida - partida seguinte
+        {
+          $scope.addCasinoGame();
+          has_victory = true;
+        }
+        else
+        {
+          if($scope.getMaxPlayers(max).length == 1)  //Um só vencedor - incrementar vitória e recomeçar
+          {
+            var winner_model = "p" + $scope.getMaxPlayers(max)[0] + "_game_victories",
+                winner_name = "p" + $scope.getMaxPlayers(max)[0] + "_name";
+
+            $scope.casinosheet[winner_model]++;
+
+            $scope.casinosheet.winner = $scope.casinosheet[winner_name] + "!";
+
+            /*alert("Vencedor(a): " + $scope.casinosheet[winner_name] + "!"); */
+
+            //$scope.restartCasinoScores();
+            $scope.openCasinoModal(16);
+          }
+          else 
+          {
+            if(!$scope.casinosheet.showThirdPlayer) //Empate com 2 jogadores
+            {
+              /*alert("Empate! Vence quem tiver mais pontos na próxima partida."); */
+
+              //$scope.addCasinoGame();      //partida seguinte (até ganhar)
+              $scope.openCasinoModal(17);
+              has_victory = true;
+            }
+            else // empate com + de 2 jogadores, Modal com o vector de $scope.getMaxPlayers(max)
+            {
+              $scope.casinosheet.playersMaxScore = $scope.getMaxPlayers(max);
+
+              $scope.openCasinoModal(14);
+            }
+          }
+        } 
+
+    /*if($scope.casinosheet.p1_game_total >= $scope.casinosheet.targetScore)
+    {
+      $scope.casinosheet.p1_game_victories++;
+
+      has_victory = true;
+    }
+
+    if($scope.casinosheet.p2_game_total >= $scope.casinosheet.targetScore)
+    {
+      $scope.casinosheet.p2_game_victories++;
+
+      has_victory = true;
+    }
+
+    if($scope.casinosheet.p3_game_total >= $scope.casinosheet.targetScore)
+    {
+      $scope.casinosheet.p3_game_victories++;
+
+      has_victory = true;
+    }
+
+    if($scope.casinosheet.p4_game_total >= $scope.casinosheet.targetScore)
+    {
+      $scope.casinosheet.p4_game_victories++;
+
+      has_victory = true;
+    }*/
+
+    //if no scores matched the target score
+    return has_victory;
+  }
+
+  $scope.pushSingleWinner = function(winner)
+  {
+    //alert("Winner is " + winner);
+    $scope.casinosheet.winners = [];
+    //$scope.casinosheet[winner + '_game_victories']++;
+
+    $scope.casinosheet.winners.push(winner);
+  }
+
+  $scope.pushMultipleWinners = function(winners)
+  {
+    $scope.casinosheet.winners = [];
+
+    for(var i = 0; i < winners.length; i++)
+    {
+      $scope.casinosheet.winners.push(winners[i]);
+    }
+  }
+
+  $scope.addVictoryToWinners = function()
+  {
+    for(var i = 0; i < $scope.casinosheet.winners.length; i++)
+    {
+      $scope.casinosheet[$scope.casinosheet.winners[i] + '_game_victories']++;
+    }
+  }
+
+  $scope.getWinnerFromModal = function()
+  {
+    for(var i = 0; i < scope.casinosheet.playersMaxScore; i++)
+    {
+
+    }
+
+  }
 
   $scope.initCasinoScores = function()
   {
     //Game 1
-    $scope.casinosheet.p1_game_1 = 0;
+    /*$scope.casinosheet.p1_game_1 = 0;
     $scope.casinosheet.p2_game_1 = 0;
     $scope.casinosheet.p3_game_1 = 0;
     $scope.casinosheet.p4_game_1 = 0;
@@ -1123,7 +1590,7 @@ angular.module('starter.controllers', ['ionic'])
     //Game 3
     $scope.casinosheet.p1_game_3 = 0;
     $scope.casinosheet.p2_game_3 = 0;
-    $scope.casinosheet.p3_game_3= 0;
+    $scope.casinosheet.p3_game_3 = 0;
     $scope.casinosheet.p4_game_3 = 0;
     //Game 4
     $scope.casinosheet.p1_game_4 = 0;
@@ -1159,11 +1626,11 @@ angular.module('starter.controllers', ['ionic'])
     $scope.casinosheet.p1_game_10 = 0;
     $scope.casinosheet.p2_game_10 = 0;
     $scope.casinosheet.p3_game_10 = 0;
-    $scope.casinosheet.p4_game_10 = 0;
+    $scope.casinosheet.p4_game_10 = 0;*/
 
     //Show game booleans
     //$scope.casinosheet.show_game_1 = 1;
-    $scope.casinosheet.show_game_2 = 0;
+    /*$scope.casinosheet.show_game_2 = 0;
     $scope.casinosheet.show_game_3 = 0;
     $scope.casinosheet.show_game_4 = 0;
     $scope.casinosheet.show_game_5 = 0;
@@ -1171,7 +1638,7 @@ angular.module('starter.controllers', ['ionic'])
     $scope.casinosheet.show_game_7 = 0;
     $scope.casinosheet.show_game_8 = 0;
     $scope.casinosheet.show_game_9 = 0;
-    $scope.casinosheet.show_game_10 = 0;
+    $scope.casinosheet.show_game_10 = 0;*/
 
     //Totais
     $scope.casinosheet.p1_game_total = 0;
@@ -1192,23 +1659,34 @@ angular.module('starter.controllers', ['ionic'])
     $scope.casinosheet.showThirdPlayer = 0;
     $scope.casinosheet.showFourthPlayer = 0;
 
+    //Winner
+    $scope.casinosheet.winner_name_modal = "0";
+
     //Configurations
     $scope.casinosheet.playerNumbers = [
-    { text: "2 Jog.", value: "2P"},
-    { text: "3 Jog.", value: "3P"},
-    { text: "4 Jog.", value: "4P"}
+    { text: "2", value: "2P"},
+    { text: "3", value: "3P"},
+    { text: "4", value: "4P"}
     ];
 
     $scope.casinosheet.gameList = [
-    { number: 1, text: "Jogo 1", p1_model: 0, p2_model: 0, p3_model: 0, p4_model: 0, total_model: 0 }
+    { number: 1, text: "# 1", p1_model: 0, p2_model: 0, p3_model: 0, p4_model: 0, total_model: 0 }
     ];
-
 
     $scope.casinosheet.playerData = {
       players: '2P'
     };
 
     $scope.casinosheet.targetScore = 21;
+
+    $scope.casinosheet.playersMaxScore = [];
+
+    $scope.casinosheet.winners = [];
+
+    $scope.casinosheet.p1_name = "Nós";
+    $scope.casinosheet.p2_name = "Eles";
+
+    $scope.casinosheet.winner = "";
     
 
     /*$scope.playerData = {
@@ -1220,11 +1698,50 @@ angular.module('starter.controllers', ['ionic'])
     };*/
   };
 
+  $scope.calculateWinner = function()
+  {
+    //First, search the totals for a number equal to the max score.
+
+    //If no total equals the match score, ask the user who won:
+    openCasinoModal(14);
+  }
+
+  $scope.setWinnerFromModal = function()
+  {
+    var winner = "";
+
+    if($scope.casinosheet.winner_name_modal == "1")
+    {
+      winner = $scope.casinosheet.p1_name;
+
+      $scope.casinosheet.p1_game_victories++;
+    }else if($scope.casinosheet.winner_name_modal == "2")
+    {
+      winner = $scope.casinosheet.p2_name;
+
+      $scope.casinosheet.p2_game_victories++;
+    }else if($scope.casinosheet.winner_name_modal == "3")
+    {
+      winner = $scope.casinosheet.p3_name;
+
+      $scope.casinosheet.p3_game_victories++;
+    }else if($scope.casinosheet.winner_name_modal == "4")
+    {
+      winner = $scope.casinosheet.p4_name;
+
+      $scope.casinosheet.p4_game_victories++;
+    }
+
+    alert("Vencedor(a): " + winner);
+
+    $scope.restartCasinoScores();
+  }
+
   //Called when a new game starts
   $scope.restartCasinoScores = function()
   {
     //Game 1
-    $scope.casinosheet.p1_game_1 = 0;
+    /*$scope.casinosheet.p1_game_1 = 0;
     $scope.casinosheet.p2_game_1 = 0;
     $scope.casinosheet.p3_game_1 = 0;
     $scope.casinosheet.p4_game_1 = 0;
@@ -1284,14 +1801,14 @@ angular.module('starter.controllers', ['ionic'])
     $scope.casinosheet.show_game_7 = 0;
     $scope.casinosheet.show_game_8 = 0;
     $scope.casinosheet.show_game_9 = 0;
-    $scope.casinosheet.show_game_10 = 0;
+    $scope.casinosheet.show_game_10 = 0;*/
 
     //Game counter
     $scope.casinosheet.current_game = 1;
 
     //Game rows
     $scope.casinosheet.gameList = [
-    { number: 1, text: "Jogo 1", p1_model: 0, p2_model: 0, p3_model: 0, p4_model: 0, total_model: 0 }
+    { number: 1, text: "# 1", p1_model: 0, p2_model: 0, p3_model: 0, p4_model: 0, total_model: 0 }
     ];
 
     //Totais
@@ -1299,6 +1816,8 @@ angular.module('starter.controllers', ['ionic'])
     $scope.casinosheet.p2_game_total = 0;
     $scope.casinosheet.p3_game_total = 0;
     $scope.casinosheet.p4_game_total = 0;
+
+    $scope.casinosheet.winners = [];
   };
 
   $scope.getGameTotalScore = function(game_no)
@@ -1306,11 +1825,10 @@ angular.module('starter.controllers', ['ionic'])
 
   };
 
-
   $scope.playerNumberChange = function(item) 
   {
-    console.log("Number of players:", item.text, "value:", item.value);
-    console.log($scope.casinosheet.playerData.players);
+    //console.log("Number of players:", item.text, "value:", item.value);
+    //console.log($scope.casinosheet.playerData.players);
 
     switch($scope.casinosheet.playerData.players)
     {
@@ -1318,18 +1836,27 @@ angular.module('starter.controllers', ['ionic'])
       {
         $scope.casinosheet.showThirdPlayer = 1;
         $scope.casinosheet.showFourthPlayer = 0;
+        $scope.casinosheet.p1_name = "Jog. 1";
+        $scope.casinosheet.p2_name = "Jog. 3";
+        $scope.casinosheet.p3_name = "Jog. 2";
         break;
       }
       case '4P':
       {
         $scope.casinosheet.showThirdPlayer = 1;
         $scope.casinosheet.showFourthPlayer = 1;
+        $scope.casinosheet.p1_name = "Jog. 1";
+        $scope.casinosheet.p2_name = "Jog. 4";
+        $scope.casinosheet.p3_name = "Jog. 2";
+        $scope.casinosheet.p4_name = "Jog. 3";
         break;
       }
       default:
       {
         $scope.casinosheet.showThirdPlayer = 0;
         $scope.casinosheet.showFourthPlayer = 0;
+        $scope.casinosheet.p1_name = "Nós";
+        $scope.casinosheet.p2_name = "Eles";
         break;
       }
     }
@@ -1355,11 +1882,16 @@ angular.module('starter.controllers', ['ionic'])
   //Reset the scores
   $scope.initCasinoScores();
 
+  $scope.casinosheet.p1_name = "Nós";
+  $scope.casinosheet.p2_name = "Eles";
+  $scope.casinosheet.p3_name = "Jog. 3";
+  $scope.casinosheet.p4_name = "Jog. 4";
+
   //$scope.casinosheet = {};
-  $scope.casinosheet.p3_name_header_col = {};
+  /*$scope.casinosheet.p3_name_header_col = {};
   $scope.casinosheet.showThirdPlayer = 0;
   $scope.casinosheet.showFourthPlayer = 0;
-  $scope.casinosheet.totalCasinoGames = 1;
+  $scope.casinosheet.totalCasinoGames = 1;*/
 
   $scope.$watch('casinosheet.p1_game_1', function() 
   {
@@ -1436,21 +1968,9 @@ angular.module('starter.controllers', ['ionic'])
 
   $scope.changeGameTotalColor = function(game_number)
   {
-    //console.log('this: ' + angular.element(e.srcElement));
+    var game_no = game_number - 1;
 
-    //var game_model = 'total_model_' + game;
-
-    /*var reference_value = 0;
-
-    for(var i = 0; i < $scope.casinosheet.gameList.length; i++) 
-    {
-        if($scope.casinosheet.gameList[game_number+1].total_modal == game_number)
-        {
-
-        }
-    }*/
-
-    if($scope.casinosheet.gameList[game_number-1].total_modal >= 11)
+    if($scope.casinosheet.gameList[game_no].total_model >= 11)
     {
       return "color: #94FF94;";
     }
@@ -1628,6 +2148,8 @@ angular.module('starter.controllers', ['ionic'])
 .controller('kingCtrl', function($scope, $stateParams) 
 {
 
+  $scope.showBannerAdView();
+
   $scope.initKingScores = function()
   {
     //No tricks
@@ -1694,6 +2216,94 @@ angular.module('starter.controllers', ['ionic'])
     $scope.kingsheet.second_auction_toggle = 0;
     $scope.kingsheet.third_auction_toggle = 0;
     $scope.kingsheet.fourth_auction_toggle = 0;
+
+    $scope.kingsheet.p1_name = "";
+    $scope.kingsheet.p2_name = "";
+    $scope.kingsheet.p3_name = "";
+    $scope.kingsheet.p4_name = "";
+
+    $scope.kingsheet.winnersInOrder = [];
+  }
+
+  $scope.setColorFromScore = function(player_no)
+  {
+
+    if($scope.kingsheet.p1_fourth_auction_total == $scope.kingsheet.p2_fourth_auction_total
+      && $scope.kingsheet.p2_fourth_auction_total == $scope.kingsheet.p3_fourth_auction_total
+      && $scope.kingsheet.p3_fourth_auction_total == $scope.kingsheet.p4_fourth_auction_total)
+    {
+      return 'color: black;';
+    }
+    else
+    {
+      var max, min;
+
+      //Always check the last auction total score
+      max = $scope.kingsheet.p1_fourth_auction_total;
+
+      if($scope.kingsheet.p2_fourth_auction_total > max)
+      {
+        max = $scope.kingsheet.p2_fourth_auction_total;
+      }
+
+      if($scope.kingsheet.p3_fourth_auction_total > max)
+      {
+        max = $scope.kingsheet.p3_fourth_auction_total;
+      }
+
+      if($scope.kingsheet.p4_fourth_auction_total > max)
+      {
+        max = $scope.kingsheet.p4_fourth_auction_total;
+      }
+
+      if($scope.kingsheet['p' + player_no + '_fourth_auction_total'] == max)
+      {
+        return 'color: blue;';
+      }
+
+      //Always check the last auction total score
+      min = $scope.kingsheet.p1_fourth_auction_total;
+
+      if($scope.kingsheet.p2_fourth_auction_total < min)
+      {
+        min = $scope.kingsheet.p2_fourth_auction_total;
+      }
+
+      if($scope.kingsheet.p3_fourth_auction_total < min)
+      {
+        min = $scope.kingsheet.p3_fourth_auction_total;
+      }
+
+      if($scope.kingsheet.p4_fourth_auction_total < min)
+      {
+        min = $scope.kingsheet.p4_fourth_auction_total;
+      }
+
+      if($scope.kingsheet['p' + player_no + '_fourth_auction_total'] == min)
+      {
+        return 'color: red;';
+      }
+    }
+  }
+
+
+  $scope.calculateKingWinnerOrder = function()
+  {
+
+    /*$scope.kingsheet.winnersInOrder = [];
+
+    $scope.kingsheet.winnersInOrder.push($scope.kingsheet.p1_fourth_auction_total);
+    $scope.kingsheet.winnersInOrder.push($scope.kingsheet.p2_fourth_auction_total);
+    $scope.kingsheet.winnersInOrder.push($scope.kingsheet.p3_fourth_auction_total);
+    $scope.kingsheet.winnersInOrder.push($scope.kingsheet.p4_fourth_auction_total);
+
+    $scope.kingsheet.winnersInOrder.sort();
+
+    for(i = 0; i < $scope.kingsheet.winnersInOrder.length; i++)
+    {
+      alert("winner:" + $scope.kingsheet.winnersInOrder[i]);
+    }
+    */
   }
 
 

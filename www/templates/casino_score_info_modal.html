@@ -1,0 +1,108 @@
+<ion-modal-view ng-controller="casinoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Pontuação do Casino</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="casinoCtrl" style="color: #444;">
+
+  <div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Casino</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h4>Carta ou objetivo</h4>
+    </div>
+    <div class="col">
+      <h4>Descrição</h4>
+    </div>
+    <div class="col">
+      <h4>Pontos</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com mais cartas</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h4>3 pontos</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com mais cartas pretas</p>
+    </div>
+    <div class="col">
+      <p>Aqui as cartas pretas referem-se às Espadas</p>
+    </div>
+    <div class="col">
+      <h4>1 ponto</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com o 10 de Ouros</p>
+    </div>
+    <div class="col">
+      <p>Grande Casino (também conhecido como a "Menina")</p>
+    </div>
+    <div class="col">
+      <h4>2 pontos</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com o 2 de Espadas</p>
+    </div>
+    <div class="col">
+      <p>Pequeno Casino (também conhecido como o "Casininho")</p>
+    </div>
+    <div class="col">
+      <h4>1 ponto</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Ás</p>
+    </div>
+    <div class="col">
+      <p>De qualquer naipe</p>
+    </div>
+    <div class="col">
+      <h4>1 ponto cada</h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Clarezas</p>
+    </div>
+    <div class="col">
+      <p>Uma clareza acontece cada vez que um jogador deixa a mesa sem cartas</p>
+    </div>
+    <div class="col">
+      <h4>1 ponto cada</h4>
+    </div>
+  </div>
+
+  <!-- Cancel button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeCasinoModal(21)">
+        Voltar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

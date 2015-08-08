@@ -1,0 +1,84 @@
+<ion-modal-view ng-controller="casinoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Escolha uma das seguintes opções:</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="casinoCtrl" style="color: #444;">
+    <!--<div class="row">
+      <div class="col">
+        <p class="centered_paragraph_black">Quem venceu a partida?</p>
+      </div>
+    </div>-->
+    <!--<div class="row">
+      <div class="col" ng-repeat="item in casinosheet.playersMaxScore">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_name_modal" ng-value="item" ng-change="pushSingleWinner('p' + item);">
+        {{casinosheet['p' + item + '_name']}}
+        </ion-radio>
+      </div>
+    </div>-->
+
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_all" ng-change="pushAllWinners(TODO);">
+        Todos os anteriores
+        </ion-radio>
+      </div>
+    </div>-->
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_name_modal" ng-value="1">
+        {{casinosheet.p1_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_name_modal" ng-value="2">
+        {{casinosheet.p2_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="casinosheet.showFourthPlayer">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_name_modal" ng-value="4">
+        {{casinosheet.p4_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="casinosheet.showThirdPlayer">
+        <ion-radio name="winnerList" ng-model="casinosheet.winner_name_modal" ng-value="3">
+        {{casinosheet.p3_name}}
+        </ion-radio>
+      </div>
+    </div>-->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="casinosheet.how_to_button" ng-click="closeCasinoModal(19);openCasinoModal(20);">
+        <i class="icon ion-edit"></i>&nbsp;&nbsp;Como usar a aplicação
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="casinosheet.score_info_button" ng-click="closeCasinoModal(19);openCasinoModal(21);">
+        <i class="icon ion-clipboard"></i>&nbsp;&nbsp;Consultar a Pontuação do Casino
+        </button>
+      </div>
+  </div>
+       
+  <!-- Cancel button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block button-assertive" ng-model="casinosheet.reset_button" ng-click="closeCasinoModal(19)">
+        Cancelar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

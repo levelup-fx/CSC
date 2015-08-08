@@ -8,27 +8,28 @@
     </div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Nós" ng-model="casinosheet.p1_name">
+        <input class="player_name_input" type="text" placeholder="Nós" ng-model="casinosheet.p1_name" style="{{setColorFromScore(1)}}">
       </div>
     </div>
     <div class="col no-padding-element" ng-model="casinosheet.p3_name_header_col" ng-show="casinosheet.showThirdPlayer">          
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="casinosheet.p3_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="casinosheet.p3_name" style="{{setColorFromScore(3)}}">
       </div>
     </div>
     <div class="col no-padding-element" ng-model="casinosheet.p4_name_header_col" ng-show="casinosheet.showFourthPlayer">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="casinosheet.p4_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="casinosheet.p4_name" style="{{setColorFromScore(4)}}">
       </div>
     </div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Eles" ng-model="casinosheet.p2_name">
+        <input class="player_name_input" type="text" placeholder="Eles" ng-model="casinosheet.p2_name" style="{{setColorFromScore(2)}}">
       </div>
     </div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input type="text" class="subheader_input" value="Totais" disabled>
+        <!--<input type="text" class="subheader_input" value="Totais" disabled>-->
+        <button class="button new-player-button" ng-click="openCasinoModal(19)"><i class="icon ion-help"></i></button>
       </div>
     </div>
   </div>
@@ -45,13 +46,13 @@
           <input class="score_input_left" ng-model="item.p1_model" ng-change="updateGameRowTotal(item.number, 1)" type="number">
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showThirdPlayer">
-          <input class="score_input_middle" ng-model="item.p2_model" ng-change="updateGameRowTotal(item.number, 2)"  type="number">
+          <input class="score_input_middle" ng-model="item.p3_model" ng-change="updateGameRowTotal(item.number, 3)"  type="number">
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showFourthPlayer">
-          <input class="score_input_middle" ng-model="item.p3_model" ng-change="updateGameRowTotal(item.number, 3)" type="number">
+          <input class="score_input_middle" ng-model="item.p4_model" ng-change="updateGameRowTotal(item.number, 4)" type="number">
         </div>
         <div class="col no-padding-element">
-          <input class="score_input_right" ng-model="item.p4_model" ng-change="updateGameRowTotal(item.number, 4)" type="number">
+          <input class="score_input_right" ng-model="item.p2_model" ng-change="updateGameRowTotal(item.number, 2)" type="number">
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -63,25 +64,31 @@
       <!-- Totais de cada jogador -->
       <div class="row">
         <div class="col col-20 no-padding-element">
-          <input type="text" class="regular_text_input" value="Total" disabled>
+          <input type="text" class="final_score_input" value="Total" disabled>
         </div>
         <div class="col no-padding-element">
-          <input class="score_input" ng-model="casinosheet.p1_game_total" ng-bind="casinosheet.p1_game_total" ng-value="0" disabled>
+          <input class="final_score_input" ng-model="casinosheet.p1_game_total" ng-bind="casinosheet.p1_game_total" ng-value="0" disabled>
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showThirdPlayer">
-          <input class="score_input" ng-model="casinosheet.p2_game_total" ng-bind="casinosheet.p2_game_total" ng-value="0" disabled>
+          <input class="final_score_input" ng-model="casinosheet.p3_game_total" ng-bind="casinosheet.p3_game_total" ng-value="0" disabled>
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showFourthPlayer">
-          <input class="score_input" ng-model="casinosheet.p3_game_total" ng-bind="casinosheet.p3_game_total" ng-value="0" disabled>
+          <input class="final_score_input" ng-model="casinosheet.p4_game_total" ng-bind="casinosheet.p4_game_total" ng-value="0" disabled>
         </div>
         <div class="col no-padding-element">
-          <input class="score_input" ng-model="casinosheet.p4_game_total" ng-bind="casinosheet.p4_game_total" ng-value="0" disabled>
+          <input class="final_score_input" ng-model="casinosheet.p2_game_total" ng-bind="casinosheet.p2_game_total" ng-value="0" disabled>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
                 <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="casinosheet.total_game_total" style="{{changeGameTotalColor(10)}}" disabled>
           </div>
         </div>
+      </div>
+      <!-- Linha -->
+      <div class="row">
+      <div class="col">
+        <hr>
+      </div>
       </div>
       <!-- Jogos que cada jogador venceu -->
       <div class="row">
@@ -96,13 +103,13 @@
           </div>
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showThirdPlayer">
-          <input class="score_input" ng-model="casinosheet.p2_game_victories" disabled>
-        </div>
-        <div class="col no-padding-element" ng-show="casinosheet.showFourthPlayer">
           <input class="score_input" ng-model="casinosheet.p3_game_victories" disabled>
         </div>
-        <div class="col no-padding-element">
+        <div class="col no-padding-element" ng-show="casinosheet.showFourthPlayer">
           <input class="score_input" ng-model="casinosheet.p4_game_victories" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <input class="score_input" ng-model="casinosheet.p2_game_victories" disabled>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -114,25 +121,30 @@
       <!--<button class="button button-block button-balanced" ng-model="casinosheet.new_game_button" ng-click="addCasinoGame()">
         Jogo seguinte
       </button>-->
-      <div class="row">
+      <!--<div class="row">
       <div class="col no-padding-element">
-      <button class="button button-block button-balanced" ng-model="casinosheet.reset_button" ng-click="addCasinoGame()">
-        Adicionar jogo
-      </button>
+        <button class="button button-block button-balanced" ng-model="casinosheet.reset_button" ng-click="addCasinoGame()">
+        +1 partida
+        </button>
       </div>
-      </div>
+      </div>-->
       <div class="row">
-      <div class="col col-45 no-padding-element">
-        <button class="button button-block button-assertive" ng-model="casinosheet.reset_button" ng-click="createAdView()">
-        Jogo seguinte
+      <!--<div class="col col-45 no-padding-element">
+        <button class="button button-block button-stable" ng-model="casinosheet.reset_button" ng-click="createAdView();checkTotalForVictory() ? restartCasinoScores() : openCasinoModal(14);">
+        Próx. Jogo
+        </button>
+      </div>-->
+      <div class="col no-padding-element">
+        <button class="button button-block button-balanced" ng-model="casinosheet.reset_button" ng-click="checkTotalForVictory();createInterstitialAdView();">
+        Seguinte
         </button>
       </div>
       <div class="col col-10">
         &nbsp;
       </div>
       <div class="col col-45 no-padding-element">
-        <button class="button button-block button-assertive" ng-model="casinosheet.reset_button" ng-click="initCasinoScores()">
-        Recomeçar do Zero
+        <button class="button button-block button-assertive" ng-model="casinosheet.reset_button" ng-click="openCasinoModal(15);">
+        Recomeçar
         </button>
       </div>
       </div>

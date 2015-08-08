@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.myapp973241" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>myApp</name>
+  <name>Vai pró Baralho</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Aplicação para registar a pontuação de jogos de Cartas.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="contactus@levelup-fx.pt" href="http://www.levelup-fx.pt">
+      LEVELUP!
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -19,7 +19,30 @@
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="ios">
-    <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
+    <!-- iOS 7.0+ -->
+    <!-- iPhone / iPod Touch -->
+    <icon src="icons/ios/icon-60.png" width="60" height="60" />
+    <icon src="icons/ios/icon-60@2x.png" width="120" height="120" />
+    <!-- iPad -->
+    <icon src="icons/ios/icon-76.png" width="76" height="76" />
+    <icon src="icons/ios/icon-76@2x.png" width="152" height="152" />
+    <!-- iOS 6.1 -->
+    <!-- Spotlight Icon -->
+    <icon src="icons/ios/icon-40.png" width="40" height="40" />
+    <icon src="icons/ios/icon-40@2x.png" width="80" height="80" />
+    <!-- iPhone / iPod Touch -->
+    <icon src="icons/ios/icon.png" width="57" height="57" />
+    <icon src="icons/ios/icon@2x.png" width="114" height="114" />
+    <!-- iPad -->
+    <icon src="icons/ios/icon-72.png" width="72" height="72" />
+    <icon src="icons/ios/icon-72@2x.png" width="144" height="144" />
+    <!-- iPhone Spotlight and Settings Icon -->
+    <icon src="icons/ios/icon-small.png" width="29" height="29" />
+    <icon src="icons/ios/icon-small@2x.png" width="58" height="58" />
+    <!-- iPad Spotlight and Settings Icon -->
+    <icon src="icons/ios/icon-50.png" width="50" height="50" />
+    <icon src="icons/ios/icon-50@2x.png" width="100" height="100" />
+    <!--<icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
     <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
     <icon src="resources/ios/icon/icon-40@2x.png" width="80" height="80"/>
@@ -34,7 +57,8 @@
     <icon src="resources/ios/icon/icon-76@2x.png" width="152" height="152"/>
     <icon src="resources/ios/icon/icon-small.png" width="29" height="29"/>
     <icon src="resources/ios/icon/icon-small@2x.png" width="58" height="58"/>
-    <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
+    <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>-->
+
     <splash src="resources/ios/splash/Default-568h@2x~iphone.png" height="1136" width="640"/>
     <splash src="resources/ios/splash/Default-667h.png" height="1334" width="750"/>
     <splash src="resources/ios/splash/Default-736h.png" height="2208" width="1242"/>
@@ -47,12 +71,28 @@
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
   <platform name="android">
-    <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
+    <!--<icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
-    <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+    <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>-->
+    <!-- android 7.0+ -->
+    <icon src="icons/android/icon-60.png" width="60" height="60" />
+    <icon src="icons/android/icon-60@2x.png" width="120" height="120" />
+    <icon src="icons/android/icon-76.png" width="76" height="76" />
+    <icon src="icons/android/icon-76@2x.png" width="152" height="152" />
+    <!-- android 6.1 -->
+    <icon src="icons/android/icon-40.png" width="40" height="40" />
+    <icon src="icons/android/icon-40@2x.png" width="80" height="80" />
+    <icon src="icons/android/icon.png" width="57" height="57" />
+    <icon src="icons/android/icon@2x.png" width="114" height="114" />
+    <icon src="icons/android/icon-72.png" width="72" height="72" />
+    <icon src="icons/android/icon-72@2x.png" width="144" height="144" />
+    <icon src="icons/android/icon-small.png" width="29" height="29" />
+    <icon src="icons/android/icon-small@2x.png" width="58" height="58" />
+    <icon src="icons/android/icon-50.png" width="50" height="50" />
+    <icon src="icons/android/icon-50@2x.png" width="100" height="100" />
     <splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>
     <splash src="resources/android/splash/drawable-land-mdpi-screen.png" density="land-mdpi"/>
     <splash src="resources/android/splash/drawable-land-hdpi-screen.png" density="land-hdpi"/>
@@ -66,4 +106,10 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+  <platform name="ios">
+
+</platform>
+<platform name="android">
+
+</platform>
 </widget>

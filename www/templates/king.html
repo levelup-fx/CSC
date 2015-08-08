@@ -1,25 +1,25 @@
-<ion-view view-title="King" class="background">
+<ion-view view-title="King" class="background" ng-controller="kingCtrl">
   <ion-header-bar class="bar-subheader item-input-inset no-padding-element" style="text-align: center;">
   <div class="row no-padding-element">
     <div class="col col-20">&nbsp;</div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 1" ng-model="kingsheet.p1_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 1" ng-model="kingsheet.p1_name" style="{{setColorFromScore(1)}}">
       </div>
     </div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 2" ng-model="kingsheet.p2_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 2" ng-model="kingsheet.p2_name" style="{{setColorFromScore(2)}}">
       </div>
     </div>
     <div class="col no-padding-element">          
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="kingsheet.p3_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="kingsheet.p3_name" style="{{setColorFromScore(3)}}" >
       </div>
     </div>
     <div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
-        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name">
+        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name" style="{{setColorFromScore(4)}}">
       </div>
     </div>
     <div class="col no-padding-element">
@@ -191,53 +191,56 @@
     	<!-- Oitava linha: Totais de Negativos -->
     	<div class="row">
     		<div class="col col-20 no-padding-element">
-              <input type="text" class="regular_text_input" value="Total" disabled>
+              <input type="text" class="final_score_input" value="Total" disabled>
         </div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
       				<div class=' no-padding-element'>
-      					<input class="score_input" type="number" ng-value="0" placeholder="0" ng-model='kingsheet.p1_first_total' ng-value="kingsheet.p1_notricks + kingsheet.p1_hearts + kingsheet.p1_dames + kingsheet.p1_gents + kingsheet.p1_king + kingsheet.p1_last_2" disabled>
+      					<input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model='kingsheet.p1_first_total' ng-value="kingsheet.p1_notricks + kingsheet.p1_hearts + kingsheet.p1_dames + kingsheet.p1_gents + kingsheet.p1_king + kingsheet.p1_last_2" disabled>
       				</div>
   				</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
       				<div class='no-padding-element'>
-      					<input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_first_total" ng-value="kingsheet.p2_notricks + kingsheet.p2_hearts + kingsheet.p2_dames + kingsheet.p2_gents + kingsheet.p2_king + kingsheet.p2_last_2" disabled>
+      					<input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_first_total" ng-value="kingsheet.p2_notricks + kingsheet.p2_hearts + kingsheet.p2_dames + kingsheet.p2_gents + kingsheet.p2_king + kingsheet.p2_last_2" disabled>
       				</div>
   				</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
       				<div class='no-padding-element'>
-      					<input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_first_total" ng-value="kingsheet.p3_notricks + kingsheet.p3_hearts + kingsheet.p3_dames + kingsheet.p3_gents + kingsheet.p3_king + kingsheet.p3_last_2" disabled>
+      					<input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_first_total" ng-value="kingsheet.p3_notricks + kingsheet.p3_hearts + kingsheet.p3_dames + kingsheet.p3_gents + kingsheet.p3_king + kingsheet.p3_last_2" disabled>
       				</div>
   				</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
       				<div class='no-padding-element'>
-      					<input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_first_total" ng-value="kingsheet.p4_notricks + kingsheet.p4_hearts + kingsheet.p4_dames + kingsheet.p4_gents + kingsheet.p4_king + kingsheet.p4_last_2" disabled>
+      					<input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_first_total" ng-value="kingsheet.p4_notricks + kingsheet.p4_hearts + kingsheet.p4_dames + kingsheet.p4_gents + kingsheet.p4_king + kingsheet.p4_last_2" disabled>
       				</div>
   				</div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
       				<div class='no-padding-element'>
-      					<input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.first_totals" ng-value="kingsheet.p2_first_total + kingsheet.p3_first_total + kingsheet.p4_first_total" style="{{changeLast2TotalColor()}}" disabled>
+      					<input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.first_totals" ng-value="kingsheet.p2_first_total + kingsheet.p3_first_total + kingsheet.p4_first_total" style="{{changeLast2TotalColor()}}" disabled>
       				</div>
   				</div>
   			</div>
     	</div>
-    	<!-- Publicidade -->
-    	<!--<div class="row no-padding-element">
-    		<div class="col col-100 col-center" style="text-align:center;">Publicidade</div>
-    	</div>-->
+    	<!-- Título das Festas -->
+      <div class="row big-top-bottom-margin-element">
+        <div class="col col-100 col-center" style="text-align:center;"><hr></div>
+      </div>
+    	<div class="row big-top-bottom-margin-element">
+    		<div class="col col-100 col-center" style="text-align:center;">Festas</div>
+    	</div>
     	<!-- Nona linha: Primeira Festa -->
     	<div class="row">
     		<!--<div class="col col-20 no-padding-element">Festa {{ kingsheet.p3_name }}</div>-->
         <div class="col col-20 no-padding-element">
-          <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p3_name }}" disabled>
+          <input type="text" class="regular_text_input" value="{{ kingsheet.p3_name }}" disabled>
         </div>
     		<div class="col no-padding-element">
           <div class="score_input_left" ng-model="kingsheet.p1_first_auction" ng-bind="kingsheet.p1_first_auction" ng-click="openKingModal(7)" ng-value="0">0</div>
@@ -305,7 +308,7 @@
     	<!-- Décima-primeira linha: Segunda Festa -->
     	<div class="row">
         <div class="col col-20 no-padding-element">
-              <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p4_name }}" disabled>
+              <input type="text" class="regular_text_input" value="{{ kingsheet.p4_name }}" disabled>
         </div>
         <div class="col no-padding-element">
           <div class="score_input_left" ng-model="kingsheet.p1_second_auction" ng-bind="kingsheet.p1_second_auction" ng-click="openKingModal(8)" ng-value="0">0</div>
@@ -372,7 +375,7 @@
     	<!-- Décima-terceira linha: Terceira Festa -->
     	<div class="row">
         <div class="col col-20 no-padding-element">
-              <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p1_name }}" disabled>
+              <input type="text" class="regular_text_input" value="{{ kingsheet.p1_name }}" disabled>
         </div>
         <div class="col no-padding-element">
           <div class="score_input_left" ng-model="kingsheet.p1_third_auction" ng-bind="kingsheet.p1_third_auction" ng-click="openKingModal(9)" ng-value="0">0</div>
@@ -439,7 +442,7 @@
     	<!-- Décima-quinta linha: Quarta Festa -->
     	<div class="row">
         <div class="col col-20 no-padding-element">
-              <input type="text" class="regular_text_input" value="Festa {{ kingsheet.p2_name }}" disabled>
+              <input type="text" class="regular_text_input" value="{{ kingsheet.p2_name }}" disabled>
         </div>
         <div class="col no-padding-element">
           <div class="score_input_left" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
@@ -451,7 +454,7 @@
           <div class="score_input_middle" ng-model="kingsheet.p3_fourth_auction" ng-bind="kingsheet.p3_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
-          <div class="score_input_right" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p1_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
+          <div class="score_input_right" ng-model="kingsheet.p1_fourth_auction" ng-bind="kingsheet.p4_fourth_auction" ng-click="openKingModal(10)" ng-value="0">0</div>
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -462,8 +465,8 @@
         </div>
       </div>
     	<!-- Décima-sexta linha: Resultado parcial da quarta Festa -->
-    	<div class="row">
-    		<div class="col col-20 no-padding-element" style="text-align: center">
+    	<div class="row big-top-bottom-margin-element">
+    		<div class="col col-20" style="text-align: center">
           <!--<label class="toggle toggle-king toggle-assertive">
              <input class="score_input" type="checkbox" ng-model="kingsheet.fourth_auction_toggle" ng-click="fourthAuctionToggle()">
              <div class="track">
@@ -474,33 +477,37 @@
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
             <div class='no-padding-element'>
-              <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_fourth_auction_total" disabled>
+              <input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_fourth_auction_total" disabled>
             </div>
           </div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
             <div class='no-padding-element'>
-              <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_fourth_auction_total" disabled>
+              <input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_fourth_auction_total" disabled>
             </div>
           </div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
             <div class='no-padding-element'>
-              <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_fourth_auction_total" disabled>
+              <input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_fourth_auction_total" disabled>
             </div>
           </div>
   			</div>
     		<div class="col no-padding-element">
     			<div class="list list-inset no-padding-element">
             <div class='no-padding-element'>
-              <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_fourth_auction_total" disabled>
+              <input class="final_score_input" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_fourth_auction_total" disabled>
             </div>
           </div>
   			</div>
     		<div class="col no-padding-element">
-          <input type="text" class="regular_text_input" value="Final" disabled>
+          <div class="list list-inset no-padding-element">
+            <div class='no-padding-element'>
+          <input type="text" class="final_score_input" value="Final" disabled>
+            </div>
+          </div>
         </div>
     	</div>
     	<!-- Publicidade -->
