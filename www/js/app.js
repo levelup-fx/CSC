@@ -47,11 +47,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })*/
-  .state('app.baccarat', {
-    url: "/baccarat",
+  .state('app.geral', {
+    url: "/geral",
     views: {
       'menuContent': {
-        templateUrl: "templates/under_construction.html"
+        templateUrl: "templates/geral.html"
       }
     }
   })
@@ -60,7 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/bisca",
     views: {
       'menuContent': {
-        templateUrl: "templates/under_construction.html"
+        templateUrl: "templates/bisca.html"
       }
     }
   })
@@ -78,7 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/canasta",
     views: {
       'menuContent': {
-        templateUrl: "templates/under_construction.html"
+        templateUrl: "templates/canasta.html"
       }
     }
   })
@@ -96,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/copas",
     views: {
       'menuContent': {
-        templateUrl: "templates/under_construction.html"
+        templateUrl: "templates/copas.html"
       }
     }
   })
@@ -114,7 +114,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/sueca",
     views: {
       'menuContent': {
-        templateUrl: "templates/under_construction.html"
+        templateUrl: "templates/sueca.html"
       }
     }
   })
@@ -124,6 +124,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/cover.html"
+      }
+    }
+  })
+
+  .state('app.historico', {
+    url: "/historico",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/under_construction.html"
       }
     }
   })

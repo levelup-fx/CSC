@@ -1,0 +1,92 @@
+<ion-modal-view ng-controller="suecaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Escolha uma das seguintes opções:</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="suecaCtrl" style="color: #444;">
+    <!--<div class="row">
+      <div class="col">
+        <p class="centered_paragraph_black">Quem venceu a partida?</p>
+      </div>
+    </div>-->
+    <!--<div class="row">
+      <div class="col" ng-repeat="item in suecasheet.playersMaxScore">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_name_modal" ng-value="item" ng-change="pushSingleWinner('p' + item);">
+        {{suecasheet['p' + item + '_name']}}
+        </ion-radio>
+      </div>
+    </div>-->
+
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_all" ng-change="pushAllWinners(TODO);">
+        Todos os anteriores
+        </ion-radio>
+      </div>
+    </div>-->
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_name_modal" ng-value="1">
+        {{suecasheet.p1_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_name_modal" ng-value="2">
+        {{suecasheet.p2_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="suecasheet.showFourthPlayer">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_name_modal" ng-value="4">
+        {{suecasheet.p4_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="suecasheet.showThirdPlayer">
+        <ion-radio name="winnerList" ng-model="suecasheet.winner_name_modal" ng-value="3">
+        {{suecasheet.p3_name}}
+        </ion-radio>
+      </div>
+    </div>-->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="suecasheet.score_info_button" ng-click="closeSuecaModal(42);openSuecaModal(0, 0, 43);">
+        <i class="icon ion-help"></i>&nbsp;&nbsp;Como jogar à Sueca
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="suecasheet.how_to_button" ng-click="closeSuecaModal(42);openSuecaModal(0, 0, 44);">
+        <i class="icon ion-compose"></i>&nbsp;&nbsp;Como usar esta grelha
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="suecasheet.score_info_button" ng-click="closeSuecaModal(42);openSuecaModal(0, 0, 45);">
+        <i class="icon ion-clipboard"></i>&nbsp;&nbsp;Pontuação da Sueca
+        </button>
+      </div>
+  </div>
+       
+  <!-- Cancel button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block button-assertive" ng-model="suecasheet.reset_button" ng-click="closeSuecaModal(42)">
+        Cancelar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

@@ -43,16 +43,16 @@
           <input type="text" class="regular_text_input" ng-model="item.text" disabled>
         </div>
         <div class="col no-padding-element">
-          <input class="score_input_left" ng-model="item.p1_model" ng-change="updateGameRowTotal(item.number, 1)" type="number">
+          <input class="score_input_left" ng-model="item.p1_model" ng-change="updateGameRowTotal(item.number, 1)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showThirdPlayer">
-          <input class="score_input_middle" ng-model="item.p3_model" ng-change="updateGameRowTotal(item.number, 3)"  type="number">
+          <input class="score_input_middle" ng-model="item.p3_model" ng-change="updateGameRowTotal(item.number, 3)"  type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
         </div>
         <div class="col no-padding-element" ng-show="casinosheet.showFourthPlayer">
-          <input class="score_input_middle" ng-model="item.p4_model" ng-change="updateGameRowTotal(item.number, 4)" type="number">
+          <input class="score_input_middle" ng-model="item.p4_model" ng-change="updateGameRowTotal(item.number, 4)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
         </div>
         <div class="col no-padding-element">
-          <input class="score_input_right" ng-model="item.p2_model" ng-change="updateGameRowTotal(item.number, 2)" type="number">
+          <input class="score_input_right" ng-model="item.p2_model" ng-change="updateGameRowTotal(item.number, 2)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
@@ -79,9 +79,9 @@
           <input class="final_score_input" ng-model="casinosheet.p2_game_total" ng-bind="casinosheet.p2_game_total" ng-value="0" disabled>
         </div>
         <div class="col no-padding-element">
-          <div class="list list-inset no-padding-element">
+          <!--<div class="list list-inset no-padding-element">
                 <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="casinosheet.total_game_total" style="{{changeGameTotalColor(10)}}" disabled>
-          </div>
+          </div>-->
         </div>
       </div>
       <!-- Linha -->
@@ -113,7 +113,7 @@
         </div>
         <div class="col no-padding-element">
           <div class="list list-inset no-padding-element">
-                <input class="score_input" type="number"  placeholder="0" ng-model="casinosheet.games_total" disabled>
+                <!--<input class="score_input" type="number"  placeholder="0" ng-model="casinosheet.games_total" disabled>-->
           </div>
         </div>
       </div>
@@ -149,6 +149,9 @@
       </div>
       </div>
     </div>
+    <!--<button class="button button-block button-stable" ng-click="goBackButton()">
+        <i class="icon ion-arrow-return-left"></i>
+    </button>-->
   </ion-content>
 </ion-view>
 

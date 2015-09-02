@@ -1,0 +1,30 @@
+ <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Reiniciar as pontuações?</h1>
+    </ion-header-bar>
+    <ion-content ng-controller="copasCtrl">
+      <!-- OK button -->
+      <div class="row no-padding-element">
+        <div class="col">
+          <p class="centered_paragraph_black">Se continuar, as pontuações (e vitórias) atuais serão apagadas.</p>
+        </div>
+      </div>
+      <div class="row no-padding-element">
+        <div class="col">
+        <!-- Botão de Reset -->
+          <button class="button button-block button-balanced" ng-model="copassheet.restart_button" ng-click="initCopasScores();closeCopasAndShowAd(28);">
+            Recomeçar
+          </button>
+        </div>
+        <div class="col">
+        <!-- Botão de Reset -->
+          <button class="button button-block button-assertive" ng-model="copassheet.back_button" ng-click="closeCopasModal(28);">
+            Cancelar
+          </button>
+        </div>
+       
+      </div>
+        
+
+  </ion-content>
+</ion-modal-view>

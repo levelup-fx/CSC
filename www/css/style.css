@@ -59,6 +59,48 @@ body
     background-image: radial-gradient(circle closest-corner at center, #235A00 0%, #000305 100%);
 }
 
+.background-geral
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #333300 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #333300 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #333300 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #333300), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #333300 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #333300 0%, #000305 100%);
+}
+
+.background-copas
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #550000 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #550000 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #550000 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #550000), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #550000 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #550000 0%, #000305 100%);
+}
+
 .background-casino
 {
     /* IE10 Consumer Preview */ 
@@ -99,6 +141,69 @@ body
 
     /* W3C Markup, IE10 Release Preview */ 
     background-image: radial-gradient(ellipse farthest-corner at center, #550000 0%, #000000 100%);
+}
+
+.background-sueca
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #000055 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #000055 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #000055 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #000055), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #000055 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #000055 0%, #000305 100%);
+}
+
+.background-canasta
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #550055 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #550055 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #550055 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #550055), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #550055 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #550055 0%, #000305 100%);
+}
+
+.background-bisca
+{
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-radial-gradient(center, circle closest-corner, #333333 0%, #000305 100%);
+
+    /* Mozilla Firefox */ 
+    background-image: -moz-radial-gradient(center, circle closest-corner, #333333 0%, #000305 100%);
+
+    /* Opera */ 
+    background-image: -o-radial-gradient(center, circle closest-corner, #333333 0%, #000305 100%);
+
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0, #333333), color-stop(1, #000305));
+
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-radial-gradient(center, circle closest-corner, #333333 0%, #000305 100%);
+
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: radial-gradient(circle closest-corner at center, #333333 0%, #000305 100%);
 }
 
 .background-modal
@@ -190,6 +295,11 @@ body
     border: none;
 }
 
+.height-40
+{
+    height: 40px;
+}
+
 /* To remove the spin buttons on number-type inputs */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button 
@@ -237,6 +347,33 @@ input[type=number], input[type=text]
     padding: 0;
 }
 
+.victory_input_middle
+{
+    text-align: center;
+    /*vertical-align: middle;*/
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*border: 0px none !important;*/
+    border-left: 1px solid #FFFFFF !important;
+    border-top: 1px solid #FFFFFF !important;
+    border-bottom: 1px solid #FFFFFF !important;
+    border-right: 1px solid #FFFFFF !important;
+    border-collapse: collapse;
+    color: #FFFFFF !important;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
 input.modal_score_input_middle
 {
     width: 100%;
@@ -275,6 +412,33 @@ input.modal_score_input_middle
     border-right: 1px solid #FFDEB0;
     border-collapse: collapse;
     color: #FFDEB0;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.victory_input_left
+{
+    text-align: center;
+    /*vertical-align: middle;*/
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*border: 0px none !important;*/
+    border-left: 1px solid #FFFFFF !important;
+    border-top: 1px solid #FFFFFF !important;
+    border-bottom: 1px solid #FFFFFF !important;
+    border-right: 1px solid #FFFFFF !important;
+    border-collapse: collapse;
+    color: #FFFFFF !important;
     background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
     background: rgba(0, 0, 0, 0.5);
     outline: none !important;
@@ -345,6 +509,40 @@ input.settings_input
     -webkit-appearance: none !important;
     margin: 0;
     padding: 0;
+}
+
+.victory_input_right
+{
+    text-align: center;
+    /*vertical-align: middle;*/
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /*border: 0px none !important;*/
+    border-left: 1px solid #FFFFFF !important;
+    border-top: 1px solid #FFFFFF !important;
+    border-bottom: 1px solid #FFFFFF !important;
+    border-right: 1px solid #FFFFFF !important;
+    border-collapse: collapse;
+    color: #FFFFFF !important;
+    background: rgb(0, 0, 0); /* Fall-back for browsers that don't support rgba */
+    background: rgba(0, 0, 0, 0.5);
+    outline: none !important;
+    -webkit-appearance: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+input.victory_input_middle:focus, input.victory_input_left:focus, input.victory_input_right:focus
+{
+    border: 2px solid #FFFF00 !important;
+    color: #FFFF00 !important;
+    font-weight: bold;
 }
 
 input.modal_score_input_right

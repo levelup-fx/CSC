@@ -1,0 +1,47 @@
+<ion-modal-view ng-controller="suecaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Como jogar à Sueca</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="suecaCtrl" style="color: #444;padding: 10px">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Sueca</h3>
+    </div>
+  </div>-->
+
+  <!--<div class="row">
+    <div class="col">-->
+      <p>A Sueca é um jogo de cartas que é geralmente jogado com 2 equipas (de 2 elementos cada).</p>
+      <p>Joga-se Sueca com um baralho, retirando-se todos os 8's, 9's e 10.</p>
+      <p>A ordem das cartas é a seguinte:
+      <br><br>
+      Ás, 7, Rei, Valete, Dama, 6, 5, 4, 3 e 2.
+      <br>
+      <p>O objetivo do jogo é levar o maior número de Áses, 7's e figuras (Rei, Valete e Dama) em cada partida. Cada Ás vale 11 pontos, cada 7 vale 10 pontos, e cada Rei, Valete e Dama vale 4, 3 e 2 pontos respetivamente. Ganha a primeira equipa que atingir 4 vitórias.</p>
+      <p>Tira-se à sorte para ver quem joga primeiro (normalmente uma pessoa distribui, depois o seu parceiro parte, e o jogador à direita distribui todas as cartas pelos jogadores.</p>
+      <p>A última carta do baralho, que irá para o próprio distribuidor, é revelada - O respetivo naipe é o trunfo para a partida que se irá disputar. Depois dos restantes jogadores saberem qual é o trunfo, o distribuidor guarda esta carta na sua mão.</p>
+      <p>As cartas do trunfo valem mais do que os Áses, e um carta do naipe do trunfo de valor 4 vale mais do que uma carta do naipe de trunfo de valor 3, por exemplo.</p>
+      <p>A primeira carta jogada em cada vaza determina o naipe da mesa. Os restantes jogadores devem jogar uma carta do mesmo naipe da mesa, exceto se não tiverem cartas desse naipe. Neste caso, podem jogar a carta que quiserem, ou jogar uma carta do trunfo (algo que é vulgarmente designado como "cortar"). Ganha o jogador que jogar a carta ou o trunfo mais alto, e é este a jogar em primeiro lugar na próxima vaza. O ciclo repete-se até todas as cartas terem sido jogadas.</p>
+      <p>Quando todas as cartas tiverem sido jogadas - contam-se os pontos para decidir quem venceu.</p>
+      <p>Se uma equipa reunir 120 pontos, ganha 4 vitórias. Se uma equipa reunir mais de 90 pontos, ganha 2 vitórias. No caso especial de uma equipa conseguir 90 pontos e outra conseguir 30 (algo que é mais raro), a equipa dos 90 pontos ganha 3 vitórias. Caso uma equipa ganhar com 60 pontos ou mais, ganha 1 vitória.</p>
+      <p>Em caso de empate, faz-se mais um jogo, sendo que o vencedor deste segundo jogo ganhará o dobro das vitórias.</p>
+    <!--</div>
+  </div>-->
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="suecasheet.go_back_button" ng-click="closeSuecaModal(34)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+  <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="suecasheet.go_back_button" ng-click="closeSuecaModal(43)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>

@@ -1,0 +1,53 @@
+<ion-modal-view class="background-sueca">
+  <ion-header-bar>
+    <h1 class="title" ng-model='suecasheet.modal_player_name'>{{suecasheet.modal_player_name}}</h1>
+  </ion-header-bar>
+  <ion-content style="color:#000000;" ng-controller="suecaCtrl">
+  <div class="row">
+    <div class="col">
+    <p style="color: #FFFFFF">{{suecasheet.modal_player_name}} - Quantos pontos fez?</p>
+    </div>
+  </div>
+  <input type="hidden" class="score_input_left" type="number" ng-model="suecasheet.modal_game_no">
+  <input type="hidden" class="score_input_left" type="number" ng-model="suecasheet.modal_player_no">
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-energized" ng-click="evaluateSuecaPoints(1);closeSuecaModal(39);"><!-- Dá 1 ponto -->
+      60+
+      </button>
+    </div>
+    <div class="col">
+      <button class="button button-block button-positive" ng-click="evaluateSuecaPoints(2);closeSuecaModal(39);"><!-- Dá 2 pontos -->
+      90+
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-balanced" ng-click="evaluateSuecaPoints(3);closeSuecaModal(39);"><!-- Dá 3 pontos -->
+      90/30
+      </button>
+    </div>
+    <div class="col">
+      <button class="button button-block button-royal" ng-click="evaluateSuecaPoints(-1);closeSuecaModal(39);"><!-- Dá 4 pontos - que é uma vitória -->
+      120
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-dark" ng-click="openSuecaModal(suecasheet.modal_game_no, suecasheet.modal_player_no, 47);closeSuecaModal(39);">
+      Apagar vitórias
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-assertive" ng-click="closeSuecaModal(39);">
+      Cancelar
+      </button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

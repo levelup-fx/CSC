@@ -1,0 +1,92 @@
+<ion-modal-view ng-controller="kingCtrl">
+  <ion-header-bar>
+    <h1 class="title">Escolha uma das seguintes opções:</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="kingCtrl" style="color: #444;">
+    <!--<div class="row">
+      <div class="col">
+        <p class="centered_paragraph_black">Quem venceu a partida?</p>
+      </div>
+    </div>-->
+    <!--<div class="row">
+      <div class="col" ng-repeat="item in kingsheet.playersMaxScore">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_name_modal" ng-value="item" ng-change="pushSingleWinner('p' + item);">
+        {{kingsheet['p' + item + '_name']}}
+        </ion-radio>
+      </div>
+    </div>-->
+
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_all" ng-change="pushAllWinners(TODO);">
+        Todos os anteriores
+        </ion-radio>
+      </div>
+    </div>-->
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_name_modal" ng-value="1">
+        {{kingsheet.p1_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_name_modal" ng-value="2">
+        {{kingsheet.p2_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="kingsheet.showFourthPlayer">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_name_modal" ng-value="4">
+        {{kingsheet.p4_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="kingsheet.showThirdPlayer">
+        <ion-radio name="winnerList" ng-model="kingsheet.winner_name_modal" ng-value="3">
+        {{kingsheet.p3_name}}
+        </ion-radio>
+      </div>
+    </div>-->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="kingsheet.score_info_button" ng-click="closeKingModal(23);openKingModal(26);">
+        <i class="icon ion-help"></i>&nbsp;&nbsp;Como jogar ao King
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="kingsheet.how_to_button" ng-click="closeKingModal(23);openKingModal(24);">
+        <i class="icon ion-compose"></i>&nbsp;&nbsp;Como usar esta grelha
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="kingsheet.score_info_button" ng-click="closeKingModal(23);openKingModal(25);">
+        <i class="icon ion-clipboard"></i>&nbsp;&nbsp;Pontuação do King
+        </button>
+      </div>
+  </div>
+       
+  <!-- Cancel button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block button-assertive" ng-model="kingsheet.reset_button" ng-click="closeKingModal(23)">
+        Cancelar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

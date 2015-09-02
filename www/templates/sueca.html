@@ -1,8 +1,207 @@
-<ion-view view-title="Sueca">
-  <ion-content>
-  	<div ng-controller="suecaCtrl">
-  		<!-- Mark-Up for the Sueca Scorecard goes inside this div -->
-    	<h1>Sueca</h1>
+<ion-view view-title="Sueca" class="background-sueca" ng-controller="suecaCtrl">
+<ion-header-bar class="bar-subheader item-input-inset no-padding-element" style="text-align: center;">
+  <div class="row no-padding-element">
+    <div class="col col-20 no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <button class="button new-player-button" ng-click="openSuecaModal(0, 0, 40)"><i class="icon ion-wrench"></i></button>
+      </div>
     </div>
+    <div class="col no-padding-element">
+      <!--<div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Nós" ng-model="suecasheet.p1_name" style="{{setColorFromScore(1)}}">
+      </div>-->
+    </div>
+    <div class="col no-padding-element" ng-model="suecasheet.p3_name_header_col" ng-show="suecasheet.showThirdPlayer">    
+      <!--<div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 3" ng-model="suecasheet.p3_name" style="{{setColorFromScore(3)}}">
+      </div>-->
+    </div>
+    <div class="col no-padding-element" ng-model="suecasheet.p4_name_header_col" ng-show="suecasheet.showFourthPlayer">
+      <!--<div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="suecasheet.p4_name" style="{{setColorFromScore(4)}}">
+      </div>-->
+    </div>
+    <div class="col no-padding-element">
+      <!--<div class="list list-inset no-padding-element">
+        <input class="player_name_input" type="text" placeholder="Eles" ng-model="suecasheet.p2_name" style="{{setColorFromScore(2)}}">
+      </div>-->
+    </div>
+    <div class="col col-20 no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <!--<input type="text" class="subheader_input" value="Totais" disabled>-->
+        <button class="button new-player-button" ng-click="openSuecaModal(0, 0, 42)"><i class="icon ion-help"></i></button>
+      </div>
+    </div>
+  </div>
+  </ion-header-bar>
+
+
+  <ion-content>
+  <div ng-controller="suecaCtrl">
+  	<div ng-repeat="item in suecasheet.gameList">
+      <!--<div class="row">
+        <div class="col col-20 no-padding-element">
+          <input type="text" class="regular_text_input" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <input class="regular_text_input" ng-model="item.p1_name" type="text">
+        </div>
+        <div class="col no-padding-element">
+          <input class="regular_text_input" ng-value="item.p2_name" type="text">
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+          </div>
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col col-20 no-padding-element">
+          <input type="text" class="regular_text_input" ng-model="item.p1_name" style="{{changeNameColorIfVictory(1, item.number)}}">
+        </div>
+        <div class="col" style="text-align: right">
+          <!--<button class="button button-royal height-40"></button>
+          <button class="button button-positive height-40"></button>
+          <button class="button button-balanced height-40"></button>
+          <button class="button button-energized height-40"></button>-->
+          <div ng-repeat="victory in suecasheet.gameList[item.number].p1_victories track by $index" class="{{getButtonClassFromVictories(victory)}}" style="width: 10px; float: right; margin: 2px; border-radius: 2px;">
+          &nbsp;
+          </div>
+          <!--<div class="royal-bg" style="width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="balanced-bg" style="width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="positive-bg" style="width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="energized-bg" style="width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>-->
+          <!--<div style="background-color: #990099; width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div style="background-color: #009900; width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>-->
+        </div>
+        <div class="col col-10 no-padding-element">
+          <div class="score_input_left" ng-model="item.p1_model" ng-change="updateGameRowTotal(item.number, 1)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)" ng-click="openSuecaModalIfEnabled(item.number, 1, 39, checkIfLast(item.number))" ng-disabled="checkIfLast(item.number)">{{item.p1_model}}</div>
+        </div>
+        <!--<div class="col no-padding-element" ng-show="suecasheet.showThirdPlayer">
+          <input class="score_input_middle" ng-model="item.p3_model" ng-change="updateGameRowTotal(item.number, 3)"  type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
+        </div>-->
+        <!--<div class="col no-padding-element" ng-show="suecasheet.showFourthPlayer">
+          <input class="score_input_middle" ng-model="item.p4_model" ng-change="updateGameRowTotal(item.number, 4)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)">
+        </div>-->
+        <div class="col col-10 no-padding-element">
+          <div class="score_input_right" ng-model="item.p2_model" ng-change="updateGameRowTotal(item.number, 2)" type="number" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event)" ng-click="openSuecaModalIfEnabled(item.number, 2, 39, checkIfLast(item.number))" ng-disabled="checkIfLast(item.number)">{{item.p2_model}}</div>
+        </div>
+          <!--<div class="list list-inset no-padding-element">
+                <input class="score_input" type="number" ng-model="item.total_model" placeholder="0" style="{{changeGameTotalColor(item.number)}}" disabled>
+          </div>-->
+          <div class="col" style="text-align: left">
+          <!--<button class="button button-royal height-40"></button>
+          <button class="button button-positive height-40"></button>
+          <button class="button button-balanced height-40"></button>
+          <button class="button button-energized height-40"></button>-->
+          <!--<div class="royal-bg" style="width: 8px; float: left; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="balanced-bg" style="width: 8px; float: left; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="positive-bg" style="width: 8px; float: left; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div class="energized-bg" style="width: 8px; float: left; margin: 2px; border-radius: 2px;">&nbsp;</div>-->
+          <div ng-repeat="victory in suecasheet.gameList[item.number].p2_victories track by $index" class="{{getButtonClassFromVictories(victory)}}" style="width: 10px; float: left; margin: 2px; border-radius: 2px;">
+          &nbsp;
+          </div>
+          <!--<div style="background-color: #990099; width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>
+          <div style="background-color: #009900; width: 8px; float: right; margin: 2px; border-radius: 2px;">&nbsp;</div>-->
+        </div>
+          <div class="col col-20 no-padding-element">
+            <input type="text" class="regular_text_input" ng-model="item.p2_name" style="{{changeNameColorIfVictory(2, item.number)}}">
+        </div>
+      </div>
+      <!-- Totais de cada jogador -->
+      <!--<div class="row">
+        <div class="col col-20 no-padding-element">
+          <input type="text" class="final_score_input" value="Total" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <input class="final_score_input" ng-model="suecasheet.p1_game_total" ng-bind="suecasheet.p1_game_total" ng-value="0" disabled>
+        </div>
+        <div class="col no-padding-element" ng-show="suecasheet.showThirdPlayer">
+          <input class="final_score_input" ng-model="suecasheet.p3_game_total" ng-bind="suecasheet.p3_game_total" ng-value="0" disabled>
+        </div>
+        <div class="col no-padding-element" ng-show="suecasheet.showFourthPlayer">
+          <input class="final_score_input" ng-model="suecasheet.p4_game_total" ng-bind="suecasheet.p4_game_total" ng-value="0" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <input class="final_score_input" ng-model="suecasheet.p2_game_total" ng-bind="suecasheet.p2_game_total" ng-value="0" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+                <input class="score_input" type="number" ng-value="0" placeholder="0" ng-model="suecasheet.total_game_total" style="{{changeGameTotalColor(10)}}" disabled>
+          </div>
+        </div>
+      </div>-->
+      <!-- Linha -->
+      <!--<div class="row">
+      <div class="col">
+        <hr>
+      </div>
+      </div>-->
+      <!-- Jogos que cada jogador venceu -->
+      <!--<div class="row">
+        <div class="col col-20 no-padding-element">
+          <input type="text" class="regular_text_input" value="Vitórias" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+            <div class='no-padding-element'>
+            <input class="score_input" ng-model="suecasheet.p1_game_victories" disabled>
+          </div>
+          </div>
+        </div>
+        <div class="col no-padding-element" ng-show="suecasheet.showThirdPlayer">
+          <input class="score_input" ng-model="suecasheet.p3_game_victories" disabled>
+        </div>
+        <div class="col no-padding-element" ng-show="suecasheet.showFourthPlayer">
+          <input class="score_input" ng-model="suecasheet.p4_game_victories" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <input class="score_input" ng-model="suecasheet.p2_game_victories" disabled>
+        </div>
+        <div class="col no-padding-element">
+          <div class="list list-inset no-padding-element">
+                <input class="score_input" type="number"  placeholder="0" ng-model="suecasheet.games_total" disabled>
+          </div>
+        </div>
+      </div>-->
+
+      <!--<button class="button button-block button-balanced" ng-model="suecasheet.new_game_button" ng-click="addSuecaGame()">
+        Jogo seguinte
+      </button>-->
+      <!--<div class="row">
+      <div class="col no-padding-element">
+        <button class="button button-block button-balanced" ng-model="suecasheet.reset_button" ng-click="addSuecaGame()">
+        +1 partida
+        </button>
+      </div>
+      </div>-->
+    </div>
+    <div>
+      <div class="row">
+      </div>
+      <div class="row">
+      <!--<div class="col col-45 no-padding-element">
+        <button class="button button-block button-stable" ng-model="suecasheet.reset_button" ng-click="createAdView();checkTotalForVictory() ? restartSuecaScores() : openSuecaModal(14);">
+        Próx. Jogo
+        </button>
+      </div>-->
+      <!--<div class="col no-padding-element">
+        <button class="button button-block button-balanced" ng-model="suecasheet.reset_button" ng-click="checkTotalForVictory();createInterstitialAdView();">
+        Seguinte
+        </button>
+      </div>-->
+      <!--<div class="col col-10">
+        &nbsp;
+      </div>-->
+      <div class="col no-padding-element">
+        <button class="button button-block button-assertive" ng-model="suecasheet.reset_button" ng-click="openSuecaModal(0, 0, 41);">
+        Recomeçar
+        </button>
+      </div>
+      </div>
+    </div>
+    <!--<button class="button button-block button-stable" ng-click="goBackButton()">
+        <i class="icon ion-arrow-return-left"></i>
+    </button>-->
   </ion-content>
 </ion-view>
+

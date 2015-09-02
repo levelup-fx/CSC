@@ -1,0 +1,92 @@
+<ion-modal-view ng-controller="biscaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Escolha uma das seguintes opções:</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="biscaCtrl" style="color: #444;">
+    <!--<div class="row">
+      <div class="col">
+        <p class="centered_paragraph_black">Quem venceu a partida?</p>
+      </div>
+    </div>-->
+    <!--<div class="row">
+      <div class="col" ng-repeat="item in biscasheet.playersMaxScore">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_name_modal" ng-value="item" ng-change="pushSingleWinner('p' + item);">
+        {{biscasheet['p' + item + '_name']}}
+        </ion-radio>
+      </div>
+    </div>-->
+
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_all" ng-change="pushAllWinners(TODO);">
+        Todos os anteriores
+        </ion-radio>
+      </div>
+    </div>-->
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_name_modal" ng-value="1">
+        {{biscasheet.p1_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_name_modal" ng-value="2">
+        {{biscasheet.p2_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="biscasheet.showFourthPlayer">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_name_modal" ng-value="4">
+        {{biscasheet.p4_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="biscasheet.showThirdPlayer">
+        <ion-radio name="winnerList" ng-model="biscasheet.winner_name_modal" ng-value="3">
+        {{biscasheet.p3_name}}
+        </ion-radio>
+      </div>
+    </div>-->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="biscasheet.score_info_button" ng-click="closeBiscaModal(51);openBiscaModal(0, 0, 52);">
+        <i class="icon ion-help"></i>&nbsp;&nbsp;Como jogar à Bisca
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="biscasheet.how_to_button" ng-click="closeBiscaModal(51);openBiscaModal(0, 0, 53);">
+        <i class="icon ion-compose"></i>&nbsp;&nbsp;Como usar esta grelha
+        </button>
+      </div>
+  </div>
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block" ng-model="biscasheet.score_info_button" ng-click="closeBiscaModal(51);openBiscaModal(0, 0, 54);">
+        <i class="icon ion-clipboard"></i>&nbsp;&nbsp;Pontuação da Bisca
+        </button>
+      </div>
+  </div>
+       
+  <!-- Cancel button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Voltar atrás -->
+        <button class="button button-block button-assertive" ng-model="biscasheet.reset_button" ng-click="closeBiscaModal(51)">
+        Cancelar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

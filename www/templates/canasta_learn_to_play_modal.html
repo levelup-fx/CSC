@@ -1,0 +1,67 @@
+<ion-modal-view ng-controller="canastaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Como jogar à Canastra</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="canastaCtrl" style="color: #444;padding: 10px">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Canasta</h3>
+    </div>
+  </div>-->
+
+  <!--<div class="row">
+    <div class="col">-->
+      <p>A Canastra (também conhecido como Canasta) é um jogo de cartas que pode ser jogado com 2, 3 ou 4 jogadores ou equipas. É muito semelhante ao jogo de cartas chamado "Buraco" do Brasil, existindo, no entanto, bastantas variantes e diferenças.</p>
+      <p>Não existe uma única forma de jogar à Canastra, sendo que é dos jogos de cartas portugueses com mais variantes que existem. Mesmo dentro do Brasil, que é onde este jogo é mais jogado, não existe uma única forma de o jogar.</p>
+      <p>Assim, nesta secção descrevem-se apenas uma proposta de regras e de pontuações, baseada naquelas que são atualmente as mais populares.</p>
+      <p>Joga-se à Canastra com 2 baralhos de 52 cartas, incluindo os dois "Jokers" ("Coringas" no Brasil) - Em alguns casos, em vez dos Jokers/Curingas, podemos usar as cartas com o número 2. Juntam-se os dois baralhos, baralham-se, parte-se e distribuem-se apenas 11 a cada jogador no sentido horário. Estas cartas são colocadas à frente de cada jogador viradas para baixo.</p>
+      <p>Nota: Existe uma variante do jogo chamada "Canastra Aberta", na qual as cartas de cada jogador são colocadas viradas para cima.</p>
+      <p>O resto do baralho (chamado o "Monte") é colocado no meio da mesa de parte, e servirá depois para os jogadores retirarem mais cartas.</p>
+      <p>Os jogadores só podem ver as suas cartas depois de terminada esta distribuição.</p>
+      <p>O objetivo do jogo é fazer combinações de cartas e "Canastras". Estas são explicadas posteriormente.</p>
+      <p>As "Canastras" ou combinações podem ter vários significados dependendo da variante do jogo, ou do país onde este é jogado.</p>
+      <p>O jogador que recebeu as cartas primeiro é o primeiro a jogar - Este retira uma carta do "Monte".</p>
+      <p>Ele escolhe se quer ou não ficar com ela, mas é obrigado a descartar uma carta e a colocá-la voltada para cima no centro da mesa.</p>
+      <p>Todas as cartas descartadas são colocadas umas em cima das outras, todas voltadas para cima, e formam um segundo Baralho (que se chama "Lixo", "Baralho descartado" ou ainda "Bagaço").</p>
+      <p>Sobre as "Canastras", existem várias variantes deste jogo. Nesta secção iremos apenas referir as regras mais populares em Portugal e no Brasil, sendo que a mais popular é a Brasileira.</p>
+      <p>Uma Canastra corresponde a uma sequência de 7 cartas (ou mais) seguidas do mesmo Naipe (sendo que em Portugal, a Canastra tipicamente é um conjunto de 7 cartas iguais).<br><br>
+      A "Canastra limpa" consiste numa sequência de 7 cartas sem o Coringa (Vale 200 ou 300 pontos), e a "Canastra suja" consiste numa sequência de 7 cartas com um ou mais Coringas (vale 100 ou 150 pontos, geralmente vale metade da Canastra Limpa).<br><br>
+      Para um jogador "Baixar", precisa de ter uma sequência de pelo menos 3 cartas do mesmo naipe. Estas são colocadas à parte, à frente do jogador que baixou. Depois de baixar as 3 cartas, o jogador (ou o seu parceiro) pode então baixar uma ou mais cartas e colocá-la na fila, com as restantes cartas, de modo a tentar completar um conjunto ou Canastra (Como se faz no jogo Solitaire). Pode também baixar outra sequência de 3 cartas (desde que sejam uma sequência do mesmo naipe). O Joker pode substituir alguma das cartas necessárias para fazer um conjunto ou Canastra.</p>
+      <p>Existe a "Canastra Real", que consiste na sequência seguinte: Às, Rei, Dama, Valete, 10, 9, 8 do mesmo naipe. Esta geralmente vale 1000 pontos, juntamente com a "Canastra de Às" (composta apenas por Àses).</p>
+      <p>Algumas variantes do jogo Brasileiro incluem ainda a "Canastra Lavadeira", que consiste em 7 cartas iguais (Que é mais usada em Portugal). No entanto, na grande maioria dos jogos a Canastra Lavadeira não é aceite, e se for aceite, a sua pontuação equivale à soma das suas cartas.</p>
+      <p>Em Portugal, algumas variantes incluem a "Canastra de Mão", que é feita antes de se "Baixarem" cartas. Se for feita no primeiro turno, vale 1500 pontos. Se for feita nos restantes, vale 1000 pontos.</p>
+      <p>O jogador à direita daquele que distribuiu as cartas (ou o jogador que cortou o baralho antes deste ser distribuído) retira 11 cartas do resto do baralho, e coloca-as no meio da mesa viradas para baixo. A este conjunto de 11 cartas se chama o "Morto". No caso de se jogarem em equipas (de 2 jogadores cada), criam-se 2 "Mortos". Quando um jogador ficar sem cartas na mão, é obrigado a ficar com as cartas de um "Morto". Em jogos de equipas, em que existem 2 Mortos, não é possível que o mesmo jogador fique com ambos.</p>
+      <p>Cada jogador joga por turnos. Cada turno tem 4 ações possíveis:</p>
+      <br>
+      <p>1. Retirar uma carta do Monte ou recolher todas as cartas do Lixo (O jogador tem obrigatoriamente de escolher só uma destas duas ações);
+      <p>2. "Baixar/Pousar" cartas (Não é obrigatório). "Baixar" consiste em colocar um grupo de cartas na mesa, voltadas para cima, que irão ser usadas para contar os pontos do jogador ou equipa que as jogou. As cartas baixadas contam para a pontuação. As cartas que estiverem na mão contam como pontos negativos. Da primeira vez que baixar, o jogador tem de o fazer com pelo menos 3 cartas (ou com cartas que totalizem 75 pontos);</p>
+      <p>3. Descartar uma carta para o Lixo (Obrigatório, exceto se o jogador tiver apenas uma carta na mão). Considera-se que um jogador termina o seu turno quando tiver descartado a carta.</p>
+      <p>4. "Bater" na mesa. Um jogador pode bater 2 vezes durante uma partida, e só quando fica sem cartas. Da primeira vez que bate, é obrigado a levantar todas as cartas de um "Morto". Se ficar sem cartas e já tiver levantado um morto, já tiver feito pelo menos uma Canastra Limpa, pode bater uma segunda vez, o que assinala o fim da partida. Uma batida feita sem descartar cartas (isto é, sem colocá-las no Lixo) é chamada uma Batida Direta, caso contrário chama-se Batida Indireta.
+      <br>
+      <p>A pontuação só irá ser contabilizada das cartas que forem baixadas na mesa. Se uma equipa ou jogador tiver batido uma segunda vez corretamente e o(s) adversário(s) não tiverem recolhido o Morto, estes também perdem 100 pontos. Se o adversário tiver recolhido o Morto mas não tiver ainda usado nenhuma das suas cartas (para baixar ou descartar), perde também os 100 pontos. A equipa ou jogador que bateu recebe também 100 pontos.</p>
+      <p>As partidas terminam quando um jogador ou equipa bater depois de já ter recolhido um Morto.</p>
+      <p>Disputam-se partidas até os jogadores atingirem o limite de pontos, que tipicamente são 1000, 3000 ou 5000 pontos. Se se jogarem em equipas, os pontos das equipas são os pontos somados de cada um dos seus jogadores.</p>
+      <br><br>
+      <p>Além das Canastras, os Valetes, Damas e Reis valem 10 pontos cada, os Àses valem 15, as cartas do 3 ao 7 valem 5 pontos cada, do 8 ao 10 valem 10 pontos cada. Cada Joker vale 20 pontos e cada 2 também vale 10 pontos.</p>
+      <p>Nota: Em algumas variantes de Canastra portuguesas, as cartas 3 vermelhas, em vez de valerem 5 pontos cada, são chamadas de "Flores" e valem 100 pontos. O conjunto das 4 cartas de 3 vermelhas chama-se "Bouquet" e vale 800 pontos. Os 3 pretos não valem nada, e são chamados de "Travões". </p>
+
+    <!--</div>
+  </div>-->
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="canastasheet.go_back_button" ng-click="closeCanastaModal(22)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+    <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="canastasheet.go_back_button" ng-click="closeCanastaModal(65)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>

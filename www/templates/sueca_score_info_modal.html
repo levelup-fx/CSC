@@ -1,0 +1,197 @@
+<ion-modal-view ng-controller="suecaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Pontuação da Sueca</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="suecaCtrl" style="color: #444;">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Sueca</h3>
+    </div>
+  </div>-->
+
+  <div class="row">
+    <div class="col">
+      <h5>Carta ou objetivo</h5>
+    </div>
+    <div class="col">
+      <h5>Descrição</h5>
+    </div>
+    <div class="col">
+      <h5>Pontos</h5>
+    </div>
+  </div>
+  <hr>
+    <div class="row">
+    <div class="col">
+      <h5 class="assertive">Ás</h5>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>11 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="assertive">7</h5>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="assertive">Rei</h5>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>4 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="assertive">Valete</h5>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>3 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="assertive">Dama</h5>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>2 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="energized">60+ pontos</h5>
+    </div>
+    <div class="col">
+      <p>Reunir 60 pontos ou mais com as cartas anteriores.</p>
+    </div>
+    <div class="col">
+      <h5 class="energized">1 vitória</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="positive">90+ pontos</h5>
+    </div>
+    <div class="col">
+      <p>Reunir mais de 90 pontos com as cartas anteriores.</p>
+    </div>
+    <div class="col">
+      <h5 class="positive">2 vitórias</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="balanced">90/30 pontos</h5>
+    </div>
+    <div class="col">
+      <p>Reunir exatamente 90 pontos com as cartas anteriores (e outra equipa reúne exatamente 30 pontos).</p>
+    </div>
+    <div class="col">
+      <h5 class="balanced">3 vitórias</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h5 class="royal">120 pontos</h5>
+    </div>
+    <div class="col">
+      <p>Reunir exatamente 120 pontos com as cartas anteriores.</p>
+    </div>
+    <div class="col">
+      <h5 class="royal">4 vitórias<br>ou outro valor limite estabelecido</h5>
+    </div>
+  </div>
+  <!--<hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com mais cartas pretas</p>
+    </div>
+    <div class="col">
+      <p>Aqui as cartas pretas referem-se às Espadas</p>
+    </div>
+    <div class="col">
+      <h5>1 ponto</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com o 10 de Ouros</p>
+    </div>
+    <div class="col">
+      <p>Grande Sueca (também conhecido como a "Menina")</p>
+    </div>
+    <div class="col">
+      <h5>2 pontos</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Jogador com o 2 de Espadas</p>
+    </div>
+    <div class="col">
+      <p>Pequeno Sueca (também conhecido como o "Casininho")</p>
+    </div>
+    <div class="col">
+      <h5>1 ponto</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Ás</p>
+    </div>
+    <div class="col">
+      <p>De qualquer naipe</p>
+    </div>
+    <div class="col">
+      <h5>1 ponto cada</h5>
+    </div>
+  </div>-->
+
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="suecasheet.go_back_button" ng-click="closeSuecaModal(33)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+  <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="suecasheet.go_back_button" ng-click="closeSuecaModal(45)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>

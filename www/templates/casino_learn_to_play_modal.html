@@ -1,0 +1,59 @@
+<ion-modal-view ng-controller="casinoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Como jogar ao Casino</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="casinoCtrl" style="color: #444;padding: 10px">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Casino</h3>
+    </div>
+  </div>-->
+
+  <!--<div class="row">
+    <div class="col">-->
+      <p>O Casino é um jogo de cartas que pode ser jogado com 2, 3 ou 4 jogadores / equipas.</p>
+      <p>Joga-se Casino com um baralho. Distribuem-se 4 cartas a cada jogador, e colocam-se 4 cartas na mesa voltadas para cima. Em seguida, usando as cartas que tem na mão, os jogadores procuram recolher o maior número de cartas na mesa possível.</p>
+      <p>Os jogadores podem apenas retirar uma carta da mesa se tiverem uma com o mesmo número ou figura na mão. No caso dos números, podem retirar várias de uma vez. Para retirar uma ou várias cartas, é obrigatório jogar a carta da mão respetiva, de modo a que os outros jogadores possam vê-la.</p>
+      <p>Por exemplo, se existir um 2 e um 4 na mesa e o jogador tiver um 6 na mão, o jogador pode jogar o 6, indicando que vai levar o 2 e o 4 (pois 4 + 2 = 6).</p>
+      <p>Cada jogador ou equipa guarda todas as suas cartas recolhidas junto de si, voltadas para baixo.</p>
+      <p>Quando as 4 cartas da mão de todos os jogadores forem jogadas, são distribuídas 4 cartas novamente para cada jogador (mas agora sem colocar mais cartas na mesa. Apenas colocam-se cartas na mesa da primeira vez que se dão cartas).</p>
+      <p>O objetivo do Casino é recolher o maior número de cartas possível, e também de recolher o maior número de cartas Pretas (Espadas) possível</p>
+      <p>Existem determinadas cartas que, se forem recolhidas, dão pontos extra. Para ver estas cartas, consulte a pontuação do Casino.</p>
+      <p>Notas importantes:</p>
+      <ion-list>
+        <ion-item class="item-text-wrap">
+        Cada jogador pode apenas jogar uma carta de cada vez. No entanto, pode recolher várias cartas, caso tenha jogo para tal.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        Por cada vez que um jogador levantar uma carta ou cartas e não deixar nenhuma na mesa, ganha 1 ponto. Isto chama-se "Clareza".
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        É possível "empilhar" para recolher na próxima volta. Por exemplo, se existir um 3 e um Ás na mesa, e o jogador tiver duas cartas de 4 na mão, pode jogar o primeiro 4 (deverá agrupar o Ás e o 3 juntamente com o 4) e, quando voltar à sua vez, pode jogar o segundo 4 e recolher as restantes cartas. No entanto, se outro jogador tiver um 4, este também pode recolher.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        É possível "empilhar" para outro valor. Por exemplo, se um jogador empilhar um 2 e outro 2 para 4, e outro jogador tiver um Ás e um 9, pode jogar o Ás e indicar que empilhou para 9 (pois 2 + 2 + 4 + Ás = 9) e recolher quando chegar
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        Geralmente, não é possível recolher mais do que uma figura de cada vez, e não é possível "empilhar" figuras.
+        </ion-item>
+      </ion-list>
+    <!--</div>
+  </div>-->
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeCasinoModal(22)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+    <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeCasinoModal(22)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>

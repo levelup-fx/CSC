@@ -63,16 +63,16 @@
           <!-- Score inputs -->
           <div class="row no-padding-element">
             <div class="col no-padding-element">
-              <input class="modal_score_input_left" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p1_dames_modal" ng-focus="" ng-blur="updateModalTotal('dames', 4)">
+              <input class="modal_score_input_left" type="number" ng-value="0" ng-model="kingsheet.p1_dames_modal" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event); updateModalTotal('dames', 4)">
           </div>
           <div class="col no-padding-element">
-              <input class="modal_score_input_middle" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p2_dames_modal" ng-focus="" ng-blur="updateModalTotal('dames', 4)">
+              <input class="modal_score_input_middle" type="number" ng-value="0" ng-model="kingsheet.p2_dames_modal" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event); updateModalTotal('dames', 4)">
           </div>
           <div class="col no-padding-element">
-              <input class="modal_score_input_middle" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p3_dames_modal" ng-focus="" ng-blur="updateModalTotal('dames', 4)">
+              <input class="modal_score_input_middle" type="number" ng-value="0" ng-model="kingsheet.p3_dames_modal" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event); updateModalTotal('dames', 4)">
           </div>
           <div class="col no-padding-element">
-              <input class="modal_score_input_right" type="number" ng-value="0" placeholder="0" ng-model="kingsheet.p4_dames_modal" ng-focus="" ng-blur="updateModalTotal('dames', 4)">
+              <input class="modal_score_input_right" type="number" ng-value="0" ng-model="kingsheet.p4_dames_modal" ng-focus="deleteValueIfZero($event)" ng-blur="addZeroIfEmpty($event); updateModalTotal('dames', 4)">
           </div>
         </div>
 

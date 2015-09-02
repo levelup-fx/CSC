@@ -1,6 +1,6 @@
 <ion-modal-view ng-controller="casinoCtrl">
   <ion-header-bar>
-    <h1 class="title">Como utilizar a Aplicação</h1>
+    <h1 class="title">Como utilizar a Grelha</h1>
   </ion-header-bar>
   <ion-content ng-controller="casinoCtrl" style="color: #444;">
 
@@ -195,19 +195,32 @@
     <div class="item item-body">
       <img class="full-image" src="img/casino_how_to_8.jpg">
       <p>
-        Existe uma lista de pontuação do Casino, útil para consultar caso não se lembre ou não saiba como calcular os pontos.<br><br>Pressione o botão com o ponto de interrogação, no canto superior direito.<br><br>Escolha a opção "Consultar a Pontuação do Casino" para ver como se calculam os pontos neste jogo.
+        Existe uma lista de pontuação do Casino, útil para consultar caso não se lembre ou não saiba como calcular os pontos.<br><br>Pressione o botão com o ponto de interrogação, no canto superior direito.<br><br>Escolha a opção "Pontuação do Casino" para ver como se calculam os pontos neste jogo.
     </div>
   </div>
-       
-  <!-- Cancel button -->
-  <div class="row no-padding-element">
-      <div class="col no-padding-element" style="padding: 5px;">
-      <!-- Voltar atrás -->
-        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeCasinoModal(20)">
-        Voltar
-        </button>
-      </div>
+
+  <!-- Pergunta 10 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Casino para não fazer pontos</h2>
+      <!--<p>É sim. Veja abaixo como.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/copas_how_to_6.jpg">
+      <p>
+        Existe uma variante do Casino que consiste em não fazer as cartas, ou evitar fazer o maior número de Cartas possível. Aqui vence quem tiver o menor número de pontos, regra muito semelhante ao jogo das Copas.<br><br>Para jogar esta variante recomendamos então usar a grelha do jogo "Copas", e alterar a pontuação limite para 21 pontos ou outro valor à escolha.
+    </div>
   </div>
 
+
+       
+  
+
   </ion-content>
+  <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeCasinoModal(20)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
 </ion-modal-view>

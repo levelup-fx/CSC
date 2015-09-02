@@ -1,0 +1,51 @@
+<ion-modal-view class="background-bisca">
+  <ion-header-bar>
+    <h1 class="title" ng-model='biscasheet.modal_player_name'>{{biscasheet.modal_player_name}}</h1>
+  </ion-header-bar>
+  <ion-content style="color:#000000;" ng-controller="biscaCtrl">
+  <div class="row">
+    <div class="col">
+    <p style="color: #FFFFFF">{{biscasheet.modal_player_name}} - Quantos pontos fez?</p>
+    </div>
+  </div>
+  <input type="hidden" class="score_input_left" type="number" ng-model="biscasheet.modal_game_no">
+  <input type="hidden" class="score_input_left" type="number" ng-model="biscasheet.modal_player_no">
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-energized" ng-click="evaluateBiscaPoints(1);closeBiscaModal(48);"><!-- Dá 1 ponto -->
+      60+
+      </button>
+    </div>
+    <!--<div class="col">
+      <button class="button button-block button-positive" ng-click="evaluateBiscaPoints(2);closeBiscaModal(46);">
+      90+
+      </button>
+    </div>
+    <div class="col">
+      <button class="button button-block button-balanced" ng-click="evaluateBiscaPoints(3);closeBiscaModal(46);">
+      90/30
+      </button>
+    </div>-->
+    <div class="col">
+      <button class="button button-block button-royal" ng-click="evaluateBiscaPoints(-1);closeBiscaModal(48);"><!-- Dá 4 pontos - que é uma vitória -->
+      120
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-dark" ng-click="openBiscaModal(biscasheet.modal_game_no, biscasheet.modal_player_no, 56);closeBiscaModal(48);">
+      Apagar vitórias
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-assertive" ng-click="closeBiscaModal(48);">
+      Cancelar
+      </button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

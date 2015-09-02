@@ -22,9 +22,15 @@
         <input class="player_name_input" type="text" placeholder="Jog. 4" ng-model="kingsheet.p4_name" style="{{setColorFromScore(4)}}">
       </div>
     </div>
-    <div class="col no-padding-element">
+    <!--<div class="col no-padding-element">
       <div class="list list-inset no-padding-element">
         <input type="text" class="subheader_input" value="Totais" disabled>
+      </div>
+    </div>-->
+    <div class="col no-padding-element">
+      <div class="list list-inset no-padding-element">
+        <!--<input type="text" class="subheader_input" value="Totais" disabled>-->
+        <button class="button new-player-button" ng-click="openKingModal(23)"><i class="icon ion-help"></i></button>
       </div>
     </div>
   </div>
@@ -519,5 +525,8 @@
         Recomeçar
       </button>
     </div>
+    <!--<button class="button button-block button-stable" ng-click="goBackButton()">
+        <i class="icon ion-arrow-return-left"></i>
+    </button>-->
   </ion-content>
 </ion-view>

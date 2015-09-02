@@ -1,0 +1,233 @@
+<ion-modal-view ng-controller="canastaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Pontuação da Canastra</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="canastaCtrl" style="color: #444;">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Canasta</h3>
+    </div>
+  </div>-->
+
+  <div class="row">
+    <div class="col">
+      <h5>Carta ou objetivo</h5>
+    </div>
+    <div class="col">
+      <h5>Descrição</h5>
+    </div>
+    <div class="col">
+      <h5>Pontos</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Canastra Limpa</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>300 ou 200 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Canastra Suja</p>
+    </div>
+    <div class="col">
+      <p>Geralmente vale metade da Canastra Limpa.</p>
+    </div>
+    <div class="col">
+      <h5>150 ou 100 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Canastra Real</p>
+    </div>
+    <div class="col">
+      <p>O valor desta Canastra em alguns casos é negociável</p>
+    </div>
+    <div class="col">
+      <h5>1000 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Canastra de Mão</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>1500 pontos no primeiro turno, 1000 nos restantes</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Canastra de Áses</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>1000 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Às</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>15 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Rei</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Dama</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Valete</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Cartas do 8 ao 10</p>
+    </div>
+    <div class="col">
+      <p>Incluem as cartas 8, 9 e 10.</p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Cartas do 3 ao 7</p>
+    </div>
+    <div class="col">
+      <p>Incluem as cartas 3, 4, 5, 6 e 7.</p>
+    </div>
+    <div class="col">
+      <h5>5 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">2</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>10 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Joker/Coringa</p>
+    </div>
+    <div class="col">
+      <p>O Valor dos Jokers/Coringas pode ser negociável</p>
+    </div>
+    <div class="col">
+      <h5>20 pontos cada</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">3 vermelho (Flor)</p>
+    </div>
+    <div class="col">
+      <p>Válido apenas em algumas variantes da Canastra</p>
+    </div>
+    <div class="col">
+      <h5>100 pontos cada, 800 pelo conjunto completo de 4</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">"Bater"</p>
+    </div>
+    <div class="col">
+      <p></p>
+    </div>
+    <div class="col">
+      <h5>100 pontos</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <p class="assertive">Cartas que sobram na mão</p>
+    </div>
+    <div class="col">
+      <p>Quando um jogador "bate", as cartas que estão na mão dos restantes jogadores devem ser descontadas à sua pontuação.</p>
+    </div>
+    <div class="col">
+      <h5>Os respetivos valores são negativos</h5>
+    </div>
+  </div>
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="canastasheet.go_back_button" ng-click="closeCanastaModal(21)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+  <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="canastasheet.go_back_button" ng-click="closeCanastaModal(64)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+
+</ion-modal-view>

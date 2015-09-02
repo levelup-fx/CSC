@@ -1,0 +1,75 @@
+<ion-modal-view ng-controller="copasCtrl">
+  <ion-header-bar>
+    <h1 class="title">Quem venceu a partida?</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="copasCtrl" style="color: #444;">
+    <!--<div class="row">
+      <div class="col">
+        <p class="centered_paragraph_black">Quem venceu a partida?</p>
+      </div>
+    </div>-->
+    <div class="row">
+      <div class="col" ng-repeat="item in copassheet.playersMaxScore">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_name_modal" ng-value="item" ng-change="pushSingleWinner('p' + item);">
+        {{copassheet['p' + item + '_name']}}
+        </ion-radio>
+      </div>
+    </div>
+
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_all" ng-change="pushAllWinners(TODO);">
+        Todos os anteriores
+        </ion-radio>
+      </div>
+    </div>-->
+
+    <!--<div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_name_modal" ng-value="1">
+        {{copassheet.p1_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_name_modal" ng-value="2">
+        {{copassheet.p2_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="copassheet.showFourthPlayer">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_name_modal" ng-value="4">
+        {{copassheet.p4_name}}
+        </ion-radio>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" ng-show="copassheet.showThirdPlayer">
+        <ion-radio name="winnerList" ng-model="copassheet.winner_name_modal" ng-value="3">
+        {{copassheet.p3_name}}
+        </ion-radio>
+      </div>
+    </div>-->
+        
+       
+  <!-- OK button -->
+  <div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Botão de Reset -->
+        <button class="button button-block button-balanced" ng-model="copassheet.reset_button" ng-click="addVictoryToWinners();restartCopasScores();closeCopasModal(66);">
+        OK
+        </button>
+      </div>
+      <div class="col no-padding-element" style="padding: 5px;">
+      <!-- Botão de Reset -->
+        <button class="button button-block button-assertive" ng-model="copassheet.reset_button" ng-click="closeCopasModal(66)">
+        Cancelar
+        </button>
+      </div>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

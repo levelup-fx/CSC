@@ -1,0 +1,65 @@
+<ion-modal-view ng-controller="casinoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Como jogar ao King</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="casinoCtrl" style="color: #444;padding: 10px">
+
+  <!--<div class="row">
+    <div class="col">
+      <h3 style="text-align: center;">Tabela de pontos do Casino</h3>
+    </div>
+  </div>-->
+
+  <!--<div class="row">
+    <div class="col">-->
+      <p>O King é um jogo de cartas que deve ser jogado com um único baralho e 4 jogadores. É composto por uma série de jogos com objetivos diferentes. Em cada jogo distribui-se o baralho completo pelos jogadores. No King, os naipes obrigam naipes - Isto é, se um jogador começa a jogar com uma carta do naipe Paus, os restantes jogadores também são obrigados a jogar cartas do naipe Paus (exceto se não tiverem Paus - aí podem "baldar-se" jogando a carta que quiserem).</p>
+      <p>No início, escolhe-se o jogador que joga primeiro. No jogo seguinte, o jogador ao lado joga primeiro. E assim sucessivamente.</p>
+      <p>Abaixo está a lista de jogos do King, com o respetivo objetivo.</p>
+      <ion-list>
+        <ion-item class="item-text-wrap">
+        No primeiro jogo, o objetivo é não fazer vazas.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        No segundo jogo, o objetivo é não fazer copas. A primeira jogada de copas apenas pode ocorrer quando um jogador só tem cartas de Copas. No entanto, os jogadores podem "baldar-se" de copas.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        No terceiro jogo, o objetivo é não fazer Damas. O jogo acaba quando as quatro Damas tiverem sido recolhidas.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        No quarto jogo, o objetivo é não fazer Homens - Isto é, Reis e Condes. O jogo acaba quando os oito homens tiverem sido recolhidos.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        No quinto jogo, o objetivo é não fazer o Rei de Copas. O jogo acaba quando essa carta tiver sido atribuída a um jogador.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        No sexto jogo, o objetivo é não fazer as duas últimas vazas.
+        </ion-item>
+        <ion-item class="item-text-wrap">
+        Os jogos a partir do sétimo são chamadas as "Festas". Quando a Festa é de um jogador (que será o "Festeiro"), este pode escolher entre jogar a Positivos (em que o objetivo é fazer vazas) ou a Negativos / Nulos (em que o objetivo é não fazer vazas).<br><br>
+        Antes de se começar a Festa, os restantes jogadores oferecem vazas (para Positivos ou para Negativos) se quiserem. Cada jogador faz uma oferta de forma sequencial - Uma vaza, duas vazas, três... No entanto, cada oferta tem de ser superior à anterior (alternativamente, um jogador pode "Passar", não oferecendo nada).<br><br>
+        No caso de um jogador oferecer 1 vaza para Negativos, o jogador seguinte, caso queira fazer uma oferta, deve oferecer 4 vazas para Positivos. Se um jogador oferecer 2 vazas para Negativos, o jogador só pode oferecer (se quiser) 6 vazas para Positivos.<br><br>
+        As ofertas vão continuando até só haver uma oferta na mesa (sendo que os outros jogadores passaram). Aí o "Festeiro" pode aceitar ou não. Se aceitar, o jogador que ofereceu as vazas escolhe o trunfo (mas só se for para Positivos), e diz quem é o primeiro a jogar (se é ele ou o jogador seguinte). Se não aceitar, o "Festeiro" é que escolhe (se vai para Positivos ou Negativos), escolhe o trunfo (se for para Positivos) e escolhe quem joga primeiro (se é ele ou o jogador seguinte).<br><br>
+        Se um jogador oferecer 3 vazas para Negativos ou 7 vazas para Positivos, o jogador da Festa é obrigado a aceitar, e acabam as ofertas.<br><br>
+        No final, o jogador que fez a oferta, irá dar as suas vazas ao jogador da Festa, ou, no caso das Festas para Negativos, retirar as vazas que ofereceu ao jogador da Festa.<br><br>
+        Cada jogador tem direito a uma festa, existindo então um total de quatro festas. Após a última festa, o jogo acaba e ganha quem tiver a pontuação mais alta.
+        </ion-item>
+      </ion-list>
+    <!--</div>
+  </div>-->
+
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="kingsheet.go_back_button" ng-click="closeKingModal(26)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+    </ion-content>
+    <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="casinosheet.go_back_button" ng-click="closeKingModal(26)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>

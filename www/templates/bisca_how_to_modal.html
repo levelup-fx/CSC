@@ -1,0 +1,191 @@
+<ion-modal-view ng-controller="biscaCtrl">
+  <ion-header-bar>
+    <h1 class="title">Como utilizar a Grelha</h1>
+  </ion-header-bar>
+  <ion-content ng-controller="biscaCtrl" style="color: #444;">
+
+
+  <!--<div class="list" style="text-wrap: nowr">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Como funciona a grelha?</h2>
+      <p>Cada coluna equivale a um jogador. Cada linha equivale a cada um dos jogos. Uma partida é composta por vários jogos, e acaba quando um dos jogadores atingir o limite de pontos (que, por defeito, é 21).</p>
+    </a>
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Como é que eu coloco os pontos?</h2>
+      <p>Pressione a célula correspondente ao jogador / jogo e utilize o teclado do seu dispositivo para indicar quantos pontos esse jogador fez.</p>
+    </a>
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Posso alterar os nomes dos jogadores?</h2>
+      <p>Sim, é possível. Pressione o nome do jogador desejado e escreva o nome utilizando o teclado.</p>
+    </a>
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Posso alterar o limite de pontos de uma partida?</h2>
+      <p>Pode sim. Pressione o botão com a chave inglesa. Na janela que surgir, à frente de "Limite de pontos de uma partida", escreva, com o seu teclado, o número de pontos desejado. Por defeito este valor é 21.</p>
+    </a>
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Que números são estes à direita?</h2>
+      <p>Esse número é a soma dos pontos de todos os jogadores num jogo. No Bisca, a soma dos pontos de um jogo tem de igualar 11 (ou mais) pontos.</p>
+    </a>
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/king_face.jpg">
+      <h2>Como </h2>
+      <p>Cada coluna equivale a um jogador. Cada linha equivale a cada um dos jogos.</p>
+    </a>
+
+  </div>-->
+  <div class="row">
+    <div class="col">
+      <p>Abaixo irá encontrar os tópicos de ajuda disponíveis. Para saír pressione o botão "Voltar".</p>
+    </div>
+  </div>
+
+  <!-- Pergunta 1 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Explicação geral</h2>
+      <!--<p>Abaixo eé apresentada uma explicação da grelha do Bisca.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_1.jpg">
+      <p>
+        Na grelha da Bisca, cada linha corresponde a um jogo e em cada lado está a pontuação das 2 equipas.<br><br>Ganha o jogador que atingir 4 vitórias (ou outro limite de pontos que o utilizador desejar).
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 2 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Colocar as vitórias</h2>
+      <!--<p>Pressione a célula do jogador / jogo correspondente.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_6.jpg">
+      <p>
+        Pressione a célula da grelha do jogador que venceu.<br><br>Na janela seguinte, pressione um dos botões coloridos dependendo da quantidade de pontos reunidos pelo vencedor: Se reunir <span class="royal">120 pontos</span>, pressione o botão <span class="royal">rôxo</span>, o que faz com que o jogador ganhe automaticamente. Caso contrário, se venceu com <span class="energized">mais de 60 pontos</span>, pressione o botão <span class="energized">amarelo</span> - que equivale a 1 vitória.<br><br>Se se enganar, pode voltar a colocar a pontuação a zeros, pressionando o botão "Apagar vitórias".
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 4 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Alterar o limite de pontos</h2>
+      <!--<p>É sim. Veja abaixo como.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_2.jpg">
+      <p>
+        Por defeito, um jogador ganha quando atingir 4 vitórias.<br><br>No entanto é possível alterar este limite - Pressione o botão com o ícone da chave inglesa no canto superior esquerdo.<br><br>Na janela que surgir, altere este valor para qualquer valor desejado utilizando o seu teclado.
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 5 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Alterar nomes dos jogadores</h2>
+      <!--<p>É sim. Veja abaixo como.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_5.jpg">
+      <p>
+        Para alterar o nome de um jogador, pressione-o escreva o novo nome desejado utilizando o teclado do seu dispositivo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 6 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Próximo jogo</h2>
+      <!--<p>Através do botão "Seguinte".</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_6.jpg">
+      <p>
+        Ao colocar as vitórias, se um jogador for um vencedor, após a confirmação da vitória é automaticamente criada uma nova linha, que equivale a um jogo novo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 7 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Barras ao lado das vitórias</h2>
+      <!--<p>Serve para mostrar os pontos somados de cada jogador.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_8.jpg">
+      <p>
+        Pode ter reparado que, ao lado das vitórias poderão surgir umas barras coloridas. Estas ajudam a perceber o tipo de vitória que cada equipa teve em cada jogo:<br><br>
+        <span class="energized">Barra amarela</span> - Equipa reuniu +60 pontos, o que equivale a 1 vitória;<br>
+        <!--<span class="positive">Barra azul</span> - Equipa reuniu +90 pontos, o que equivale 2 vitórias;<br>
+        <span class="balanced">Barra verde</span> - Equipa reuniu exatamente 90 pontos, o que equivale a 3 vitórias;<br>-->
+        <span class="royal">Barra rôxa</span> - Equipa reuniu 120 pontos, o que equivale a 4 vitórias (ou outro valor), o que garante que foi a vencedora.<br>
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 9 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Reiniciar tudo</h2>
+      <!--<p>Através do botão "Recomeçar".</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_4.jpg">
+      <p>
+        Pressione o botão "Recomeçar", que está no canto inferior.<br><br>Ao fazê-lo, irá surgir uma janela de confirmação - Caso aceitar recomeçar, todas as vitórias são colocadas a zero, e começamos novamente a partir do primeiro jogo.
+      </p>
+    </div>
+  </div>
+
+  <!-- Pergunta 10 -->
+  <div class="list card">
+    <div class="item item-avatar">
+      <img src="img/king_face.jpg">
+      <h2>Pontuação da Bisca</h2>
+      <!--<p>É sim. Veja abaixo como.</p>-->
+    </div>
+    <div class="item item-body">
+      <img class="full-image" src="img/bisca_how_to_3.jpg">
+      <p>
+        Existe uma lista de pontuação da Bisca, útil para consultar caso não se lembre ou não saiba como calcular os pontos ou vitórias.<br><br>Pressione o botão com o ponto de interrogação, no canto superior direito.<br><br>Escolha a opção "Pontuação da Bisca" para ver como se calculam os pontos neste jogo.
+    </div>
+  </div>
+       
+  <!-- Cancel button -->
+  <!--<div class="row no-padding-element">
+      <div class="col no-padding-element" style="padding: 5px;">
+        <button class="button button-block button-assertive" ng-model="biscasheet.go_back_button" ng-click="closeBiscaModal(32)">
+        Voltar
+        </button>
+      </div>
+  </div>-->
+
+  </ion-content>
+  <ion-footer-bar>
+        <button class="button button-block button-assertive" ng-model="biscasheet.go_back_button" ng-click="closeBiscaModal(53)" style="margin-top: 0px">
+        Voltar
+        </button>
+  </ion-footer-bar>
+</ion-modal-view>
